@@ -1,0 +1,531 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Deciding Which Parameters to Support (The Java&trade; Tutorials &gt; 
+            Deployment &gt; Applets)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> Deployment
+        <br><b>Lesson:</b> Applets
+        <br><b>Section:</b> Taking Advantage of the Applet API
+        <br><b>Subsection:</b> Defining and Using Applet Parameters
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">Applets</a></div>
+<div class="linkAHEAD"><a href="getStarted.html">Getting Started with Applets</a></div>
+<div class="linkBHEAD"><a href="import.html">Importing Classes and Packages for Applets</a></div>
+<div class="linkBHEAD"><a href="subclass.html">Defining an Applet Subclass</a></div>
+<div class="linkBHEAD"><a href="lifeCycle.html">The Life Cycle of an Applet</a></div>
+<div class="linkBHEAD"><a href="appletMethods.html">Methods for Milestones</a></div>
+<div class="linkBHEAD"><a href="componentMethods.html">Methods for Drawing and Event Handling</a></div>
+<div class="linkBHEAD"><a href="containerMethods.html">Methods for Adding UI Components</a></div>
+<div class="linkBHEAD"><a href="security.html">What Applets Can and Can't Do</a></div>
+<div class="linkAHEAD"><a href="appletsonlyindex.html">Taking Advantage of the Applet API</a></div>
+<div class="linkBHEAD"><a href="data.html">Finding and Loading Data Files</a></div>
+<div class="linkBHEAD"><a href="showStatus.html">Displaying Short Status Strings</a></div>
+<div class="linkBHEAD"><a href="browser.html">Displaying Documents in the Browser</a></div>
+<div class="linkBHEAD"><a href="iac.html">Sending Messages to Other Applets</a></div>
+<div class="linkBHEAD"><a href="sound.html">Playing Sounds</a></div>
+<div class="linkBHEAD"><a href="param.html">Defining and Using Applet Parameters</a></div>
+<div class="nolinkCHEAD">Deciding Which Parameters to Support</div>
+<div class="linkCHEAD"><a href="getParam.html">Writing the Code to Support Parameters</a></div>
+<div class="linkCHEAD"><a href="paramInfo.html">Giving Information about Parameters</a></div>
+<div class="linkBHEAD"><a href="html.html">Using the APPLET Tag	</a></div>
+<div class="linkAHEAD"><a href="practicalindex.html">Practical Considerations When Writing Applets</a></div>
+<div class="linkBHEAD"><a href="security_practical.html">Security Restrictions</a></div>
+<div class="linkBHEAD"><a href="ui.html">Creating a User Interface</a></div>
+<div class="linkCHEAD"><a href="gui.html">Creating a GUI</a></div>
+<div class="linkCHEAD"><a href="stdout.html">Displaying Diagnostics to the Standard Output and Error Streams</a></div>
+<div class="linkBHEAD"><a href="properties.html">Getting System Properties</a></div>
+<div class="linkBHEAD"><a href="threads.html">Threads in Applets</a></div>
+<div class="linkCHEAD"><a href="threadExample.html">Threads in Applets: Examples</a></div>
+<div class="linkBHEAD"><a href="server.html">Working with a Server-Side Application </a></div>
+<div class="linkCHEAD"><a href="clientExample.html">A Simple Network Client Applet</a></div>
+<div class="linkCHEAD"><a href="workaround.html">Using a Server to Work Around Security Restrictions</a></div>
+<div class="linkAHEAD"><a href="finishingindex.html">Finishing an Applet</a></div>
+<div class="linkBHEAD"><a href="checklist.html">Before You Ship that Applet</a></div>
+<div class="linkBHEAD"><a href="perfect.html">The Perfectly Finished Applet</a></div>
+<div class="linkAHEAD"><a href="deployindex.html">Deploying Applets</a></div>
+<div class="linkBHEAD"><a href="generaldeploy.html">General Deployment Considerations</a></div>
+<div class="linkBHEAD"><a href="applettag.html">Using the applet Tag</a></div>
+<div class="linkBHEAD"><a href="objecttag.html">Using the object Tag</a></div>
+<div class="linkBHEAD"><a href="embedtag.html">Using the embed Tag</a></div>
+<div class="linkBHEAD"><a href="mixedbrowser.html">Deploying Applets in a Mixed-Browser Environment</a></div>
+<div class="linkAHEAD"><a href="problemsindex.html">Solving Common Applet Problems</a></div>
+<div class="linkQUESTIONS"><a href="QandE/questions.html">Questions and Exercises</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>Deployment</a>
+                &gt;
+                <a href=index.html target=_top>Applets</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=param.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=getParam.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Deciding Which Parameters to Support</div>
+            <blockquote>
+<!-- Deciding Which Parameters to Support -->
+
+<p>
+This page guides you through the four questions you should ask as you implement parameters:
+</p>
+<ul>
+<li><a href=#params>What should the applet let the user configure?</a>
+<li><a href=#paramNames>What should the parameters be named?</a>
+<li><a href=#paramTypes>What kind of value should each parameter take?</a>
+<li><a href=#paramDefaults>What should the default value of each parameter be?</a>
+</ul>
+<p>
+It ends with a discussion of the parameters defined in a sample
+<code>&lt;APPLET&gt;</code> tag.
+</p>
+</blockquote>
+
+<a name=params><h3>What Should the Applet Let the User Configure?</h3>
+</a>
+<blockquote>
+The parameters your applet should support depend 
+on what your applet does
+and on how flexible you want it to be.
+Applets that display images
+might have parameters to specify the image locations.
+Similarly, applets that play sounds
+might have parameters to specify the sounds.
+
+<p>
+
+Besides parameters that specify resource locations
+(such as image and sound files),
+applets sometimes provide parameters for specifying
+details of the applet's appearance or operation.
+For example, an animation applet
+might let the user specify the number of images shown per second.
+Or an applet might let the user
+change the strings the applet displays.
+Anything is possible.
+
+</blockquote>
+<a name=paramNames>
+<h3>What Should the Parameters Be Named?</h3>
+</a>
+<blockquote>
+
+Once you decide what parameters your applet will support,
+you need to figure out their names.
+Here are some typical parameter names:
+
+<dl>
+<dt> SOURCE or SRC
+<dd> For a data file such as an image file.
+
+<dt> <em>XXX</em>SOURCE (<em>for example</em>, IMAGESOURCE)
+<dd> Used in applets that let the user specify
+     more than one type of data file.
+
+<dt> <em>XXX</em>S
+<dd> For a parameter that takes a list of <em>XXX</em>s
+     (where <em>XXX</em> might be <code>IMAGE</code>, again).
+
+<dt> NAME
+<dd> Used <em>only</em> for an applet's name.
+     Applet names are used for interapplet communication,
+     as described in 
+<a class="TutorialLink" target="_top" href="iac.html">Sending Messages to Other Applets</a>.
+</dl>
+<p>
+
+Clarity of names is more important 
+than keeping the name length short.
+Do <em>not</em> use names of <code>&lt;APPLET&gt;</code>
+tag attributes, which are documented in
+<a class="TutorialLink" target="_top" href="applettag.html">Using the applet Tag</a>.
+
+<p>
+
+
+<blockquote><hr><strong>Note:</strong>&nbsp;
+Although this tutorial usually refers to parameter names using ALL UPPERCASE,
+parameter names are case-insensitive.
+For example, <code>IMAGESOURCE</code> and <code>imageSource</code>
+both refer to the same parameter.
+Parameter <em>values</em>, on the other hand,
+are case-sensitive unless you take steps to
+interpret them otherwise,
+such as by using the <code>String toLowerCase</code> method
+before interpreting the parameter's value.
+<hr></blockquote>
+
+</blockquote>
+<a name=paramTypes>
+<h3>What Kind of Value Should Each Parameter Take?</h3>
+</a>
+<blockquote>
+
+Parameter values are all strings.
+Whether or not the user puts quotation marks around a parameter value,
+that value is passed to your applet as a string.
+However, your applet can interpret the string in many ways.
+
+<p>
+
+Applets typically interpret a parameter value as one of the following types:
+<ul>
+<li> A URL
+<li> An integer
+<li> A floating-point number
+<li> A boolean value -- typically "true"/"false" or "yes"/"no"
+<li> A string -- for example, the string to use as a window title
+<li> A list of any of the above
+</ul>
+
+
+</blockquote>
+<a name=paramDefaults>
+<h3>What Should the Default Value of Each Parameter Be?</h3>
+</a>
+<blockquote>
+Applets should attempt to provide useful default values
+for each parameter,
+so that the applet will execute
+even if the user doesn't specify a parameter
+or specifies it incorrectly.
+For example,
+an animation applet should provide a reasonable setting 
+for the number of images it displays per second.
+This way, if the user doesn't specify the relevant parameter,
+the applet will still work well.
+
+
+</blockquote>
+<h3>An Example: A Sample <code>&lt;APPLET&gt;</code> Tag</h3>
+<blockquote>
+
+Here's what a typical &lt;APPLET&gt; tag looks like.
+
+<blockquote><pre>
+&lt;APPLET CODE=SampleApplet.class CODEBASE=example
+     WIDTH=350 HEIGHT=60&gt;
+&lt;PARAM NAME=windowClass VALUE=BorderWindow&gt;
+&lt;PARAM NAME=windowTitle VALUE="BorderLayout"&gt;
+&lt;PARAM NAME=buttonText
+       VALUE="Click here to see a BorderLayout in action"&gt;
+&lt;/APPLET&gt;
+</pre></blockquote>
+
+<p>
+
+When the user doesn't specify a value for a parameter,
+the applet uses a reasonable default value.  For example,
+if the user doesn't specify the window's title,
+the applet uses the window's type as the title.
+
+<p>
+
+The next page shows you how to get parameter values from the user.
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=param.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=getParam.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Defining and Using Applet Parameters
+        <br><b>Next page:</b> Writing the Code to Support Parameters
+    </div>
+    </body>
+</html> 

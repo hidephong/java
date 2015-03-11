@@ -1,0 +1,198 @@
+<form  action="/" id="regform" class="msform form-horizontal">
+    <fieldset>
+
+        <p>New quiz</p>
+        <br/>
+
+        <br/>
+        <input type="button" name="next" class="next action-button" value="Start quiz"/>
+
+    </fieldset>
+    <fieldset id="q1">
+
+        <p>div tags are block level elements 1</p>
+        <br/>
+
+        <div class="answers" id="answers11">
+            <li value="1">True
+                <span class="false"></span>
+            </li>
+        </div>
+        <br/>
+
+        <div class="answers" id="answers12">
+            <li value="2"> False
+                <span class="false"></span>
+            </li>
+        </div>
+        <br/>
+
+        <input name="next" class="next action-button" value="Tiếp" type="button">
+
+
+    </fieldset>
+
+    <fieldset id="q2">
+
+        <p>div tags are block level elements 2</p>
+        <br/>
+
+        <div class="answers" id="answers21">
+            <li value="1">True
+                <span class="false"></span>
+            </li>
+        </div>
+        <br/>
+
+        <div class="answers" id="answers22">
+            <li value="2"> False
+                <span class="false"></span>
+            </li>
+        </div>
+        <br/>
+
+
+        <input name="previous" class="previous action-button" value="Quay lại" type="button">
+        <input name="next" class="next action-button" value="Tiếp" type="button">
+
+
+    </fieldset>
+    <fieldset id="q3">
+
+        <p>What is the correct syntax for a dropdown list element?</p>
+        <br/>
+
+        <div class="answers" id="answers31">
+            <li value="1">
+                input type=”select” name=”somename”
+                <span class="false"></span>
+            </li>
+        </div>
+        <br/>
+
+        <div class="answers" id="answers32">
+            <li value="2">
+
+                input type=”list” name=”somename”
+                <span class="false"></span>
+            </li>
+        </div>
+        <br/>
+
+        <div class="answers" id="answers33">
+            <li value="3">
+                select name=”somename”
+                <span class="false"></span>
+            </li>
+        </div>
+        <br/>
+
+        <div class="answers" id="answers34">
+            <li value="4">
+                dropdown name=”somename”
+                <span class="false"></span>
+            </li>
+        </div>
+        <br/>
+
+
+        <input name="previous" class="previous action-button" value="Quay lại" type="button">
+        <input name="next" class="next action-button" value="Tiếp" type="button">
+
+
+    </fieldset>
+    <fieldset id="q4">
+
+        <p>What is the correct syntax for a dropdown list element?</p>
+        <br/>
+
+        <div class="answers" id="answers41">
+            <li value="1">
+                input type=”select” name=”somename”
+                <span class="false"></span>
+            </li>
+        </div>
+        <br/>
+
+        <div class="answers" id="answers42">
+            <li value="2">
+
+                input type=”list” name=”somename”
+                <span class="false"></span>
+            </li>
+        </div>
+        <br/>
+
+        <div class="answers" id="answers43">
+            <li value="3">
+
+                input type=”list” name=”somename”
+                <span class="false"></span>
+            </li>
+        </div>
+        <br/>
+        <input name="previous" class="previous action-button" value="Quay lại" type="button">
+        <input name="next" class="next action-button" value="Tiếp" type="button">
+
+
+    </fieldset>
+    <fieldset id="q5">
+
+        <p>What is the correct syntax for a dropdown list element?</p>
+        <br/>
+
+        <div class="answers" id="answers51">
+            <li value="1">
+                input type=”select” name=”somename”
+                <span class="false"></span>
+            </li>
+        </div>
+        <br/>
+
+        <div class="answers" id="answers52">
+            <li value="2">
+
+                input type=”list” name=”somename”
+                <span class="false"></span>
+            </li>
+        </div>
+        <br/>
+
+        <input name="previous" class="previous action-button" value="Quay lại" type="button">
+        <input name="next" class="next action-button" value="Tiếp" type="button">
+
+
+    </fieldset>
+    <fieldset>
+
+        <p>Do you want submit?</p>
+        <br/>
+
+        <input name="previous" class="previous action-button" value="Quay lại" type="button">
+        <button  class="sb">Xác nhận</button>
+
+    </fieldset>
+</form>
+
+"<fieldset id='q1'><p>"+q[0]["q"]+"</p><br/><div class='answers' id='answers11'>" +
+        "<li value='1'>True<span class='false'></span></li></div><br/><div class='answers' id='answers12'><li value='2'> False</li></div>;
+
+        <div class='answers' id='answers21'><li value='1'>"+"span class='false'></span></li></div><br/>";
+        s=s+"<div class='answers' id='answers22'><li value='2'>False<span class='false'></span></li></div><br/>"+b+"</fieldset>";
+        s+="<fieldset id='q3'><p>"+q[2]["q"]+"</p><br/><div class='answers' id='answers31'><li value='1'>input type=\”select\” name=\”somename\”<span class='false'></span></li></div><br/><div class='answers' id='answers32'><li value='2'>input type=\”list\” name=\”somename\”<span class='false'></span>";
+        s+="</li></div><br/><div class='answers' id='answers33'><li value='3'>select name=\”somename\”<span class='false'></span>";
+        s+="</li></div><br/><div class='answers' id='answers34'><li value='4'>dropdown name=\”somename\”<span class='false'></span></li></div><br/>";
+        s+=b+"</fieldset>";
+        s+="<fieldset id='q4'><p>"+q[3]["q"]+"</p><br/><div class='answers' id='answers41'><li value='1'>input type=\”select\” name=\”somename\”<span class='false'></span></li></div><br/><div class='answers' id='answers42'><li value='2'>input type=\”list\” name=\”somename\”<span class='false'></span>";
+        s+="</li></div><br/><div class='answers' id='answers43'><li value='3'>select name=\”somename\”<span class='false'></span>";
+        s+="</li></div><br/><div class='answers' id='answers44'><li value='4'>dropdown name=\”somename\”<span class='false'></span></li></div><br/>";
+        s+=b+"</fieldset>";
+        s+="<fieldset id='q5'><p>"+q[4]["q"]+"</p><br/><div class='answers' id='answers51'><li value='1'>input type=\”select\” name=\”somename\”<span class='false'></span></li></div>";
+
+        s+="<br/><div class='answers' id='answers52'><li value='2'>input type=\”list\” name=\”somename\”<span class='false'></span>";
+        s+="</li></div><br/><div class='answers' id='answers53'><li value='3'>select name=\”somename\”<span class='false'></span>";
+        s+="</li></div><br/><div class='answers' id='answers54'><li value='4'>dropdown name=\”somename\”<span class='false'></span></li></div><br/>";
+        s+=b+"</fieldset>";
+        s+="<fieldset><p>Do you want submit?</p><br /><input name='previous' class='previous action-button' value='Quay lại' type='button'><input class='sb'>Xác nhận</input></fieldset>";
+
+if(a[i-1][j-1])  s=s+"<div class='answers' id='answers"+(i)+(j)+"'><li value='"+j+"'>"+a[i-1][j-1]+"<span class='false'></span></li></div><br/>";

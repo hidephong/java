@@ -1,0 +1,428 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>SQL Statements for Creating a Stored Procedure (The Java&trade; Tutorials &gt; 
+            JDBC(TM) Database Access &gt; JDBC Basics)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> JDBC(TM) Database Access
+        <br><b>Lesson:</b> JDBC Basics
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">JDBC Basics</a></div>
+<div class="linkAHEAD"><a href="gettingstarted.html">Getting Started</a></div>
+<div class="linkAHEAD"><a href="settingup.html">Setting Up a Database</a></div>
+<div class="linkAHEAD"><a href="connecting.html">Establishing a Connection</a></div>
+<div class="linkAHEAD"><a href="tables.html">Setting Up Tables</a></div>
+<div class="linkAHEAD"><a href="retrieving.html">Retrieving Values from Result Sets</a></div>
+<div class="linkAHEAD"><a href="updating.html">Updating Tables</a></div>
+<div class="linkAHEAD"><a href="milestone.html">Milestone: The Basics of JDBC</a></div>
+<div class="linkAHEAD"><a href="prepared.html">Using Prepared Statements</a></div>
+<div class="linkAHEAD"><a href="joins.html">Using Joins</a></div>
+<div class="linkAHEAD"><a href="transactions.html">Using Transactions</a></div>
+<div class="linkAHEAD"><a href="storedprocedures.html">Stored Procedures</a></div>
+<div class="nolinkAHEAD">SQL Statements for Creating a Stored Procedure</div>
+<div class="linkAHEAD"><a href="complete.html">Creating Complete JDBC Applications </a></div>
+<div class="linkAHEAD"><a href="running.html">Running the Sample Applications</a></div>
+<div class="linkAHEAD"><a href="applet.html">Creating an Applet from an Application</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>JDBC(TM) Database Access</a>
+                &gt;
+                <a href=index.html target=_top>JDBC Basics</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=storedprocedures.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=complete.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>SQL Statements for Creating a Stored Procedure</div>
+            <blockquote>
+<P>A stored procedure is a group of SQL statements that form a logical unit and perform a particular task, and they are used to encapsulate a set of operations or queries to execute on a database server. For example, operations on an employee database (hire, fire, promote, lookup) could be coded as stored procedures executed by application code. Stored procedures can be compiled and executed with different parameters and results, and they may have any combination of input, output, and input/output parameters. </P>
+
+<hr>
+<p><b>Note:&nbsp;&nbsp;</b>
+Stored procedures are supported by most DBMSs, but there is a fair amount of variation in their syntax and capabilities. For this reason, this simple example of what a stored procedure looks like and how it is invoked from JDBC <b>is not intended to be run.</b></P>
+<hr>
+
+<p>This simple stored procedure has no parameters. Even though most stored procedures do something more complex than this example, it serves to illustrate some basic points about them. As previously stated, the syntax for defining a stored procedure is different for each DBMS. For example, some use <CODE>&nbsp; begin . . . end </CODE>,&nbsp; or other keywords to indicate the beginning and ending of the procedure definition. In some DBMSs, the following SQL statement creates a stored procedure:</P>
+
+<blockquote><pre>
+create procedure SHOW_SUPPLIERS
+as
+select SUPPLIERS.SUP_NAME, COFFEES.COF_NAME
+from SUPPLIERS, COFFEES
+where SUPPLIERS.SUP_ID = COFFEES.SUP_ID
+order by SUP_NAME
+</pre></blockquote>
+<P>
+
+The following code puts the SQL statement into a string and assigns it to the variable <CODE>createProcedure</CODE>, which we will use later:</P>
+<blockquote><pre>
+String createProcedure = &quot;create procedure SHOW_SUPPLIERS &quot; +
+			 &quot;as &quot; +
+			 &quot;select SUPPLIERS.SUP_NAME, COFFEES.COF_NAME &quot; +
+			 &quot;from SUPPLIERS, COFFEES &quot; +
+			 &quot;where SUPPLIERS.SUP_ID = COFFEES.SUP_ID &quot; +
+			 &quot;order by SUP_NAME&quot;;
+</pre></blockquote>
+<P>
+
+The following code fragment uses the <CODE>Connection</CODE> object <CODE>con</CODE> to create a <CODE>Statement</CODE> object, which is used to send the SQL statement creating the stored procedure to the database:</P>
+<blockquote><pre>
+Statement stmt = con.createStatement();
+stmt.executeUpdate(createProcedure);
+</pre></blockquote>
+<P>
+
+The procedure <CODE>
+SHOW_SUPPLIERS</CODE> is compiled and stored in the database as a database object that can be called, similar to the way you would call a method. </P>
+<DIV>
+
+<h3>
+
+Calling a Stored Procedure from JDBC</h3>
+
+<P>
+
+JDBC allows you to call a database stored procedure from an application written in the Java programming language. The first step is to create a <CODE>CallableStatement</CODE> object. As with <CODE>Statement</CODE> and <CODE>PreparedStatement</CODE> objects, this is done with an open <CODE>Connection</CODE> object. A <CODE>callableStatement</CODE> object contains a call to a stored procedure; it does not contain the stored procedure itself. The first line of code below creates a call to the stored procedure <CODE>SHOW_SUPPLIERS</CODE> using the connection <CODE>
+con</CODE>. The part that is enclosed in curly braces is the escape syntax for stored procedures. When the driver encounters <CODE>&quot;{call SHOW_SUPPLIERS}&quot;</CODE>, it will translate this escape syntax into the native SQL used by the database to call the stored procedure named <CODE>SHOW_SUPPLIERS</CODE>. </P>
+
+<blockquote><pre>
+CallableStatement cs = con.prepareCall(&quot;{call SHOW_SUPPLIERS}&quot;);
+ResultSet rs = cs.executeQuery();
+</pre></blockquote>
+<P>
+
+The <CODE>
+ResultSet</CODE>
+ <CODE>
+rs</CODE>
+ will be similar to the following:</P>
+<blockquote><pre>
+SUP_NAME			COF_NAME
+----------------		-----------------------
+Acme, Inc.			Colombian
+Acme, Inc.			Colombian_Decaf
+Superior Coffee			French_Roast
+Superior Coffee			French_Roast_Decaf
+The High Ground			Espresso
+</pre></blockquote>
+<P>
+
+Note that the method used to execute <CODE>
+cs</CODE> is <CODE>executeQuery</CODE> because <CODE>
+cs</CODE> calls a stored procedure that contains one query and thus produces one result set. If the procedure had contained one update or one DDL statement, the method <CODE>
+executeUpdate</CODE> would have been the one to use. It is sometimes the case, however, that a stored procedure contains more than one SQL statement, in which case it will produce more than one result set, more than one update count, or some combination of result sets and update counts. In this case, where there are multiple results, the method <CODE>execute</CODE> should be used to execute the <CODE> CallableStatement</CODE>
+. </P>
+<P>
+
+The class <CODE>CallableStatement</CODE> is a subclass of <CODE>PreparedStatement</CODE>, so a <CODE>CallableStatement</CODE> object can take input parameters just as a <CODE>PreparedStatement</CODE> object can. In addition, a <CODE>CallableStatement</CODE> object can take output parameters, or parameters that are for both input and output. INOUT parameters and the method <CODE>execute</CODE>
+ are used rarely. </P>
+
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=storedprocedures.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=complete.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Stored Procedures
+        <br><b>Next page:</b> Creating Complete JDBC Applications 
+    </div>
+    </body>
+</html> 

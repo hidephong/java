@@ -1,0 +1,196 @@
+<p>
+
+
+  <UL>
+    <LI><A HREF="#list">Prioritized List of Improvements</A>
+    <LI><A HREF="#highlight">Highlights of User Feedback</A>
+  </UL>
+  <P><TABLE WIDTH="550" BORDER="1" CELLSPACING="2" CELLPADDING="0">
+    <TR>
+      <TD WIDTH="140">
+      &nbsp;<B>Name of Reviewer:</B></TD>
+      <TD COLSPAN="2">
+      &nbsp;<I>Ray Ortigas</I></TD>
+    </TR>
+    <TR>
+      <TD WIDTH="140">
+      &nbsp;<B>Current Trail Author(s):</B></TD>
+      <TD COLSPAN="2">
+      &nbsp;<I>Ann Wollrath, Jim Waldo</I></TD>
+    </TR>
+    <TR>
+      <TD WIDTH="140" VALIGN="TOP">
+      &nbsp;<B>Was the author contacted?</B></TD>
+      <TD COLSPAN="2">
+       &nbsp;<I>No</I>
+       <P>
+       &nbsp;If yes, <BR>
+       &nbsp;<B>Date:</B> </TD>
+    </TR>
+    <TR>
+      <TD COLSPAN="3">
+      <B>Comments:</B>&nbsp;</TD>
+    </TR>
+  </TABLE></P>
+
+
+<A NAME="list"></A>
+<HR ALIGN=LEFT>
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="2" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="50%" VALIGN="TOP">
+    <H4>Prioritized List of Improvements/Corrections:</H4>
+    </TD>
+    <TD WIDTH="9%">
+    <FONT COLOR="#000099">Priority Scale:<BR>
+    </FONT><FONT SIZE="-1">(1-5) <BR>
+    </FONT></TD>
+    <TD WIDTH="41%">
+    <FONT SIZE="-1">1 = immediate attention required<BR>
+    3 = fix in next public push (2-3 weeks)<BR>
+    5 = when you get a chance...</FONT></TD>
+  </TR>
+</TABLE></H4>
+
+<OL>
+  <LI><P>At 
+  there is a reference to "JNDI", but nowhere in the tutorial is this acronym ever explained.  <P>priority (1-5): 4<P>
+  <LI><P>Should add a link to security trail for running RMI example, since it uses a policy file.
+  <P>priority (1-5): 3<P>
+  <LI><P>Should point out that the RemoteException must be declared in the throws clause of every method in a Remote interface (any interface that extends Remote).
+  <P>priority (1-5): 3<P>
+  <LI><P>Applets and RMI? A few users are asking about it; maybe we should take a look at it, although I doubt this is a worthy topic to pursue.
+  <P>priority (1-5): 5<P>
+  <LI><P>Note that trailing slash is needed when running example and passing directories as parameters.
+  <P>priority (1-5): 4<P>
+  <LI><P>Add a note about unsetting CLASSPATH on Windows (merely "set CLASSPATH=" as opposed to "unset CLASSPATH" on Solaris).
+  <P>priority (1-5): 3<P>
+</OL>
+
+<P></P>
+<A NAME="highlight"></A>
+<HR ALIGN=LEFT>
+
+<H4>Highlights of User Feedback:</H4>
+
+<UL>
+  <LI>Date: 16 Jan 1999<BR>
+<P>I am currently working on a problem involving RMI. I am faced 
+with a problem that whenever the network load is high, some kind of 
+timeout occurs and 'NoRouteToHost' exception is thrown. I want to change 
+the settings in RMI so that this timeout period is increased.<P>
+  <LI>Date: 30 Mar 1999<BR>
+<P>
+Over the past few weeks I've spent quite a bit of time in the RMI
+trail of the Java Tutorial (March 12, 1999 edition) and I feel there
+are some very serious problems that should be addressed.
+<P>
+I sincerely don't mean to sound critical in this e-mail -- overall I
+think the Java Tutorial is a terrific piece of work -- but the RMI
+trail needs some fixing up (IMHO).  If you'd like to speak with me
+about any of these issues, you can reach me at: W:(602) 607-4995 or
+H:(602) 813-4452.
+<P>
+I'm sorry about the length of this message but I've tried to be
+complete and clear.
+<P>
+First, I'd like to direct your attention to the section entitled,
+"Build a JAR File of Interface Classes", at "/rmi/compiling.html".
+The second-to-last paragraph in that section begins with this
+statement:
+<P>
+   "When you build either server- or client-side classes
+    with the javac and rmic compilers, you generally need
+    to specify where the resulting class files should
+    reside so that they are network accessible."
+<P>
+I believe this is a minor wording problem.  Although it is necessary
+to specify a "network-accessible" location of class files before the
+client and server begin execution so that classes may be downloaded
+dynamically, it is *not* necessary to specify their network-accessible
+location at *build* time, as the statement above implies.  I believe
+the statement above should read:
+<P>
+   "After you build either the server- or client-side
+    classes with the javac and rmic compilers, you
+    will need to ensure the resulting class files
+    are placed in a network accessible location."
+<P>
+The same paragraph also seems to indicate that it is entirely possible
+to use a "file:" URL when specifying where classes reside.  Now, I'm
+not sure if the reference to the "file:" URL pertains to the location
+of class files at compile-time or runtime.  I assume it refers to
+making the class files network-accessible at runtime.  In other words,
+I interpret the reference to the "file:" URL to mean that classes can
+be made network-accessible using the "file:" URL rather than an
+"HTTP:" URL.  Is this correct? I'll have more to say about this below.
+<P>
+The last paragraph in the same section makes reference to the use of
+an HTTP server to download classes.  It does not, however, indicate
+that an HTTP server is an absolute requirement for downloading
+classes.  In fact, the Tutorial says, "RMI uses URL protocols
+supported by the Java platform..."  I assume this includes the "file:"
+URL.  In other words, my impression is that an HTTP server *can* be
+used but so long as a network connection is available, HTTP is not
+absolutely required.  On the other hand, the Tutorial makes reference to
+a "simple HTTP server"
+(ftp://java.sun.com/pub/jdk1.1/rmi/class-server.zip).  Does this mean
+HTTP *is* required?  I recently posted this question to a few Java
+newsgroups, as well as the JDC, and some of the responses I received
+indicated that an HTTP server *MUST* be running on the machine from
+which classes will be downloaded.  If this is so, the Java Tutorial
+should say so explicitly.  If this is not the case, then it would be
+extremely helpful if the Tutorial provided a working example using the
+"file:" URL between two separate machines.
+<P>
+I'd also like to direct your attention to the section entitled, "A
+Note about Security" on "rmi/running.html".  I think it would be very
+helpful if the relationship between a "Permissions Policy" file and the
+use of the RMISecurityManager was described.  What does the
+RMISecurityManager provide that the "Permissions Policy" file doesn't
+and vice versa?  Do I need both the RMISecurityManager *and* a
+"Permissions Policy" file?
+<P>
+The next section, entitled, "Start the Server", begins with this
+statement:
+<P>
+   "If you *do* start the rmiregistry and it *can* find your
+    stub classes in CLASSPATH, it will not remember that
+    the loaded stub class can be loaded from your server's
+    code base, ..."
+<P>
+Personally, I find this entire paragraph a bit confusing.  I believe
+that somehow the notion of annotating a class is involved here but I
+really don't have a feel for it's relevance and the Tutorial does not
+even mention class annotation.  I'd like to see a discussion on how
+class annotation is related to the java.rmi.server.codebase property and
+also a description of where the java.rmi.server.RMIClassLoader fits into
+the picture.  What's the result if the java.rmi.server.codebase property
+is *not* set?  When will the RMIClassLoader be used and when will it not
+be used?
+<P>
+Ealier, I mentioned that it seemed to be possible (according to the
+Tutorial) to use a "file:" URL to dynamically load classes across the
+network.  Again, in the "Start the Server" section of the Tutorial is an
+example that specifies a "file:" URL for the java.rmi.server.codebase
+property:
+<P>
+java -Djava.rmi.server.codebase=file:/c:\home\ann\public_html\classes/
+     -Djava.rmi.server.hostname=zaphod.east.sun.com
+     -Djava.security.policy=java.policy
+       engine.ComputeEngine
+<P>
+Once again, I'm assumming this means it is *not* necessary to have any
+form of HTTP server running.  Is this correct?<P>
+  <LI>Date:<BR>
+  User3's email<P>
+  <LI>Date:<BR>
+  User4's email
+</UL>
+
+<P></P>
+
+
+
+
+

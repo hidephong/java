@@ -1,0 +1,493 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Boundary Matchers (The Java&trade; Tutorials &gt; 
+            Essential Classes &gt; Regular Expressions)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> Essential Classes
+        <br><b>Lesson:</b> Regular Expressions
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">Regular Expressions</a></div>
+<div class="linkAHEAD"><a href="intro.html">Introduction</a></div>
+<div class="linkAHEAD"><a href="test_harness.html">Test Harness</a></div>
+<div class="linkAHEAD"><a href="literals.html">String Literals</a></div>
+<div class="linkAHEAD"><a href="char_classes.html">Character Classes</a></div>
+<div class="linkAHEAD"><a href="pre_char_classes.html">Predefined Character Classes</a></div>
+<div class="linkAHEAD"><a href="quant.html">Quantifiers</a></div>
+<div class="linkAHEAD"><a href="groups.html">Capturing Groups</a></div>
+<div class="nolinkAHEAD">Boundary Matchers</div>
+<div class="linkAHEAD"><a href="pattern.html">Methods of the Pattern Class</a></div>
+<div class="linkAHEAD"><a href="matcher.html">Methods of the Matcher Class</a></div>
+<div class="linkAHEAD"><a href="pse.html">Methods of the PatternSyntaxException Class</a></div>
+<div class="linkAHEAD"><a href="resources.html">Additional Resources</a></div>
+<div class="linkQUESTIONS"><a href="QandE/questions.html">Questions and Exercises</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>Essential Classes</a>
+                &gt;
+                <a href=index.html target=_top>Regular Expressions</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=groups.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=pattern.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Boundary Matchers</div>
+            <blockquote>
+<!--Boundary Matchers-->
+
+
+Until now, we've only been interested in whether or not a match 
+is found <i>at some location</i> within a particular input string. We never cared about <I>where</I> in the 
+string the match was taking place.
+<P>
+You can make your pattern 
+matches more precise by specifying such information with <i>boundary matchers</i>. For example, maybe you're interested 
+in finding a particular word, but only if it appears at the
+beginning or end of a line. Or maybe you want to know if the match is taking 
+place on a word boundary, or at the end of the previous match. 
+<P>
+The following table lists and explains all the boundary matchers. 
+<blockquote>
+<TABLE WIDTH="405" BORDER="1" CELLSPACING="2" CELLPADDING="0"
+HEIGHT="229">
+  <TR>
+    <TD COLSPAN="2" HEIGHT="22">
+    <P><CENTER>&nbsp;<B>Boundary Matchers</B></CENTER></TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>^</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;The beginning of a line</TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>$</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;The end of a line</TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>\b</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;A word boundary</TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>\B</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;A non-word boundary</TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>\A</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;The beginning of the input</TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>\G</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;The end of the previous match</TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>\Z</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;The end of the input but for the final terminator, if any</TD>
+  </TR>
+  <TR>
+    <TD WIDTH="11%" HEIGHT="23">
+    &nbsp;<CODE>\z</CODE></TD>
+    <TD WIDTH="89%" HEIGHT="23">
+    &nbsp;The end of the input</TD>
+  </TR>
+</TABLE> 
+</blockquote>
+
+The following examples demonstrate the use of boundary matchers 
+<code>^</code> and <code>$</code>. As
+noted above, <code>^</code> matches the beginning of a line, and 
+<code>$</code> matches the end. 
+
+<blockquote><pre> 
+Enter your regex: ^dog$
+Enter input string to search: dog
+I found the text "dog" starting at index 0 and ending at index 3.
+
+Enter your regex: ^dog$
+Enter input string to search:       dog
+No match found.
+
+Enter your regex: \s*dog$
+Enter input string to search:             dog
+I found the text "            dog" starting at index 0 and ending at index 15.
+
+Enter your regex: ^dog\w*
+Enter input string to search: dogblahblah
+I found the text "dogblahblah" starting at index 0 and ending at index 11.
+</pre></blockquote> 
+
+The first example 
+ is successful because the pattern occupies the entire input string. 
+The second example fails because the input string contains extra whitespace at the beginning.
+
+
+The third example specifies an expression that allows for unlimited 
+white space, followed by "dog" on the end of the line. The fourth 
+example requires "dog" to be present at the beginning of 
+a line followed by an unlimited number of word characters.
+
+<P>
+To check if a pattern begins and ends on a word boundary 
+(as opposed to a substring within a longer string), just use 
+ <code>\b</code> on either side; for example, <CODE>\bdog\b</CODE>
+
+<blockquote><pre> 
+
+Enter your regex: \bdog\b
+Enter input string to search: The dog plays in the yard.
+I found the text "dog" starting at index 4 and ending at index 7.
+
+Enter your regex: \bdog\b
+Enter input string to search: The doggie plays in the yard.
+No match found.
+</pre></blockquote> 
+
+To match the expression on a non-word boundary, use <code>\B</code> instead:
+<blockquote><pre> 
+Enter your regex: \bdog\B
+Enter input string to search: The dog plays in the yard.
+No match found.
+
+Enter your regex: \bdog\B
+Enter input string to search: The doggie plays in the yard.
+I found the text "dog" starting at index 4 and ending at index 7.
+</pre></blockquote> 
+
+To require the match to occur only at the end of the previous match, use <code>\G</code>:
+
+<blockquote><pre> 
+Enter your regex: dog 
+Enter input string to search: dog dog
+I found the text "dog" starting at index 0 and ending at index 3.
+I found the text "dog" starting at index 4 and ending at index 7.
+
+Enter your regex: \Gdog 
+Enter input string to search: dog dog
+I found the text "dog" starting at index 0 and ending at index 3.
+</pre></blockquote> 
+
+Here the second example finds only one match, because the second occurrence of "dog" 
+does not start at the end of the previous match.
+
+<P>
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=groups.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=pattern.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Capturing Groups
+        <br><b>Next page:</b> Methods of the Pattern Class
+    </div>
+    </body>
+</html> 

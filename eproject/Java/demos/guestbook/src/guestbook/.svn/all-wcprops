@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/44/trunk/java/demos/guestbook/src/guestbook
+END
+PMF.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/44/trunk/java/demos/guestbook/src/guestbook/PMF.java
+END
+Greeting.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/44/trunk/java/demos/guestbook/src/guestbook/Greeting.java
+END
+GuestbookServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/44/trunk/java/demos/guestbook/src/guestbook/GuestbookServlet.java
+END
+SignGuestbookServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/44/trunk/java/demos/guestbook/src/guestbook/SignGuestbookServlet.java
+END

@@ -1,0 +1,368 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Answers to Questions and Exercises: Getting Started (The Java&trade; Tutorials &gt; Getting Started &gt;
+            )</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+    </head>
+<body>
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                        </div>
+                            <div class=PrintHeaders>
+                                <b>Trail:</b> Getting Started
+                            </div>
+                    </div> </div> </div> </div> </div>
+
+    <div class=MainFlow_wide>
+        <span id=BreadCrumbs>
+            <a href=../../index.html target=_top>Home Page</a>
+            &gt;
+            <a href=../index.html target=_top>Getting Started</a>
+        </span>
+        <div class=NavBit>
+            <a href=../QandE/questions.html>&laquo; Previous</a>&nbsp;&bull;&nbsp;<a href=../TOC.html>TOC</a>
+        </div>
+        <div id=PageTitle>Answers to Questions and Exercises: Getting Started</div>
+        <blockquote>
+<h3>Questions</h3>
+<BLOCKQUOTE>
+<P>
+Question 1: When you compile a program written in the Java programming language, the compiler converts the human-readable source file into platform-independent code that a Java Virtual Machine can understand. What is this platform-independent code called?
+<p>
+<font color=red>
+Answer 1: Bytecode. 
+</font>
+
+<P>
+Question 2: Which of the following is <I>not</I> a valid comment:
+<blockquote>
+	a. <code>/** comment */</code>
+	<BR>b. <code>/* comment */</code>
+	<BR>c. <code>/* comment</code>
+	<BR>d. <code>// comment</code>
+</blockquote>
+<font color=red>
+Answer 2: c is an invalid comment.
+</font>
+
+ <P>
+Question 3: What is the first thing you should check if 
+you see the following error at runtime:
+<blockquote><pre>
+Exception in thread "main" java.lang.NoClassDefFoundError:
+HelloWorldApp.java.
+</pre></blockquote>
+
+<font color=red>
+Answer 3: Check your classpath.  Your class cannot be found.
+</font>
+<P>
+Question 4:  What is the correct signature of the <CODE>main</CODE> method?
+<P><P>
+<FONT COLOR="RED">
+Answer 4: The correct signature is <CODE>public static void main(String[] args)</CODE>
+</FONT>
+<P>
+Question 5: When declaring the <CODE>main</CODE> method, which modifier must come first, 
+<CODE>public</CODE> or <CODE>static</CODE>?
+<P>
+<FONT COLOR="RED"> 
+Answer 5: They can be in either order, but the convention is <code>public static</code>.
+</FONT>
+
+
+<P>
+Question 6: What parameters does the <CODE>main</CODE> method define?
+<P>
+<FONT COLOR="RED">
+Answer 6: The <CODE>main</CODE> method defines a single parameter, 
+usually named <CODE>args</CODE>, whose type is an array of <CODE>String</CODE> objects. 
+</FONT>
+
+
+
+
+</BLOCKQUOTE>
+
+<H3>Exercises</H3>
+<blockquote>
+Exercise 1: Change the 
+<a class="SourceLink" target="_blank" href="../application/examples/HelloWorldApp.java"><code>HelloWorldApp.java</code></a>  program so that it displays <CODE>Hola Mundo!</CODE> instead of <CODE>Hello World!</CODE>.
+
+<p>
+<font color=red>
+Answer 1: This is the only line of code that must change:
+<blockquote><pre>
+System.out.println("Hola Mundo!"); //Display the string.
+</pre></blockquote>
+</font>
+
+
+<P>
+
+Exercise 2: You can find a slightly modified version of <CODE>HelloWorldApp</CODE> here: 
+<a class="SourceLink" target="_blank" href="HelloWorldApp2.java"><code>HelloWorldApp2.java</code></a><BR>
+The program has an error. Fix the error so that the program successfully compiles and runs. What was the error?
+<p>
+<font color=red>
+Answer 2: Here's the error you get when you
+try to compile the program:
+<blockquote><pre>
+HelloWorldApp2.java:7: unclosed string literal
+        System.out.println("Hello World!); //Display the string.
+                           ^
+HelloWorldApp2.java:7: ')' expected
+        System.out.println("Hello World!); //Display the string.
+                                                                ^
+2 errors
+</pre></blockquote>
+To fix this mistake, you need to close the quotation marks around the string.
+Here is the correct line of code:
+<blockquote><pre>
+ System.out.println("Hello World!"); //Display the string.
+</pre></blockquote>
+<P>
+</font>
+
+</blockquote>
+        </blockquote>
+    </div>
+    <div id=Footer>
+        <span class=NavBit>
+            <a href=../QandE/questions.html>&laquo; Previous</a>
+            &bull;
+            <a href=../TOC.html>TOC</a>
+        </span>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Questions and Exercises: Getting Started
+    </div>
+    </body>
+</html> 

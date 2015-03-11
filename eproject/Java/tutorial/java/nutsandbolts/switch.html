@@ -1,0 +1,503 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>The switch Statement (The Java&trade; Tutorials &gt; 
+            Learning the Java Language &gt; Language Basics)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> Learning the Java Language
+        <br><b>Lesson:</b> Language Basics
+        <br><b>Section:</b> Control Flow Statements
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">Language Basics</a></div>
+<div class="linkAHEAD"><a href="variables.html">Variables</a></div>
+<div class="linkBHEAD"><a href="datatypes.html">Primitive Data Types</a></div>
+<div class="linkBHEAD"><a href="arrays.html">Arrays</a></div>
+<div class="linkBHEAD"><a href="variablesummary.html">Summary of Variables</a></div>
+<div class="linkQUESTIONS"><a href="QandE/questions_variables.html">Questions and Exercises</a></div>
+<div class="linkAHEAD"><a href="operators.html">Operators</a></div>
+<div class="linkBHEAD"><a href="op1.html">Assignment, Arithmetic, and Unary Operators</a></div>
+<div class="linkBHEAD"><a href="op2.html">Equality, Relational, and Conditional Operators </a></div>
+<div class="linkBHEAD"><a href="op3.html">Bitwise and Bit Shift Operators</a></div>
+<div class="linkBHEAD"><a href="opsummary.html">Summary of Operators</a></div>
+<div class="linkQUESTIONS"><a href="QandE/questions_operators.html">Questions and Exercises</a></div>
+<div class="linkAHEAD"><a href="expressions.html">Expressions, Statements, and Blocks</a></div>
+<div class="linkQUESTIONS"><a href="QandE/questions_expressions.html">Questions and Exercises</a></div>
+<div class="linkAHEAD"><a href="flow.html">Control Flow Statements</a></div>
+<div class="linkBHEAD"><a href="if.html">The if-then and if-then-else Statements</a></div>
+<div class="nolinkBHEAD">The switch Statement</div>
+<div class="linkBHEAD"><a href="while.html">The while and do-while Statements</a></div>
+<div class="linkBHEAD"><a href="for.html">The for Statement</a></div>
+<div class="linkBHEAD"><a href="branch.html">Branching Statements</a></div>
+<div class="linkBHEAD"><a href="flowsummary.html">Summary of Control Flow Statements</a></div>
+<div class="linkQUESTIONS"><a href="QandE/questions_flow.html">Questions and Exercises</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>Learning the Java Language</a>
+                &gt;
+                <a href=index.html target=_top>Language Basics</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=if.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=while.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>The switch Statement</div>
+            <blockquote>
+Unlike <code>if-then</code> and <code>if-then-else</code>, the <code>switch</code> statement allows for any number of
+possible execution paths. A <code>switch</code> works with the 
+
+<code>byte</code>, <code>short</code>, <code>char</code>, and <code>int</code> primitive data types.
+It also works with <i>enumerated types</i> (discussed in 
+
+<a class="TutorialLink" target="_top" href="../javaOO/enum.html">Classes and Inheritance</a>)
+
+ and a few special classes that "wrap" certain primitive types:
+
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/java/lang/Character.html"><code>Character</code></a>,
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/java/lang/Byte.html"><code>Byte</code></a>,
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/java/lang/Short.html"><code>Short</code></a>,
+ and
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/java/lang/Integer.html"><code>Integer</code></a>
+ (discussed in
+
+
+<a class="TutorialLink" target="_top" href="../data/index.html">Simple Data Objects</a>
+
+).
+<P>
+The following program, 
+
+<a class="SourceLink" target="_blank" href="examples/SwitchDemo.java"><code>SwitchDemo</code></a>, 
+declares an <code>int</code> named <CODE>month</CODE> whose value represents 
+a month out of the year. 
+The program displays the name of the month, based on the value of month, using the <CODE>switch</CODE> 
+
+statement.
+
+
+<blockquote><pre>
+class SwitchDemo {
+    public static void main(String[] args) {
+
+        int month = 8;
+        switch (month) {
+            case 1:  System.out.println(&quot;January&quot;); break;
+            case 2:  System.out.println(&quot;February&quot;); break;
+            case 3:  System.out.println(&quot;March&quot;); break;
+            case 4:  System.out.println(&quot;April&quot;); break;
+            case 5:  System.out.println(&quot;May&quot;); break;
+            case 6:  System.out.println(&quot;June&quot;); break;
+            case 7:  System.out.println(&quot;July&quot;); break;
+            case 8:  System.out.println(&quot;August&quot;); break;
+            case 9:  System.out.println(&quot;September&quot;); break;
+            case 10: System.out.println(&quot;October&quot;); break;
+            case 11: System.out.println(&quot;November&quot;); break;
+            case 12: System.out.println(&quot;December&quot;); break;
+            default: System.out.println(&quot;Invalid month.&quot;);break;
+        }
+    }
+}
+</pre></blockquote>
+
+<P>
+In this case, "August" is printed to standard output.
+<P>
+
+The body of a <code>switch</code> statement is known as a <i>switch block</i>. Any statement immediately contained by the 
+<code>switch</code> block may be labeled with one or more <code>case</code> or <code>default</code> labels.
+The <CODE>switch</CODE> statement evaluates its expression
+and executes the appropriate <code>case</code>. 
+
+<P> 
+Of course, you could also implement the same thing with
+<CODE>if-then-else</CODE> statements:
+<blockquote><pre>
+int month = 8;
+if (month == 1) {
+    System.out.println("January");
+} else if (month == 2) {
+    System.out.println("February");
+}
+. . . // and so on
+</pre></blockquote>
+Deciding whether to use <CODE>if-then-else</CODE> statements or a <CODE>switch</CODE> statement is sometimes 
+a judgment call. You can decide which one to use based on readability and other factors. 
+An <CODE>if-then-else</CODE> statement can be used to make decisions based on ranges of values or conditions, 
+whereas a <CODE>switch</CODE> statement can make decisions based only on a single integer or 
+enumerated value. 
+
+<P>
+Another point of interest is the <CODE>break</CODE> statement after each <CODE>case</CODE>. 
+Each <CODE>break</CODE> statement terminates the enclosing <CODE>switch</CODE> statement.
+Control flow continues with the first statement following the <CODE>switch</CODE> block. 
+The <CODE>break</CODE> statements are necessary because without them, <CODE>case</CODE> 
+
+statements fall through; that is, without an explicit <CODE>break</CODE>, control will flow 
+sequentially through subsequent <CODE>case</CODE> statements. The following program,
+
+<a class="SourceLink" target="_blank" href="examples/SwitchDemo2.java"><code>SwitchDemo2</code></a>, 
+
+illustrates why it might be useful to have <CODE>case</CODE> statements fall through:
+
+<blockquote><pre>
+class SwitchDemo2 {
+    public static void main(String[] args) {
+
+        int month = 2;
+        int year = 2000;
+        int numDays = 0;
+
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                numDays = 31;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                numDays = 30;
+                break;
+            case 2:
+                if ( ((year % 4 == 0) &amp;&amp; !(year % 100 == 0))
+                     || (year % 400 == 0) )
+                    numDays = 29;
+                else
+                    numDays = 28;
+                break;
+            default:
+                System.out.println(&quot;Invalid month.&quot;);
+                break;
+        }
+        System.out.println(&quot;Number of Days = &quot; + numDays);
+    }
+}
+</pre></blockquote>
+
+<P>
+
+This is the output from the program.
+<PRE>
+    Number of Days = 29
+</PRE>
+<P>
+Technically, the final <CODE>break</CODE> is not required because flow would fall out of 
+the <CODE>switch</CODE> statement anyway. However, we recommend using a <CODE>break</CODE> so that 
+modifying the code is easier and less error-prone. The <CODE>default</CODE> section handles 
+all values that aren't explicitly handled by one 
+of the <CODE>case</CODE> sections. 
+
+
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=if.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=while.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> The if-then and if-then-else Statements
+        <br><b>Next page:</b> The while and do-while Statements
+    </div>
+    </body>
+</html> 

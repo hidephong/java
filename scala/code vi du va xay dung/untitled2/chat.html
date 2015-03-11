@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://bootsnipp.com/css/bootsnipp.css?ver=e3494cffc2b53e681346e39b6f8ac3ea">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+    <![endif]-->
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<form class="form-horizontal" name="target" id="target" action="destination.html">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Form Name</legend>
+
+        <!-- Textarea -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Text Area</label>
+            <div class="col-md-4">
+                <textarea class="form-control" id="textarea" name="textarea" rows="10">default text</textarea>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Text Input</label>
+            <div class="col-md-4">
+                <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+            </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="singlebutton">Single Button</label>
+            <div class="col-md-4">
+                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Button</button>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
+<script>
+    $( "#target" ).submit(function( event ) {
+        var input = $("#textinput").val();
+        var txt=$("#textarea").text()+"\n"+input;
+        $("#textarea").text(txt);
+
+        event.preventDefault();
+    });
+</script>
+<div id="other">
+    Trigger the handler
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

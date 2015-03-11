@@ -1,0 +1,14 @@
+@(quiz: List[Option[String]])(implicit  lang: Lang)
+
+@main(title = Messages("quiz.details")) {
+	<h2>
+		@Messages("quiz.details")
+	</h2>
+			<ul>
+				@for(q <- quiz) {
+					<li>@q</li>}
+
+</ul>
+
+
+}

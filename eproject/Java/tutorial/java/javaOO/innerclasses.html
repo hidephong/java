@@ -1,0 +1,504 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Inner Class Example (The Java&trade; Tutorials &gt; 
+            Learning the Java Language &gt; Classes and Objects)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> Learning the Java Language
+        <br><b>Lesson:</b> Classes and Objects
+        <br><b>Section:</b> Nested Classes
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">Classes and Objects</a></div>
+<div class="linkAHEAD"><a href="classes.html">Classes</a></div>
+<div class="linkBHEAD"><a href="classdecl.html">Declaring Classes</a></div>
+<div class="linkBHEAD"><a href="variables.html">Declaring Member Variables</a></div>
+<div class="linkBHEAD"><a href="methods.html">Defining Methods</a></div>
+<div class="linkBHEAD"><a href="constructors.html">Providing Constructors for Your Classes</a></div>
+<div class="linkBHEAD"><a href="arguments.html">Passing Information to a Method or a Constructor</a></div>
+<div class="linkAHEAD"><a href="objects.html">Objects</a></div>
+<div class="linkBHEAD"><a href="objectcreation.html">Creating Objects</a></div>
+<div class="linkBHEAD"><a href="usingobject.html">Using Objects</a></div>
+<div class="linkAHEAD"><a href="more.html">More on Classes</a></div>
+<div class="linkBHEAD"><a href="returnvalue.html">Returning a Value from a Method</a></div>
+<div class="linkBHEAD"><a href="thiskey.html">Using the this Keyword</a></div>
+<div class="linkBHEAD"><a href="accesscontrol.html">Controlling Access to Members of a Class</a></div>
+<div class="linkBHEAD"><a href="classvars.html">Understanding Instance and Class Members</a></div>
+<div class="linkBHEAD"><a href="initial.html">Initializing Fields</a></div>
+<div class="linkBHEAD"><a href="summaryclasses.html">Summary of Creating and Using Classes and Objects</a></div>
+<div class="linkQUESTIONS"><a href="QandE/creating-questions.html">Questions and Exercises</a></div>
+<div class="linkQUESTIONS"><a href="QandE/objects-questions.html">Questions and Exercises</a></div>
+<div class="linkAHEAD"><a href="nested.html">Nested Classes</a></div>
+<div class="nolinkBHEAD">Inner Class Example</div>
+<div class="linkBHEAD"><a href="summarynested.html">Summary of Nested Classes</a></div>
+<div class="linkQUESTIONS"><a href="QandE/nested-questions.html">Questions and Exercises</a></div>
+<div class="linkAHEAD"><a href="enum.html">Enum Types</a></div>
+<div class="linkQUESTIONS"><a href="QandE/enum-questions.html">Questions and Exercises</a></div>
+<div class="linkAHEAD"><a href="annotations.html">Annotations</a></div>
+<div class="linkQUESTIONS"><a href="QandE/annotations-questions.html">Questions and Exercises</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>Learning the Java Language</a>
+                &gt;
+                <a href=index.html target=_top>Classes and Objects</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=nested.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=summarynested.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Inner Class Example</div>
+            <blockquote>
+<!-- Inner Class Example -->
+
+To see an inner class in use, consider a simple <i>stack</i> of integers. Stacks, which are a 
+common data structure in programming, are well-named&mdash;
+they are like a "stack" of dishes. 
+When you add a dish to the stack, you put it on top; when you remove one, you remove it from the top. 
+The acronym for this is LIFO (last in, first out). Dishes on the bottom of the stack may stay there 
+quite a long time while the upper dishes come and go. 
+<p>
+The <code>StackOfInts</code> class below is implemented 
+as an array. When you add an integer (called "pushing"), it goes into the first available empty element.
+When you remove an integer (called "popping"), you remove the last integer in the array.
+<p>
+The <code>StackOfInts</code> class below (an application) consists of:
+<ul>
+<li>
+The <code>StackOfInts</code> outer class, which includes methods to push an integer onto 
+the stack, pop an integer off the stack, and test to see if the stack is empty.
+</li>
+<li>
+The <code>StepThrough</code> inner class, which is similar to a standard Java <i>iterator</i>. Iterators are 
+used to step through a data structure and typically have methods to test for the last element, retrieve the 
+current element, and move to the next element.
+
+</li>
+<li>
+A <code>main</code> method that instantiates a <code>StackOfInts</code> array (<code>stackOne</code>) and fills 
+it with integers (0, 2, 4, etc.), then instantiates a <code>StepThrough</code> object (<code>iterator</code>) and uses it 
+to print out the contents of <code>stackOne</code>.
+</li>
+</ul>
+<blockquote><pre>
+public class StackOfInts {
+	
+	private int[] stack;
+	private int next = 0;  // index of last item in stack + 1
+	
+	public StackOfInts(int size) {
+		//create an array large enough to hold the stack
+		stack = new int[size];
+	}
+	
+	public void push(int on) {
+		if (next &lt; stack.length)
+		   stack[next++] = on;
+	}
+	public boolean isEmpty() {
+		return (next == 0);
+	}
+	
+	public int pop(){
+		if (!isEmpty()) 
+		   return stack[--next]; // top item on stack
+		else
+		   return 0;
+	}
+	
+	public int getStackSize() {
+		return next;
+	}
+	
+	private class StepThrough { 		
+		// start stepping through at i=0
+		private int i = 0; 
+		
+		// increment index
+		public void increment() {
+			if ( i &lt; stack.length)
+			   i++;
+		}
+		
+		// retrieve current element
+		public int current() {
+			return stack[i];
+		}
+		
+		// last element on stack?
+		public boolean isLast(){
+			if (i == getStackSize() - 1)
+			   return true;
+			else
+			   return false;
+		}
+	}
+	
+	public StepThrough stepThrough() {
+		return new StepThrough();
+	}
+	
+	public static void main(String[] args) {
+		
+		// instantiate outer class as &quot;stackOne&quot;
+		StackOfInts stackOne = new StackOfInts(15);
+		
+		// populate stackOne
+		for (int j = 0 ; j &lt; 15 ; j++) {
+			stackOne.push(2*j);
+		}
+		
+		// instantiate inner class as &quot;iterator&quot;
+		StepThrough iterator = stackOne.stepThrough();
+		
+		// print out stackOne[i], one per line
+		while(!iterator.isLast()) {
+			System.out.print(iterator.current() + &quot; &quot;);
+			iterator.increment();
+		}
+		System.out.println();
+		
+	}
+	
+}</pre></blockquote>
+The output is:
+<blockquote><pre>
+0 2 4 6 8 10 12 14 16 18 20 22 24 26 
+</pre></blockquote>
+Note that the <code>StepThrough</code> class refers directly 
+to the <code>stack</code> instance variable of <code>StackOfInts</code>. 
+<P>
+Inner classes are used primarily to implement helper classes 
+like the one shown in this example. If you plan on handling 
+user-interface events, you'll need to know about using inner 
+classes because the event-handling mechanism makes extensive 
+use of them. 
+<P>
+ 
+
+<h3 fmstyle=C-Head>Local and Anonymous Inner Classes</h3>
+ 
+There are two additional types of inner classes. You can declare an inner class within the body of a method. Such a class is known as a 
+<i>local inner class</i>. You can also declare an inner class within the body of a method without naming it. 
+These classes are known as <i>anonymous inner classes</i>. You will encounter such classes in advanced Java 
+programming.
+<P>
+<P>
+ 
+
+<h3 fmstyle=C-Head>Modifiers</h3>
+
+ 
+You can use the same modifiers for inner classes that you use for other members of 
+the outer class. For example, you can use the access 
+specifiers &#151; <code>private</code>, <code>public</code>, and 
+<code>protected</code> &#151; to restrict access to inner classes, 
+just as you do to other class members. 
+ 
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=nested.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=summarynested.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Nested Classes
+        <br><b>Next page:</b> Summary of Nested Classes
+    </div>
+    </body>
+</html> 

@@ -1,0 +1,15 @@
+^build/
+^dist/
+^nbproject/private/
+^essential/io/QandE/datafile
+^MISSINGFILES
+
+syntax: glob
+*.html
+*.class
+*.auto
+*.jar
+*.ptag
+*.zip
+*build
+*.DS_Store

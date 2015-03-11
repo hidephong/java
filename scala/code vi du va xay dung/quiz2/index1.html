@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Forum Metro </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link rel="stylesheet" type="text/css" href="css/metro-bootstrap.css">
+    <!-- documentation styles -->
+    <link rel="stylesheet" type="text/css" href="docs/docs.css">
+    <link rel="stylesheet" href="a.css" type="text/css">
+    <link href="docs/font-awesome.css" rel="stylesheet">
+    <link href="carousel.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.timer.js"></script>
+    <style>
+
+
+    </style>
+    <script type="text/javascript" src="a.css"></script>
+</head>
+<body>
+
+<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" data-backdrop="static"
+        data-keyboard="true" >Quiz now!</button>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <div class="dropdown">
+                    <a data-toggle="dropdown" href="#">Question list <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                        <li value="1">Question 1</li>
+                        <li value="2">Question 2</li>
+                        <li value="3">Question 3</li>
+                        <li value="4">Question 4</li>
+                    </ul>
+
+                </div>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-md-8">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><b>Quiz</b></h3>
+                                </div>
+                                <div class="panel-body" style="height: 400px;">
+
+
+                                    <div id="panel0" class="quizPanel" style="display:block;">
+                                        <p>New quiz</p>
+                                        <br/>
+
+                                        <br/>
+
+                                        <button class="btnStart"> Start quiz</button>
+                                    </div>
+
+                                    <div id="panel1" class="quizPanel" style="display: none;">
+                                        <p>div tags are block level elements 1</p>
+                                        <br/>
+
+                                        <div class="answers" id="answers11">
+                                            <li value="1">True
+                                                <span class="false"></span>
+                                            </li>
+                                        </div>
+                                        <br/>
+
+                                        <div class="answers" id="answers12">
+                                            <li value="2"> False
+                                                <span class="false"></span>
+                                            </li>
+                                        </div>
+                                        <br/>
+
+                                        <button id="sb" class="next action-button" > Next</button>
+                                    </div>
+
+                                    <div id="panel2" style="display: none;" class="quizPanel">
+                                        <p>div tags are block level elements 2</p>
+                                        <br/>
+
+                                        <div class="answers" id="answers21">
+                                            <li value="1">True
+                                                <span class="false"></span>
+                                            </li>
+                                        </div>
+                                        <br/>
+
+                                        <div class="answers" id="answers22">
+                                            <li value="2"> False
+                                                <span class="false"></span>
+                                            </li>
+                                        </div>
+                                        <br/>
+
+                                        <button id="sb" class="next action-button" > Next</button>
+                                    </div>
+
+                                    <div id="panel3" style="display: none;" class="quizPanel">
+                                        <p>What is the correct syntax for a dropdown list element?</p>
+                                        <br/>
+
+                                        <div class="answers" id="answers31">
+                                            <li value="1">
+                                                input type=”select” name=”somename”
+                                                <span class="false"></span>
+                                            </li>
+                                        </div>
+                                        <br/>
+
+                                        <div class="answers" id="answers32">
+                                            <li value="2">
+
+                                                input type=”list” name=”somename”
+                                                <span class="false"></span>
+                                            </li>
+                                        </div>
+                                        <br/>
+
+                                        <div class="answers" id="answers33">
+                                            <li value="3">
+                                                select name=”somename”
+                                                <span class="false"></span>
+                                            </li>
+                                        </div>
+                                        <br/>
+                                        <div class="answers" id="answers34">
+                                            <li value="4">
+                                                dropdown name=”somename”
+                                                <span class="false"></span>
+                                            </li>
+                                        </div>
+                                        <br/>
+                                        <button id="sb" class="next action-button" > Next</button>
+                                    </div>
+
+                                    <div id="panel4" style="display: none;" class="quizPanel">
+                                        <p>Do you want submit?</p>
+                                        <br/>
+                                        <button class="sb1">Yes</button>
+                                        <button class="sbBack">Back</button>
+                                    </div>
+                                </fieldset>
+
+                                </div>
+
+                                <div class="panel-footer" id="panel-footer">Question 1/n</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <!--button type="button" class="btn btn-primary">Save changes</button-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery easing plugin -->
+<script>
+    pact = 0;
+    var ans = [];
+    var j=0;
+    var blResult = false;
+    var arr = [{"quest": "2"},
+        {"quest": "1"},
+        {"quest": "2"}];
+    $('.answers li').click(function () {
+        if (!blResult) {
+            $(this).parent().parent().find('.answers li').css('background-color', '#ffffff');
+            $(this).addClass("selected");
+            $(this).css('display','block');
+            $(this).css('color','#444');
+            $(this).css('background-color','#FFF4B8');
+        };
+        ans[parseInt(pact) - 1] = $(this).val();
+    });
+
+
+    <!-- doi cau hoi phan quiz-->
+    $('.dropdown-menu li').click(function () {
+
+        $(".quizPanel").each(function (index, element) {
+            $(element).hide();
+        });
+        pact = $(this).val();
+        if (pact == "1") {
+            $("#panel1").show();
+        }
+        ;
+        if (pact == "2") {
+            $("#panel2").show();
+        }
+        ;
+        if (pact == "3") {
+            $("#panel3").show();
+        }
+        ;
+        if (pact == "4") {
+            $("#panel4").show();
+        }
+        ;
+    });
+
+    $('.sbBack').click(function () {
+        $(".quizPanel").each(function (index, element) {
+            $(element).hide();
+        });
+        pact = "1";
+        $("#panel1").show();
+    });
+    $('.btnStart').click(function () {
+        $(".quizPanel").each(function (index, element) {
+            $(element).hide();
+        });
+        pact="1";
+        $("#panel1").show();
+    });
+
+    $('.sb').click(function () {
+
+        $(".quizPanel").each(function (index, element) {
+            $(element).hide();
+        });
+        pact = parseInt(pact) + 1 + "";
+        if (pact == "1") {
+            $("#panel1").show();
+
+        }
+        ;
+        if (pact == "2") {
+            $("#panel2").show();
+        }
+        ;
+        if (pact == "3") {
+            $("#panel3").show();
+        }
+        ;
+        if (pact == "4") {
+            $("#panel4").show();
+        }
+        ;
+
+        $(this).parent().parent().parent().find('#panel-footer').text('Question ' + pact + '/n');
+
+    });
+
+    <!-- tinh toan dap an-->
+    $('.sb1').click(function () {
+
+        if(!blResult){
+
+            $("#answers12 li").removeClass("answers").addClass('correct');
+            $("#answers21 li").removeClass("answers").addClass('correct');
+            $("#answers32 li").removeClass("answers").addClass('correct');
+
+            for (var i = 0, len = ans.length; i < len; i++) {
+
+                if (ans[i] == arr[i]['quest'].toString()) {
+                    j++;
+                } ;
+
+            };
+            alert("Ban tra loi dung: "+j+"/5 cau hoi");
+
+            $(".answers li").each(function (index, element) {
+
+                if ($(this).hasClass('selected')) {
+                    $(element).css("backgroundColor", "#DF904F");
+                    $(element).find("span").css("display", "block");
+                }
+
+                if ($(this).hasClass("correct")) {
+                    $(element).css('background-color', "#B5C763")
+                    $(element).css('color', '#ffffff');
+                    $(element).find("span").removeClass("false").addClass("true");
+                }
+            });
+
+            $(".sb1").css('display','none');
+        }
+        blResult = true;
+
+    });
+
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="docs/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

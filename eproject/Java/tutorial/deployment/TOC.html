@@ -1,0 +1,446 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Trail: Deployment: Table of Contents (The Java&trade; Tutorials)</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+    </head>
+<body>
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                    <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../search.html" target="_blank">Search the
+                                Tutorials</a>
+                    </div> 
+                </div> </div> </div> </div> </div>
+
+    <div class=MainFlow_wide>
+        <div id=BreadCrumbs>
+            <a href=../index.html target=_top>Home Page</a>
+        </div>
+        <div class=NavBit>
+            <a href=./index.html>&laquo; Previous</a>
+        </div>
+        <div id=PageTitle>Trail: Deployment: Table of Contents</div>
+        <blockquote>
+
+
+<dl>
+<a name="jar">
+<strong><a href="jar/index.html">Packaging Programs in JAR Files</a></strong>
+</a>
+<dl>
+<dt>
+<a href="jar/basicsindex.html">Using JAR Files: The Basics</a>
+<dl>
+<dt>
+<a href="jar/build.html">Creating a JAR File</a>
+<dt>
+<a href="jar/view.html">Viewing the Contents of a JAR File</a>
+<dt>
+<a href="jar/unpack.html">Extracting the Contents of a JAR File</a>
+<dt>
+<a href="jar/update.html">Updating a JAR File</a>
+<dt>
+<a href="jar/run.html">Running JAR-Packaged Software</a>
+</dl>
+<dt>
+<a href="jar/manifestindex.html">Working with Manifest Files: The Basics</a>
+<dl>
+<dt>
+<a href="jar/defman.html">Understanding the Default Manifest</a>
+<dt>
+<a href="jar/modman.html">Modifying a Manifest File</a>
+<dt>
+<a href="jar/appman.html">Setting an Application's Entry Point</a>
+<dt>
+<a href="jar/downman.html">Adding Classes to the JAR File's Classpath</a>
+<dt>
+<a href="jar/packageman.html">Setting Package Version Information</a>
+<dt>
+<a href="jar/sealman.html">Sealing Packages within a JAR File</a>
+</dl>
+<dt>
+<a href="jar/signindex.html">Signing and Verifying JAR Files</a>
+<dl>
+<dt>
+<a href="jar/intro.html">Understanding Signing and Verification</a>
+<dt>
+<a href="jar/signing.html">Signing JAR Files</a>
+<dt>
+<a href="jar/verify.html">Verifying Signed JAR Files</a>
+</dl>
+<dt>
+<a href="jar/apiindex.html">Using JAR-related APIs</a>
+<dl>
+<dt>
+<a href="jar/jarclassloader.html">The JarClassLoader Class</a>
+<dt>
+<a href="jar/jarrunner.html">The JarRunner Class</a>
+</dl>
+</dl>
+</dl>
+<dl>
+<a name="webstart">
+<strong><a href="webstart/index.html">Java Web Start</a></strong>
+</a>
+<dl>
+<dt>
+<a href="webstart/running.html">Running Java Web Start Applications</a>
+<dt>
+<a href="webstart/deploying.html">Deploying Java Web Start Applications</a>
+<dt>
+<a href="webstart/packaging.html">Developing Java Web Start Applications</a>
+<dt>
+<a href="webstart/api.html">The JNLP API</a>
+<dt>
+<a href="webstart/security.html">Java Web Start and Security</a>
+<dt>
+<a href="webstart/problems.html">Common Java Web Start Problems</a>
+<dt>
+<a href="webstart/QandE/questions.html">Questions and Exercises: Java Web Start</a>
+</dl>
+</dl>
+<dl>
+<a name="applet">
+<strong><a href="applet/index.html">Applets</a></strong>
+</a>
+<dl>
+<dt>
+<a href="applet/getStarted.html">Getting Started with Applets</a>
+<dl>
+<dt>
+<a href="applet/import.html">Importing Classes and Packages for Applets</a>
+<dt>
+<a href="applet/subclass.html">Defining an Applet Subclass</a>
+<dt>
+<a href="applet/lifeCycle.html">The Life Cycle of an Applet</a>
+<dt>
+<a href="applet/appletMethods.html">Methods for Milestones</a>
+<dt>
+<a href="applet/componentMethods.html">Methods for Drawing and Event Handling</a>
+<dt>
+<a href="applet/containerMethods.html">Methods for Adding UI Components</a>
+<dt>
+<a href="applet/security.html">What Applets Can and Can't Do</a>
+</dl>
+<dt>
+<a href="applet/appletsonlyindex.html">Taking Advantage of the Applet API</a>
+<dl>
+<dt>
+<a href="applet/data.html">Finding and Loading Data Files</a>
+<dt>
+<a href="applet/showStatus.html">Displaying Short Status Strings</a>
+<dt>
+<a href="applet/browser.html">Displaying Documents in the Browser</a>
+<dt>
+<a href="applet/iac.html">Sending Messages to Other Applets</a>
+<dt>
+<a href="applet/sound.html">Playing Sounds</a>
+<dt>
+<a href="applet/param.html">Defining and Using Applet Parameters</a>
+<dl>
+<dt>
+<a href="applet/paramQs.html">Deciding Which Parameters to Support</a>
+<dt>
+<a href="applet/getParam.html">Writing the Code to Support Parameters</a>
+<dt>
+<a href="applet/paramInfo.html">Giving Information about Parameters</a>
+</dl>
+<dt>
+<a href="applet/html.html">Using the APPLET Tag	</a>
+</dl>
+<dt>
+<a href="applet/practicalindex.html">Practical Considerations When Writing Applets</a>
+<dl>
+<dt>
+<a href="applet/security_practical.html">Security Restrictions</a>
+<dt>
+<a href="applet/ui.html">Creating a User Interface</a>
+<dl>
+<dt>
+<a href="applet/gui.html">Creating a GUI</a>
+<dt>
+<a href="applet/stdout.html">Displaying Diagnostics to the Standard Output and Error Streams</a>
+</dl>
+<dt>
+<a href="applet/properties.html">Getting System Properties</a>
+<dt>
+<a href="applet/threads.html">Threads in Applets</a>
+<dl>
+<dt>
+<a href="applet/threadExample.html">Threads in Applets: Examples</a>
+</dl>
+<dt>
+<a href="applet/server.html">Working with a Server-Side Application </a>
+<dl>
+<dt>
+<a href="applet/clientExample.html">A Simple Network Client Applet</a>
+<dt>
+<a href="applet/workaround.html">Using a Server to Work Around Security Restrictions</a>
+</dl>
+</dl>
+<dt>
+<a href="applet/finishingindex.html">Finishing an Applet</a>
+<dl>
+<dt>
+<a href="applet/checklist.html">Before You Ship that Applet</a>
+<dt>
+<a href="applet/perfect.html">The Perfectly Finished Applet</a>
+</dl>
+<dt>
+<a href="applet/deployindex.html">Deploying Applets</a>
+<dl>
+<dt>
+<a href="applet/generaldeploy.html">General Deployment Considerations</a>
+<dt>
+<a href="applet/applettag.html">Using the applet Tag</a>
+<dt>
+<a href="applet/objecttag.html">Using the object Tag</a>
+<dt>
+<a href="applet/embedtag.html">Using the embed Tag</a>
+<dt>
+<a href="applet/mixedbrowser.html">Deploying Applets in a Mixed-Browser Environment</a>
+</dl>
+<dt>
+<a href="applet/problemsindex.html">Solving Common Applet Problems</a>
+<dt>
+<a href="applet/QandE/questions.html">Questions and Exercises: Java Applets</a>
+</dl>
+</dl>
+        </blockquote>
+    <div class=NavBit>
+        <a href=./index.html>&laquo; Previous</a>
+
+    </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> 
+        <br><b>Next page:</b> 
+    </div>
+    </body>
+</html> 

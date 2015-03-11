@@ -1,0 +1,2626 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Deploying Java Web Start Applications (The Java&trade; Tutorials &gt; 
+            Deployment &gt; Java Web Start)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> Deployment
+        <br><b>Lesson:</b> Java Web Start
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">Java Web Start</a></div>
+<div class="linkAHEAD"><a href="running.html">Running Java Web Start Applications</a></div>
+<div class="nolinkAHEAD">Deploying Java Web Start Applications</div>
+<div class="linkAHEAD"><a href="packaging.html">Developing Java Web Start Applications</a></div>
+<div class="linkAHEAD"><a href="api.html">The JNLP API</a></div>
+<div class="linkAHEAD"><a href="security.html">Java Web Start and Security</a></div>
+<div class="linkAHEAD"><a href="problems.html">Common Java Web Start Problems</a></div>
+<div class="linkQUESTIONS"><a href="QandE/questions.html">Questions and Exercises</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>Deployment</a>
+                &gt;
+                <a href=index.html target=_top>Java Web Start</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=running.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=packaging.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Deploying Java Web Start Applications</div>
+            <blockquote>
+This section describes the basics of deploying an application using Java Web Start. Deploying an application involves the following steps:
+<ol>
+<li><a href="#server">Setting up the Web Server</a></li>
+<li><a href="#jnlp">Creating the JNLP File</a></li>
+<li><a href="#web">Placing the Application on the Web Server</a></li>
+<li><a href="#page">Creating the Web Page</a></li>
+</ol>
+
+This section uses the Notepad example application to demonstrate Java Web Start technology. You can find all the source files for the Notepad application example in the <code>\demo\plugin\jfc\Notepad</code> directory within the JDK installation directory.
+
+</blockquote>
+<a name="server"/>
+<h3>Setting up the Web Server</h3>
+<blockquote>
+Before you can deploy an application with Java Web Start over the Web, you must ensure that the Web server you are using can handle JNLP  files.
+
+<p>
+
+Configure the Web server so that files with the <code>.jnlp</code> extension are set to the <code>application/x-java-jnlp-file</code> MIME type.
+
+<p>
+
+How you set the JNLP MIME type depends on the Web server you are using. For example, for the Apache Web server, you simply add the line
+
+<blockquote><pre>
+application/x-java-jnlp-file JNLP
+</pre></blockquote>
+
+ to the <code>mime.types</code> file.
+<p>
+
+For other Web servers, check the documentation for instructions on setting MIME types.
+</blockquote>
+
+<a name="jnlp"/>
+<h3>Creating the JNLP File</h3>
+<blockquote>
+The key to running an application with Java Web Start is the Java Network Launching Protocol, or JNLP, file. The JNLP file is an XML file that contains elements and attributes that tell Java Web Start how to run the application.
+
+<h4>An Example JNLP File</h4>
+
+Following is the JNLP file for the Notepad demo:
+
+<blockquote><pre>
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!-- JNLP File for Notepad --&gt;
+
+&lt;jnlp spec="1.0+"
+      codebase="http://java.sun.com/docs/books/tutorialJWS/deployment/webstart/examples/" 
+      href="Notepad.jnlp"&gt;
+   &lt;information&gt;
+      &lt;title&gt;Notepad Demo&lt;/title&gt;
+      &lt;vendor&gt;The Java(tm) Tutorial: Sun Microsystems, Inc.&lt;/vendor&gt;
+      &lt;description&gt;Notepad Demo&lt;/description&gt;
+      &lt;homepage href="http://java.sun.com/docs/books/tutorial/deployment/webstart/running.html"/&gt;
+      &lt;description kind="short"&gt;ClickMeApp uses 3 custom classes plus several
+       standard ones&lt;/description&gt;
+      &lt;offline-allowed/&gt;
+   &lt;/information&gt;
+   &lt;resources&gt;     
+   	&lt;jar href="Notepad.jar"/&gt;   
+	&lt;j2se version="1.6+"
+	      href="http://java.sun.com/products/autodl/j2se"/&gt;
+   &lt;/resources&gt;
+   &lt;application-desc main-class="Notepad"/&gt;
+&lt;/jnlp&gt;
+</pre></blockquote>
+
+If you <a href="http://java.sun.com/docs/books/tutorialJWS/deployment/webstart/examples/Notepad.jnlp">click this
+link to the <code>Notepad.jnlp</code> file</a>,
+you open and run the Notepad application.
+
+<h4>JNLP File Contents</h4>
+
+The following table describes the elements and attributes in the sample JNLP file.
+
+<blockquote><hr><strong><FONT COLOR="red">Note</FONT>:</strong>&nbsp;This table does not include all possible contents of the JNLP file. For more information, see the
+
+<a class="APILink" target="_blank" href="http://java.sun.com/products/javawebstart/download-spec.html">Java Network Launching Protocol & API Specification (JSR-56)</a>.
+<hr></blockquote>
+
+<p>
+    <table border="1" cellpadding="4" cellspacing="3" width="1111">
+<caption><strong> Elements and Attributes of a JNLP file </strong></caption>
+      <col width="126"> <col width="140"> <col width="646"> <col
+ width="73"> <col width="66"> <tbody>
+        <tr>
+
+          <th width="126">
+          <p>Element</p>
+          </th>
+          <th width="140">
+          <p>Attributes</p>
+          </th>
+          <th width="646">
+          <p>Description</p>
+
+          </th>
+          <th width="73">
+          <p>Since</p>
+          </th>
+          <th width="66">
+          <p>Required</p>
+          </th>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p>jnlp</p>
+          </td>
+          <th width="140">
+          <p><br>
+          </p>
+          </th>
+
+          <td width="646">
+          <p>This is the main xml element for a jnlp file. Everything
+is contained within the jnlp element.</p>
+          </td>
+          <td width="73">
+          <p>1.0<br>
+          </p>
+          </td>
+          <td width="66">
+
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="140">
+          <p>spec</p>
+          </td>
+          <td width="646">
+          <p>The spec attribute can be 1.0, 1.5.0, or 1.6.0 or can use
+the wildcards such as 1.0+. It denoted the minimum version of the JNLP
+Specification that this jnlp file can work with.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>codebase</p>
+          </td>
+          <td width="646">
+          <p>The codebase attribute specifies the base location for all
+relative URLs specified in href attributes in the JNLP file. </p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>href</p>
+          </td>
+
+          <td width="646">
+          <p>The href specifies the URL of the JNLP file itself. </p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+
+          <p>version</p>
+          </td>
+          <td width="646">
+          <p>The version of the application being launched, as well as
+the version of the JNLP file itself.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>information</p>
+
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p>The information element contains other elements that
+describe the application and it's source.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>os</p>
+          </td>
+          <td width="646">
+
+          <p>Specifies the operating system for which this information
+element should be considered.</p>
+          </td>
+          <td sdval="36530" sdnum="1033;0;MM/DD/YY" width="73">
+          <p>1.5.0<br>
+          <br>
+          </p>
+          </td>
+          <td width="66">
+
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="140">
+          <p>arch</p>
+          </td>
+          <td width="646">
+          <p>Specifies the architecture for which this information
+element should be considered</p>
+          </td>
+          <td sdval="36530" sdnum="1033;0;MM/DD/YY" width="73">
+          <p>1.5.0</p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>platform</p>
+          </td>
+          <td width="646">
+          <p>Specifies the platform for which this information element
+should be considered.</p>
+          </td>
+
+          <td sdval="36530" sdnum="1033;0;MM/DD/YY" width="73">
+          <p>1.5.0</p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>locale</p>
+          </td>
+
+          <td width="646">
+          <p>Specifies the locale for which this information element
+should be considered.</p>
+          </td>
+          <td sdval="36530" sdnum="1033;0;MM/DD/YY" width="73">
+          <p>1.5.0</p>
+          </td>
+          <td width="66">
+          <p><br>
+
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>title</p>
+          </td>
+          <td width="140">
+
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p>The title element specifies the title of the application. </p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>vendor </p>
+
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p>The vendor element specifies the provider of the
+application. </p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+
+          <td width="126">
+          <p>homepage</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+
+          <p>The homepage of the application.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>href</p>
+
+          </td>
+          <td width="646">
+          <p>A URL pointing to where more information on this
+application can be found.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>description</p>
+          </td>
+          <td width="140">
+
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p>A short statement describing the application.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>kind</p>
+          </td>
+          <td width="646">
+          <p>An indicator as to what type of description this is, legal
+values are one-line, short, and tooltip.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p>icon</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="646">
+          <p>Describes an icon that can be used to identify the
+application to the user.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+
+          <p>href</p>
+          </td>
+          <td width="646">
+          <p>A URL pointing to the icon file, may be in one of the
+following formats: gif, jpg, png, ico.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>kind</p>
+          </td>
+          <td width="646">
+          <p>Indicates the suggested use of the icon, can be: default,
+selected, disabled, rollover, splash, or shortcut.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>width</p>
+          </td>
+
+          <td width="646">
+          <p>Can be used to indicate the resolution of the image.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+
+          <p>height</p>
+          </td>
+          <td width="646">
+          <p>Can be used to indicate the resolution of the image.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>depth</p>
+          </td>
+          <td width="646">
+          <p>Can be used to indicate the resolution of the image.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p>offline-allowed</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="646">
+          <p>Indicates that this application can operate when the
+client system is disconnected from the network.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>shortcut</p>
+          </td>
+          <td width="140">
+
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p>The shortcut element can be used to indicate an
+application's preferences for desktop integration. </p>
+          </td>
+          <td sdval="36530" sdnum="1033;0;MM/DD/YY" width="73">
+          <p>1.5.0</p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>online</p>
+          </td>
+          <td width="646">
+          <p>Can be used to describe the application's preference for
+creating a shortcut to run online or offline.</p>
+          </td>
+
+          <td sdval="36530" sdnum="1033;0;MM/DD/YY" width="73">
+          <p>1.5.0</p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p>desktop</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="646">
+          <p>Can be used to indicate an application's preference for
+putting a shortcut on the users desktop.</p>
+          </td>
+          <td sdval="36530" sdnum="1033;0;MM/DD/YY" width="73">
+          <p>1.5.0</p>
+          </td>
+          <td width="66">
+          <p><br>
+
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>menu</p>
+          </td>
+          <td width="140">
+
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p>Can be used to indicate an application's preference for
+putting a menu item in the users start menus.</p>
+          </td>
+          <td sdval="36530" sdnum="1033;0;MM/DD/YY" width="73">
+          <p>1.5.0</p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>sub-menu</p>
+          </td>
+          <td width="646">
+          <p>Can be used to indicate an application's preference for
+where to place the menu item.</p>
+          </td>
+
+          <td sdval="36530" sdnum="1033;0;MM/DD/YY" width="73">
+          <p>1.5.0</p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p>association</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="646">
+          <p>Can be used to hint to the JNLP client that it wishes to
+be registered with the operating system as the primary handler of
+certain extensions and a certain mime-type.</p>
+          </td>
+          <td sdval="36530" sdnum="1033;0;MM/DD/YY" width="73">
+          <p>1.5.0</p>
+          </td>
+          <td width="66">
+          <p><br>
+
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+
+          <p>extensions</p>
+          </td>
+          <td width="646">
+          <p>Contains a list of file extensions (separated by spaces)
+that the application requests it be registered to handle.</p>
+          </td>
+          <td sdval="36530" sdnum="1033;0;MM/DD/YY" width="73">
+          <p>1.5.0</p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>mime-type</p>
+          </td>
+          <td width="646">
+          <p>Contains the mime-type that the application requests it be
+registered to handle.</p>
+          </td>
+
+          <td sdval="36530" sdnum="1033;0;MM/DD/YY" width="73">
+          <p>1.5.0</p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p>related-content</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="646">
+          <p>Describes an additional piece of related content that may
+be integrated with the application.</p>
+          </td>
+          <td sdval="36530" sdnum="1033;0;MM/DD/YY" width="73">
+          <p>1.5.0</p>
+          </td>
+          <td width="66">
+          <p><br>
+
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+
+          <p>href</p>
+          </td>
+          <td width="646">
+          <p>A URL pointing to the related content.</p>
+          </td>
+          <td sdval="36530" sdnum="1033;0;MM/DD/YY" width="73">
+          <p>1.5.0</p>
+
+          </td>
+          <td width="66">
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p><br>
+          </p>
+
+          </td>
+          <td sdnum="1033;0;MM/DD/YY" width="73">
+          <p><br>
+          </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+
+        </tr>
+        <tr>
+          <td width="126">
+          <p>update</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+
+          </td>
+          <td width="646">
+          <p>The update element is used to indicate the preferences for
+how application updates should be handled by the JNLP Client.</p>
+          </td>
+          <td sdval="6" sdnum="1033;" width="73">
+          <p>1.6.0</p>
+          </td>
+          <td width="66">
+
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="140">
+          <p>check</p>
+          </td>
+          <td width="646">
+          <p>Indicates the preference for when the JNLP Client should
+check for updates. It can be always, timeout, or background..</p>
+          </td>
+          <td sdval="6" sdnum="1033;" width="73">
+          <p>1.6.0</p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>policy</p>
+          </td>
+          <td width="646">
+          <p>Indicates the preference for how the JNLP Client should
+handle an application update when it is known an update is available
+before the application is launched. It can be always, prompt-update, or
+prompt-run.</p>
+          </td>
+
+          <td sdval="6" sdnum="1033;" width="73">
+          <p>1.6.0</p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="646">
+          <p><br>
+          </p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>security</p>
+          </td>
+
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p>This element can be used to request enhanced permissions.</p>
+          </td>
+          <td width="73">
+
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+
+          <td width="126">
+          <p>all-permissions</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+
+          <p>Requests that the application be run with all permissions.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>j2ee-application-client-permissions</p>
+          </td>
+          <td width="140">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="646">
+          <p>Requests that the application be run with a permission set
+that meets the security specifications of the J2EE Application Client
+environment.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p>resources</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="646">
+          <p>Describes all the resources that are needed for an
+application.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p>yes</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>os</p>
+
+          </td>
+          <td width="646">
+          <p>Specifies the operating system for which the resources
+element should be considered.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="140">
+          <p>arch</p>
+          </td>
+          <td width="646">
+          <p>Specifies the architecture for which the resources element
+should be considered.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>locale</p>
+          </td>
+          <td width="646">
+          <p>Specifies that the locales for which the resources element
+should be considered.</p>
+          </td>
+
+          <td width="73">
+          <p><br>
+          </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p>java (or java se)</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="646">
+          <p>Specifies what version(s) of Java to run the application
+with.</p>
+          </td>
+          <td width="73">
+          <p>1.6.0 (java)<br>
+          </p>
+          </td>
+          <td width="66">
+
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="140">
+          <p>version</p>
+          </td>
+          <td width="646">
+          <p>Describes an ordered list of version ranges to use.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>href</p>
+          </td>
+          <td width="646">
+          <p>The URL denoting the supplier of this version of java, and
+where it may be downloaded from.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>java-vm-args</p>
+          </td>
+
+          <td width="646">
+          <p>Indicates an additional set of standard and non-standard
+virtual machine arguments that the application would prefer the JNLP
+Client to use when launching Java.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+
+          <p>initial-heap-size</p>
+          </td>
+          <td width="646">
+          <p>Indicates the initial size of the Java heap. </p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>max-heap-size</p>
+          </td>
+          <td width="646">
+          <p>Indicates the maximum size of the Java heap.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p>jar</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="646">
+          <p>Specifies a JAR file that is part of the application's
+classpath. </p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p>yes</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>href</p>
+
+          </td>
+          <td width="646">
+          <p>The URL of the jar file.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="140">
+          <p>version</p>
+          </td>
+          <td width="646">
+          <p>The requested version of the jar file. Requires using the
+version-based download protocol</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>main</p>
+          </td>
+          <td width="646">
+          <p>Indicates if this jar contains the class containing the
+main method of the application.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>download</p>
+          </td>
+
+          <td width="646">
+          <p>Can be used to indicate this jar may be downloaded lazily,
+or when needed.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+
+          <p>size</p>
+          </td>
+          <td width="646">
+          <p>Indicates the downloadable size of the jar file in bytes.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>part</p>
+          </td>
+          <td width="646">
+          <p>Can be used to group resources together so they will be
+downloaded at the same time.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p>nativelib</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="646">
+          <p>Specifies a JAR file that contains native libraries in
+it's root directory.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+
+          <p>href</p>
+          </td>
+          <td width="646">
+          <p>The URL of the jar file.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>version</p>
+          </td>
+          <td width="646">
+          <p>The requested version of the jar file. Requires using the
+version-based download protocol</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>download</p>
+          </td>
+
+          <td width="646">
+          <p>Can be used to indicate this jar may be downloaded lazily.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+
+          <p>size</p>
+          </td>
+          <td width="646">
+          <p>Indicates the downloadable size of the jar file in bytes.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>part</p>
+          </td>
+          <td width="646">
+          <p>Can be used to group resources together so they will be
+downloaded at the same time.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p>extension</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="646">
+          <p>Contains pointer to an additional component-desc or
+installer-desc to be used with this application.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+
+          <p>href</p>
+          </td>
+          <td width="646">
+          <p>The URL to the additional extension jnlp file.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>version</p>
+          </td>
+          <td width="646">
+          <p>The version of the additional extension jnlp file.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>name</p>
+          </td>
+
+          <td width="646">
+          <p>The name of the additional extension jnlp file</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>ext-download</p>
+          </td>
+          <td width="140">
+
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p>Can be used in an extension element to denote the parts
+contained in a component-extension.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>ext-part</p>
+          </td>
+          <td width="646">
+          <p>Describes the name of a part that can be expected to be
+found in the extension.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>download</p>
+          </td>
+          <td width="646">
+
+          <p>Can be used to indicate this extension may be downloaded
+eagerly or lazily.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>part</p>
+
+          </td>
+          <td width="646">
+          <p>Denotes the name of a part in this jnlp file to include
+the extension in.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>package</p>
+          </td>
+
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p>Can be used to indicate to the JNLP Client which packages
+are implemented in which JAR files.</p>
+          </td>
+          <td width="73">
+
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>name</p>
+          </td>
+          <td width="646">
+
+          <p>Package name contained in the jar files of the given part.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p>yes</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>part</p>
+
+          </td>
+          <td width="646">
+          <p>Part name containing the jar files that include the given
+package name.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="140">
+          <p>recursive</p>
+          </td>
+          <td width="646">
+          <p>Can be used to indicated that all package names beginning
+with the given name, can be found in the given part.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>property</p>
+
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p>Defines a system property that will be available through
+the System.getProperty and System.getProperties methods.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>name</p>
+          </td>
+
+          <td width="646">
+          <p>Name of the system property.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p>yes</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>value</p>
+
+          </td>
+          <td width="646">
+          <p>Value it will be set to.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p><br>
+          </p>
+          </td>
+          <td width="73">
+
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+
+          <p>Note: A jnlp file must contain one of application-desc,
+applet-desc, component-desc, or installer-desc</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p>yes</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>applicaation-desc</p>
+          </td>
+          <td width="140">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="646">
+          <p>Denotes this is the jnlp file for an application.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+
+          </td>
+          <td width="140">
+          <p>main-class</p>
+          </td>
+          <td width="646">
+          <p>The name of the class containing the public static void
+main(String[]) method of the application.</p>
+          </td>
+          <td width="73">
+
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+
+          <p>argument</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p>Each argument contains (in order) an additional argument
+to be passed to main.</p>
+
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+
+        </tr>
+        <tr>
+          <td width="126">
+          <p>applet-desc</p>
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+
+          </td>
+          <td width="646">
+          <p>Denotes this is the jnlp file for an applet.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="140">
+          <p>main-class</p>
+          </td>
+          <td width="646">
+          <p>This is the name of the main Applet class.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+
+          </p>
+          </td>
+          <td width="140">
+          <p>documentbase</p>
+          </td>
+          <td width="646">
+          <p>The document base for the Applet as a URL.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>name</p>
+          </td>
+
+          <td width="646">
+          <p>Name of the Applet.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p>yes</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>width</p>
+
+          </td>
+          <td width="646">
+          <p>The width of the applet in pixels.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+
+          <td width="140">
+          <p>height</p>
+          </td>
+          <td width="646">
+          <p>The height of the applet in pixels</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>param</p>
+
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p>A set of parameters that can be passed into the applet.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>name</p>
+          </td>
+
+          <td width="646">
+          <p>The name of this parameter</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p>yes</p>
+
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>value</p>
+
+          </td>
+          <td width="646">
+          <p>The value of this parameter</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+
+          <p>yes</p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>component-desc</p>
+          </td>
+          <td width="140">
+
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p>Denotes this is the jnlp file for a component extension.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="126">
+          <p>installer-desc</p>
+
+          </td>
+          <td width="140">
+          <p><br>
+          </p>
+          </td>
+          <td width="646">
+          <p>Denotes this is the jnlp file for an installed extension.</p>
+          </td>
+
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p><br>
+          </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="126">
+          <p><br>
+          </p>
+          </td>
+          <td width="140">
+          <p>main-class</p>
+          </td>
+
+          <td width="646">
+          <p>The name of the class containing the public static void
+main(String[]) method of the installer.</p>
+          </td>
+          <td width="73">
+          <p>1.0 </p>
+          </td>
+          <td width="66">
+          <p>yes</p>
+
+          </td>
+        </tr>
+      </tbody>
+   </table>
+
+<h4>Encoding JNLP Files</h4>
+Java Web Start supports encoding of JNLP files in any character encoding supported by the Java platform. For more information on character encoding in Java, see the 
+
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/technotes/guides/intl/encoding.doc.html">Supported Encodings Guide</a>.
+
+To encode a JNLP file, specify an encoding in the XML prolog of that file. For example, the following line indicates that the JNLP file is encoded in UTF-16.
+
+
+<blockquote><pre>
+&lt;?xml version="1.0" encoding="utf-16"?&gt;
+</pre></blockquote>
+
+
+<blockquote><hr><strong><FONT COLOR="red">Note</FONT>:</strong>&nbsp;The XML prolog itself must be UTF-8-encoded.
+<hr></blockquote>
+
+</blockquote>
+
+
+
+
+</blockquote>
+
+<a name="web"/>
+<h3>Placing the Application on the Web Server</h3>
+<blockquote>
+The next step in deploying your application with Java Web Start is as simple as placing all the application's JAR files and the JNLP file on the Web server. You must ensure the JAR files are in the locations specified by the <code>href</code> attribute of the <code>jar</code> element in the JNLP file.
+
+
+
+</blockquote>
+
+<a name="page"/>
+<h3>Creating the Web Page</h3>
+<blockquote>
+
+Once you've completed to preceding steps, you are ready to write a Web page that gives users access to your application.
+
+Adding a link to your application in a Web page for users with Java Web Start already installed is simple; however, you must also design your Web page for users that might not have Java Web Start installed. 
+
+<h4>Adding the Basic Link to the JNLP File</h4>
+In order to enable your users to launch the application from a Web page, you must include a link to the application's JNLP file from that Web page. To add this link, you use the standard HTML link syntax, with the <code>href</code> attribute specifying the location of the JNLP file:
+
+<blockquote><pre>
+&lt;a href="Notepad.jnlp"&gt;Launch Notepad Application&lt;/a&gt;
+</pre></blockquote>
+
+Assuming Java Web Start is installed on the client computer, when the user clicks this link, Java Web Start executes the application based on the instructions in the JNLP file.
+
+<h4>Adding the Link when Java Web Start is not Installed</h4>
+
+For users who might not have Java Web Start installed, you must write scripts in your Web page to:
+
+<ol>
+<li>Detect which browser the user has.</li>
+<li>Detect whether Java Web Start is installed.</li>
+<li>If Java Web Start is not installed, either auto-install it, or direct the user to a download page.</li>
+</ol>
+
+For more information and sample scripts to use for these steps, see the
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/technotes/guides/javaws/developersguide/contents.html">Java Web Start Guide</a>.
+</blockquote>
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=running.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=packaging.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Running Java Web Start Applications
+        <br><b>Next page:</b> Developing Java Web Start Applications
+    </div>
+    </body>
+</html> 

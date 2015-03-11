@@ -1,0 +1,190 @@
+@main("jQuery AJAX") {
+
+	<div class="container">
+
+		<div class="row">
+			<div class="sixcol">
+				<h4>AJAX</h4>
+				<pre class="code">
+					$.ajax({
+					url: '/ajax',
+					success: function(data, textStatus, jqXHR) {
+					window.alert(data);
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+					window.alert(textStatus);
+					}
+					});
+				</pre>
+				<button id="ajax">Run</button>
+			</div>
+			<div class="twocol input">&nbsp;</div>
+			<div class="fourcol last output">&nbsp;</div>
+		</div>
+
+		<div class="row">
+			<div class="sixcol">
+				<h4>AJAX - error handling</h4>
+				<pre class="code">
+					$.ajax({
+					url: '/ajaxWithError',
+					success: function(data, textStatus, jqXHR) {
+					window.alert(data);
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+					window.alert(textStatus);
+					}
+					});
+				</pre>
+				<button id="badAjaxCall">Run</button>
+			</div>
+			<div class="twocol input"></div>
+			<div class="fourcol last output"></div>
+		</div>
+
+		<div class="row">
+			<div class="sixcol">
+				<h4>GET</h4>
+				<pre class="code">
+					var getText = $('#getText');
+					$.get('/get',
+					{foo: getText.val()},
+					function(data) {
+					getText.val('');
+					window.alert(data);
+					});
+				</pre>
+				<button id="get">Run</button>
+			</div>
+			<div class="twocol input">
+				<input type="text" id="getText"/>
+			</div>
+			<div class="fourcol last output"></div>
+		</div>
+
+		<div class="row">
+			<div class="sixcol">
+				<h4>GET - error handling</h4>
+				<pre class="code">
+					$.get('/getWithError')
+					.success(function(data) {
+					window.alert('Success: ' + data);
+					})
+					.error(function(data) {
+					window.alert('Error: ' + data.responseText);
+					})
+					.complete(function(data) {
+					window.alert('The call is now complete');
+					});
+				</pre>
+				<button id="getWithError">Run</button>
+			</div>
+			<div class="twocol input"></div>
+			<div class="fourcol last output"></div>
+		</div>
+
+		<div class="row">
+			<div class="sixcol">
+				<h4>POST</h4>
+				<pre class="code">
+					var postText = $('#postText');
+					$.post('/post',
+					{'foo':postText.val()},
+					function(data) {
+					postText.val('');
+					$('#messages li:last').after('&lt;li&gt;' + data + '&lt;/li&gt;');
+					});
+				</pre>
+				<button id="post">Run</button>
+			</div>
+			<div class="twocol input">
+				<input type="text" id="postText"/>
+			</div>
+			<div class="fourcol last output">
+				<ul id="messages">
+				</ul>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="sixcol">
+				<h4>Get JSON</h4>
+				<pre class="code">
+					$.getJSON('/getJson',
+					function(data) {
+					$.each(data, function(key, val) {
+					window.alert(key + ':' + val.content);
+					});
+					});
+				</pre>
+				<button id="getJson">Run</button>
+			</div>
+			<div class="twocol input"></div>
+			<div class="fourcol last output"></div>
+		</div>
+
+		<div class="row">
+			<div class="sixcol">
+				<h4>Get script</h4>
+				<pre class="code">
+					$('#getScript').click(function() {
+					$.getScript('/getScript');
+					});
+				</pre>
+				<button id="getScript">Run</button>
+			</div>
+			<div class="twocol input"></div>
+			<div class="fourcol last output"></div>
+		</div>
+
+		<div class="row">
+			<div class="sixcol">
+				<h4>Get script - error handling</h4>
+				<pre class="code">
+					$.getScript('/getScriptWithError')
+					.done(function(script, textStatus) {
+					window.alert('Done: ' + textStatus);
+					})
+					.fail(function(jqxhr, settings, exception) {
+					window.alert('Fail: ' + exception);
+					});
+				</pre>
+				<button id="getScriptWithError">Run</button>
+			</div>
+			<div class="twocol input"></div>
+			<div class="fourcol last output"></div>
+		</div>
+
+		<div class="row">
+			<div class="sixcol">
+				<h4>Load</h4>
+				<pre class="code">
+					$('#load').click(function() {
+					$('#loadContainer').load('/load');
+					});
+				</pre>
+				<button id="load">Run</button>
+			</div>
+			<div class="twocol input"></div>
+			<div class="fourcol last output">
+				<div id="loadContainer"></div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="sixcol">
+				<h4>Load fragment</h4>
+				<pre class="code">
+					$('#loadFragment').click(function() {
+					$('#loadFragmentContainer').load('/load #aList');
+					});
+				</pre>
+				<button id="loadFragment">Run</button>
+			</div>
+			<div class="twocol input"></div>
+			<div class="fourcol last output">
+				<div id="loadFragmentContainer"></div>
+			</div>
+		</div>
+	</div>
+}

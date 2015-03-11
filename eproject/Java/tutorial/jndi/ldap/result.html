@@ -1,0 +1,470 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Search Results (The Java&trade; Tutorials &gt; 
+            Java Naming and Directory Interface(TM). &gt; Advanced Topics for LDAP Users)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> Java Naming and Directory Interface(TM).
+        <br><b>Lesson:</b> Advanced Topics for LDAP Users
+        <br><b>Section:</b> More LDAP Operations
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">Advanced Topics for LDAP Users</a></div>
+<div class="linkAHEAD"><a href="ldap.html">LDAP v3</a></div>
+<div class="linkAHEAD"><a href="jndi.html">JNDI as an LDAP API</a></div>
+<div class="linkBHEAD"><a href="operations.html">How LDAP Operations Map to JNDI APIs</a></div>
+<div class="linkBHEAD"><a href="exceptions.html">How LDAP Error Codes Map to JNDI Exceptions</a></div>
+<div class="linkAHEAD"><a href="security.html">Security</a></div>
+<div class="linkBHEAD"><a href="authentication.html">Modes of Authenticating to LDAP</a></div>
+<div class="linkBHEAD"><a href="auth_mechs.html">Authentication Mechanisms</a></div>
+<div class="linkBHEAD"><a href="anonymous.html">Anonymous</a></div>
+<div class="linkBHEAD"><a href="simple.html">Simple</a></div>
+<div class="linkBHEAD"><a href="sasl.html">SASL</a></div>
+<div class="linkBHEAD"><a href="digest.html">Digest-MD5</a></div>
+<div class="linkBHEAD"><a href="ssl.html">SSL and Custom Sockets</a></div>
+<div class="linkAHEAD"><a href="rename.html">More LDAP Operations</a></div>
+<div class="linkBHEAD"><a href="compare.html">LDAP Compare</a></div>
+<div class="nolinkBHEAD">Search Results</div>
+<div class="linkBHEAD"><a href="unsol.html"> LDAP Unsolicited Notifications</a></div>
+<div class="linkAHEAD"><a href="connect.html">Connection Management</a></div>
+<div class="linkBHEAD"><a href="create.html">Creation</a></div>
+<div class="linkBHEAD"><a href="close.html"> Closing</a></div>
+<div class="linkBHEAD"><a href="pool.html">Pooling</a></div>
+<div class="linkBHEAD"><a href="config.html">Configuration</a></div>
+<div class="linkAHEAD"><a href="faq.html">Frequently Asked Questions</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>Java Naming and Directory Interface(TM).</a>
+                &gt;
+                <a href=index.html target=_top>Advanced Topics for LDAP Users</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=compare.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=unsol.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Search Results</div>
+            <blockquote>
+When you use the search methods in the
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/directory/DirContext.html"><tt>DirContext</tt></a>     interface,
+you get back a 
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/NamingEnumeration.html"><tt>NamingEnumeration</tt></a>.
+Each item in <tt>NamingEnumeration</tt> is a
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/directory/SearchResult.html"><tt>SearchResult</tt></a>, which contains the following information:
+<ul>
+<li><a href=#NAME>Name</a>
+<li><a href=#OBJ>Object</a>
+<li><a href=#CLASS>Class name</a>
+<li><a href=#ATTRS>Attributes</a>
+</ul>
+
+<a name=NAME><h4>Name</h4></a>
+
+Each <tt>SearchResult</tt> contains the name of the LDAP entry that satisfied
+the search filter. You obtain the name of the entry by using
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/NameClassPair.html#getName()"><tt>getName()</tt></a>.
+This method returns the 
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/CompositeName.html"><tt>composite name</tt></a> of the LDAP entry <em>relative</em> to
+the <em>target context</em>. The target context is the context 
+to which the
+<tt>name</tt> parameter resolves.
+In LDAP parlance, the target context is the <em>base object</em> for the search.
+Here's an example.
+<blockquote><pre>
+NamingEnumeration answer = ctx.search("ou=NewHires", 
+    "(&amp;(mySpecialKey={0}) (cn=*{1}))",      // Filter expression
+    new Object[]{key, name},                // Filter arguments
+    null);				    // Default search controls
+</pre></blockquote>
+The target context in this example is that named by 
+<tt>"ou=NewHires"</tt>.
+The names in <tt>SearchResult</tt>s in <tt>answer</tt>
+are relative to <tt>"ou=NewHires"</tt>.
+For example, if <tt>getName()</tt> returns <tt>"cn=J. Duke"</tt>,
+then its name relative to <tt>ctx</tt> will be 
+<tt>"cn=J. Duke, ou=NewHires"</tt>.
+<p>
+If you performed the search by using
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/directory/SearchControls.html#SUBTREE_SCOPE"><tt>SearchControls.SUBTREE_SCOPE</tt></a>     or
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/directory/SearchControls.html#OBJECT_SCOPE"><tt>SearchControls.OBJECT_SCOPE</tt></a>     and the target context itself satisfied the search filter,
+then the name returned will be "" (the empty name) because that is
+the name relative to the target context.
+<p>
+This isn't the whole story. If the search involves referrals
+(see the
+<a class="APILink" target="_blank" href="http://java.sun.com/products/jndi/tutorial/ldap/referral/index.html">JNDI Tutorial </a>     )
+or dereferencing aliases (see the
+<a class="APILink" target="_blank" href="http://java.sun.com/products/jndi/tutorial/ldap/misc/aliases.html">JNDI Tutorial</a>     ), then the corresponding <tt>SearchResult</tt>s will have names
+that are not relative to the target context.
+Instead, they will be URLs that refer directly to the entry.
+To determine whether the name returned by <tt>getName()</tt> is relative
+or absolute, use
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/NameClassPair.html#isRelative()"><tt>isRelative()</tt></a>. If this method returns <tt>true</tt>, then the name is relative
+to the target context; if it returns <tt>false</tt>, the name is a URL.
+<p>
+If the name is a URL and you need to use that URL, then you can pass it to the
+initial context, which understands URLs (see the
+<a class="APILink" target="_blank" href="http://java.sun.com/products/jndi/tutorial/ldap/misc/url.html">JNDI Tutorial</a>     ).
+<p>
+If you need to get the entry's full DN, 
+you can use 
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/NameClassPair.html#getNameInNamespace()"><tt>NameClassPair.getNameInNamespace()</tt></a>.
+<a name=OBJ><h4>Object</h4></a>
+
+If the search was conducted requesting that the entry's object be returned
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/directory/SearchControls.html#setReturningObjFlag(boolean)">(<tt>SearchControls.setReturningObjFlag()</tt></a>     was invoked with <tt>true</tt>),
+then <tt>SearchResult</tt> will contain an object that represents the entry.
+To retrieve this object, you invoke
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/Binding.html#getObject()"><tt>getObject()</tt></a>.
+If a <tt>java.io.Serializable</tt>,
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/Referenceable.html"><tt>Referenceable</tt></a>, or
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/Reference.html"><tt>Reference</tt></a>     object was previously bound to that LDAP name, 
+then the attributes from the entry are used to reconstruct that object
+(see the example in the
+<a class="APILink" target="_blank" href="http://java.sun.com/products/jndi/tutorial/objects/reading/search.html">JNDI Tutorial</a>     ).
+Otherwise, the attributes from the entry are used to create
+a <tt>DirContext</tt> instance that represents the LDAP entry.
+In either case,
+the LDAP provider invokes
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/spi/DirectoryManager.html#getObjectInstance(java.lang.Object, javax.naming.Name, javax.naming.Context, java.util.Hashtable, javax.naming.directory.Attributes)"><tt>DirectoryManager.getObjectInstance()</tt></a>  on the object and returns the results.
+
+<a name=CLASS><h4>Class Name</h4></a>
+
+If the search was conducted requesting that the entry's object be returned,
+then the class name is derived from the returned object.
+If the search requested attributes that included the retrieval
+of the <tt>"javaClassName"</tt> attribute of the LDAP entry, then the
+class name is the value of that attribute.
+Otherwise, the class name is <tt>"javax.naming.directory.DirContext"</tt>.
+The class name is obtained from
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/NameClassPair.html#getClassName()"><tt>getClassName()</tt></a>.
+
+<a name=ATTRS><h4>Attributes</h4></a>
+
+When you perform a search, you can select the return attributes
+either by supplying a parameter to one of the
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/directory/DirContext.html#search(javax.naming.Name, javax.naming.directory.Attributes, java.lang.String[])"><tt>search()</tt></a>     methods or by setting the search controls using
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/directory/SearchControls.html#setReturningAttributes(java.lang.String[])"><tt>SearchControls.setReturningAttributes()</tt></a>.
+If no attributes have been specified explicitly, 
+then all of the LDAP entry's attributes
+are returned. To specify that no attributes be returned, you must
+pass an empty array (<tt>new String[0]</tt>).
+<p>
+To retrieve the LDAP entry's attributes, you invoke
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/naming/directory/SearchResult.html#getAttributes()"><tt>getAttributes()</tt></a>     on the <tt>SearchResult</tt>.
+
+<h4>Response Controls</h4>
+
+See the
+
+<a class="APILink" target="_blank" href="http://java.sun.com/products/jndi/tutorial/ldap/ext/response.html">Controls and Extensions</a>lesson of the JNDI Tutorial for details on how to retrieve a search result's response controls.
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=compare.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=unsol.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> LDAP Compare
+        <br><b>Next page:</b>  LDAP Unsolicited Notifications
+    </div>
+    </body>
+</html> 

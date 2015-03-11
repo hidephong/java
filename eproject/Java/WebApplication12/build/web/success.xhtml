@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>welcome: <h:outputText value="#{login.username}"/> </h1>
+            <h:dataTable value="#{listBean.list}" var="s" border="1">
+                <h:column>
+                    <h:outputText value="#{s.id}"/>
+                </h:column>
+                <h:column>
+                    <h:outputText value="#{s.name}"/>
+                </h:column>
+                <h:column>
+                    <!--
+                    <h:commandButton value="view detail" action="{listBean.viewDetail}">
+                        <f:param name="thu" value="{s.id}"/>
+                    </h:commandButton> -->
+                    <a href="didauchadc.xhtml?id=#{s.id}">view detail</a>
+                    
+                </h:column>
+            </h:dataTable>
+            <h:selectOneMenu value="#{listBean.selectedValue}" onchange="submit()"
+                             valueChangeListener="#{listBean.changeValue}">
+                <f:selectItems value="#{listBean.listForCombo}"/>
+            </h:selectOneMenu>
+        </h:form>
+    </h:body>
+</html>
+

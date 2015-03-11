@@ -1,0 +1,489 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Strings (The Java&trade; Tutorials &gt; 
+            Learning the Java Language &gt; Numbers and Strings)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> Learning the Java Language
+        <br><b>Lesson:</b> Numbers and Strings
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">Numbers and Strings</a></div>
+<div class="linkAHEAD"><a href="numbers.html">Numbers</a></div>
+<div class="linkBHEAD"><a href="numberclasses.html">The Numbers Classes</a></div>
+<div class="linkBHEAD"><a href="numberformat.html">Formatting Numeric Print Output</a></div>
+<div class="linkBHEAD"><a href="beyondmath.html">Beyond Basic Arithmetic</a></div>
+<div class="linkBHEAD"><a href="numbersummary.html">Summary of Numbers</a></div>
+<div class="linkQUESTIONS"><a href="QandE/numbers-questions.html">Questions and Exercises</a></div>
+<div class="linkAHEAD"><a href="characters.html">Characters</a></div>
+<div class="nolinkAHEAD">Strings</div>
+<div class="linkBHEAD"><a href="converting.html">Converting Between Numbers and Strings</a></div>
+<div class="linkBHEAD"><a href="manipstrings.html">Manipulating Characters in a String</a></div>
+<div class="linkBHEAD"><a href="comparestrings.html">Comparing Strings and Portions of Strings</a></div>
+<div class="linkBHEAD"><a href="buffers.html">The StringBuilder Class</a></div>
+<div class="linkBHEAD"><a href="stringsummary.html">Summary of Characters and Strings</a></div>
+<div class="linkQUESTIONS"><a href="QandE/characters-questions.html">Questions and Exercises</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>Learning the Java Language</a>
+                &gt;
+                <a href=index.html target=_top>Numbers and Strings</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=characters.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=converting.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Strings</div>
+            <blockquote>
+<!-- Strings -->
+Strings, which are widely used in Java programming, are a sequence of characters. 
+In the Java programming language, strings are objects.
+<p>
+The Java platform provides the 
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/java/lang/String.html"><code>String</code> </a> class to create and manipulate strings.
+<h3 fmstyle=C-Head>Creating Strings</h3>
+The most direct way to create a string is to write:
+<blockquote><pre>
+String greeting = "Hello world!";
+</pre></blockquote>
+In this case, "Hello world!" is a <i>string literal</i>&#151;a 
+series of characters in your code that is enclosed in double quotes. Whenever it encounters a string literal 
+in your code, the compiler 
+creates a <code>String</code> object with its value&mdash;in this case, <code>Hello world!</code>. 
+<p>
+As with any other object, you can create <code>String</code> objects by using the 
+<code>new</code> keyword and a constructor.
+The <code>String</code> class has 11 constructors that allow
+you to provide the initial value of the string using different sources,
+such as an array of characters:
+<blockquote><pre>
+char[] helloArray = { 'h', 'e', 'l', 'l', 'o', '.'};
+String helloString = new String(helloArray);
+System.out.println(helloString);
+</pre></blockquote>
+
+The last line of this code snippet displays <code>hello</code>.
+<p>
+<blockquote><hr><strong>Note:</strong>&nbsp;The <code>String</code> class is
+immutable, so that once it is created a <code>String</code> object cannot be changed. 
+The <code>String</code> class has a number of methods, some of which will be discussed below, 
+that appear to modify strings. Since strings are immutable, what these methods
+really do is create and return a new string that contains the result of the operation.
+<hr></blockquote>
+
+<h3 fmstyle=C-Head>String Length</h3>
+Methods used to obtain information about an object are known as <em>accessor methods</em>. 
+One accessor method that you can use with strings is the <code>length()</code> method, 
+which returns the number of characters contained in the string object. 
+After the following two lines of code have been executed, <code>len</code> equals 17: 
+<blockquote><pre>
+String palindrome = "Dot saw I was Tod";
+int len = palindrome.length();
+</pre></blockquote>
+A <i>palindrome</i> is a word or sentence that is symmetric&mdash;it is spelled the same 
+forward and backward, ignoring case and punctuation. Here is a short and 
+inefficient program to reverse a 
+palindrome string. It invokes the <code>String</code> method <code>charAt(i)</code>, which returns 
+the i<SUP><FONT SIZE="-1">th</FONT></SUP> character in the string, counting from 0.
+
+<blockquote><pre>
+public class StringDemo {
+    public static void main(String[] args) {
+        String palindrome = &quot;Dot saw I was Tod&quot;;
+        int len = palindrome.length();
+        char[] tempCharArray = new char[len];
+        char[] charArray = new char[len];
+        
+        // put original string in an array of chars
+        for (int i = 0; i &lt; len; i++) {
+            tempCharArray[i] = palindrome.charAt(i);
+        } 
+        
+        // reverse array of chars
+        for (int j = 0; j &lt; len; j++) {
+            charArray[j] = tempCharArray[len - 1 - j];
+        }
+        
+        String reversePalindrome =  new String(charArray);
+        System.out.println(reversePalindrome);
+    }
+}</pre></blockquote>
+Running the program produces this output:
+<blockquote><pre>
+doT saw I was toD
+</pre></blockquote>
+To accomplish the string reversal, the program had to convert the string to an array of 
+characters (first <code>for</code> loop), 
+reverse the array into a second array (second <code>for</code> loop), and then convert back to a string. The 
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/java/lang/String.html"><code>String</code> </a> class includes a method, <code>getChars()</code>, to convert a string, or a portion of a string, into 
+an array of characters so we could replace the first <code>for</code> loop 
+in the program above with
+<blockquote><pre>
+palindrome.getChars(0, len - 1, tempCharArray, 0);
+</pre></blockquote>
+<h3 fmstyle=C-Head>Concatenating Strings</h3>
+The <code>String</code> class includes a method for concatenating two strings:
+<blockquote><pre>
+string1.concat(string2); 
+</pre></blockquote>
+This returns a new string that is string1 with string2 added to it at the end.
+<p>
+You can also use the <code>concat()</code> method with string literals, as in:
+<blockquote><pre>
+"My name is ".concat("Rumplestiltskin");
+</pre></blockquote>
+Strings are more commonly concatenated with the <code><b>+</b></code> operator, as in 
+<blockquote><pre>
+"Hello," + " world" + "!"
+</pre></blockquote>
+which results in
+<blockquote><pre>
+"Hello, world!"
+</pre></blockquote>
+The <code><b>+</b></code> operator is widely used in <code>print</code> statements. For example:
+<blockquote><pre>
+String string1 = "saw I was ";
+System.out.println("Dot " + string1 + "Tod");
+</pre></blockquote>
+which prints
+<blockquote><pre>
+Dot saw I was Tod
+</pre></blockquote>
+Such a concatenation can be a mixture of any objects. For each object that is not a <code>String</code>, 
+its <code>toString()</code> method is called to convert it to a <code>String</code>. 
+<blockquote><hr><strong>Note:</strong>&nbsp;The Java programming language does not permit literal strings to span lines in source files, 
+so you must use the <code>+</code> concatenation operator at the end of each line in a 
+multi-line string. For 
+example,
+<blockquote><pre>
+String quote = "Now is the time for all good " +
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"men to come to the aid of their country.";
+</pre></blockquote>
+Breaking strings between lines using the <code>+</code> concatenation operator is, once 
+again, very common in <code>print</code> statements.
+<hr></blockquote>
+<h3 fmstyle=C-Head>Creating Format Strings</h3>
+You have seen the use of the <code>printf()</code> and <code>format()</code> methods to print output with 
+formatted numbers. The <code>String</code> class has an equivalent class method, <code>format()</code>, 
+that returns a <code>String</code> object rather than a <code>PrintStream</code> object. 
+<p>
+Using <code>String's</code> static <code>format()</code> method allows you to create a 
+formatted string that you can reuse, as opposed to a one-time print statement. For example, instead of 
+<blockquote><pre>
+System.out.printf("The value of the float variable is %f, while the value of the " + 
+                   "integer variable is %d, and the string is %s", floatVar, intVar, stringVar); 
+</pre></blockquote>
+you can write 
+<blockquote><pre>
+String fs;
+fs = String.format("The value of the float variable is %f, while the value of the " + 
+                   "integer variable is %d, and the string is %s", floatVar, intVar, stringVar);
+System.out.println(fs);
+</pre></blockquote>
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=characters.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=converting.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Characters
+        <br><b>Next page:</b> Converting Between Numbers and Strings
+    </div>
+    </body>
+</html> 

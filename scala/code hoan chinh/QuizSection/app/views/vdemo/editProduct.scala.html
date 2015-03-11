@@ -1,0 +1,20 @@
+@(demoForm: Form[Demo])(implicit flash: Flash, lang: Lang)
+@import helper._
+@import helper.twitterBootstrap._
+
+@main(Messages("demos.form")) {
+  <h2>@Messages("demos.form")</h2>
+
+  @helper.form(action = routes.DemoController.save()) {
+    <fieldset>
+      <legend>
+        @Messages("products.details", Messages("products.new"))
+      </legend>
+      @helper.inputText(demoForm("firstname"))
+      @helper.inputText(demoForm("lastname"))
+      @helper.textarea(demoForm("company"))
+    </fieldset>
+    <p><input type="submit" class="btn primary"
+        value='@Messages("products.new.submit")'></p>
+  }
+}

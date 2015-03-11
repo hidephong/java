@@ -1,0 +1,423 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Lesson: Getting Started with Graphics (The Java&trade; Tutorials &gt; 2D Graphics)</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+    </head>
+<body>
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                    <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                        <br>
+                    </div> 
+                </div> </div> </div> </div> </div>
+
+    <div class=MainFlow_wide>
+        <div class=PrintHeaders>
+            <b>Trail:</b> 2D Graphics
+        </div>
+        <div id=BreadCrumbs>
+            <a href=../../index.html target=_top>Home Page</a>
+        &gt;
+            <a href=../index.html target=_top>2D Graphics</a>
+        </div>
+        <div class=NavBit>
+                <a target=_top href=../overview/index.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=../geometry/index.html>Next&nbsp;&raquo;</a>
+        </div>
+        <div id=PageTitle>Lesson: Getting Started with Graphics</div>
+        <blockquote>
+The Java 2D&trade; API is powerful and complex. However, the vast
+majority of uses for the Java 2D API utilize a small subset of its capabilities
+encapsulated in the <CODE>java.awt.Graphics</CODE> class. This lesson covers the most common
+needs of applications developers. Less common needs are  described later
+in the <a href="../advanced/index.html">Advanced topics in the Java 2D API</a> lesson.
+<P>
+Most methods of the 
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/java/awt/Graphics.html"><code>Graphics</code></a> class can be divided into two basic groups:
+<UL>
+ <LI>Draw and fill methods, enabling you to render basic shapes, text, and images</LI>
+ <LI>Attributes setting methods, which affect how that drawing and filling appears</LI>
+</UL>
+
+<P>Methods such as <CODE>setFont</CODE> and <CODE>setColor</CODE> define how draw and fill methods render.
+<P>This figure illustrates how these methods relate to graphic objects:
+<P>
+<p><center><IMG SRC="../../figures/2d/graphicMethods.gif" WIDTH="277" HEIGHT="265" ALIGN="BOTTOM" ALT="This figure represents basic methods of the Graphics class "></center></p>
+<P>Drawing methods include:
+<UL>
+<LI><CODE>drawString</CODE> &ndash; For drawing text</LI>
+<pre>
+   g.drawString("Hello", 10, 10);
+</pre>
+<LI><CODE>drawImage</CODE> &ndash; For drawing images</LI>
+<pre>
+   g.drawImage(img, 
+                    0, 0, width, height,
+                    0, 0, imageWidth, imageHeight,
+                    null);                    
+
+</pre>
+<LI><CODE>drawLine</CODE>, <CODE>drawArc</CODE>, <CODE>drawRect</CODE>, 
+<CODE>drawOval</CODE>, <CODE>drawPolygon</CODE> &ndash; For drawing geometric shapes</LI>
+<pre>
+g2.draw(new Line2D.Double(0, 0, 30, 40));
+</pre>
+</UL>
+
+<P>Depending on your current need, you can choose one of several methods in the <CODE>Graphics</CODE>
+class based on the following criteria:
+
+<UL>
+<LI>Whether you want to render the image at the specified location in its original size or 
+scale it to fit inside the given rectangle</LI>
+<LI>Whether you prefer to fill the transparent areas of the image with color or keep
+them transparent</LI>
+</UL>
+
+<P>
+Fill methods apply to geometric shapes and include <CODE>fillArc</CODE>, <CODE>fillRect</CODE>, 
+<CODE>fillOval</CODE>, <CODE>fillPolygon</CODE>.
+
+
+<P>
+<P>
+Whether you draw a line of text or an image, remember that
+in 2D graphics every point is determined by its x and y <a href="../overview/coordinate.html">
+coordinates</a>. All of the draw and fill methods need this information which determines
+where the text or image should be rendered.
+<P>
+For example, to draw a line, an application calls the following:
+<P>
+<CODE>java.awt.Graphics.drawLine(int x1, int y1, int x2, int y2)</CODE>
+<P>
+In this code <EM class="Emphasis">(x1, y1)</EM> is the start point of the line, and
+<EM class="Emphasis">(x2, y2)</EM> is the end point of the line.
+<P>
+So the code to draw a horizontal line is as follows:
+<P>
+<CODE>Graphics.drawLine(20, 100, 120, 100); </CODE>
+
+<p>The demo below accumulates all mentioned techniques.
+Move the slider to display various weather
+types. 
+
+<P align="center">
+<APPLET code="WeatherWizard.class" width=750 height=125 codebase="examples/" 
+width=400 height=250></APPLET>
+
+<blockquote><hr><strong>Note:</strong> If you don't see the applet running above, you need to install <a href="http://java.sun.com/javase/downloads/index.jsp">release 6 of the JDK</a>.</P>
+</blockquote>
+<p>The <code>WeatherWizard</code> demo uses the <code>JSlider</code> component 
+as well as various graphics capabilities to generate and display a specified weather type.
+For more information about the <code>JSlider</code> class see the 
+<a class="TutorialLink" target="_top" href="../../uiswing/components/slider.html">How to Use Sliders</a> section of the Swing Tutorial. </p>
+<p>The <code>paint</code> method of the <code>WeatherPainter</code> class 
+implements graphics features. The following code draws an image determined by using
+the <code>setupWeatherReport()</code> method.
+<blockquote><pre>
+        ...
+        origComposite = g2.getComposite();
+        if (alpha0 != null) g2.setComposite(alpha0);
+        g2.drawImage(img0,
+                0, 0, size.width, size.height,
+                0, 0, img0.getWidth(null), img0.getHeight(null),
+                null);
+        if (img1 != null) {
+            if (alpha1 != null) g2.setComposite(alpha1);
+            g2.drawImage(img1,
+                    0, 0, size.width, size.height,
+                    0, 0, img1.getWidth(null), img1.getHeight(null),
+                    null);
+        } 
+        ...
+</pre></blockquote>
+<p>The <code>setFont</code> and <code>drawString</code> methods 
+render the temperature and the weather condition.
+<blockquote><pre>
+        ...
+        // Freezing, Cold, Cool, Warm, Hot,
+        // Blue, Green, Yellow, Orange, Red
+        Font font = new Font("Serif", Font.PLAIN, 36);
+        g.setFont(font);
+        
+        String tempString = feels + " " + temperature+"F";
+        FontRenderContext frc = ((Graphics2D)g).getFontRenderContext();
+        ...
+        g.setColor(textColor);
+        int xTextTemp = rX-(int)boundsTemp.getX();
+        int yTextTemp = rY-(int)boundsTemp.getY();
+        g.drawString(tempString, xTextTemp, yTextTemp);
+        
+        int xTextCond = rX-(int)boundsCond.getX();
+        int yTextCond = rY-(int)boundsCond.getY() + (int)boundsTemp.getHeight();
+        g.drawString(condStr, xTextCond, yTextCond);
+	
+</pre></blockquote>
+<p>The <code>fillRect</code> method allows you to draw a rectangle filled with the specified color.
+<blockquote><pre>
+        ...
+        Rectangle2D boundsTemp = font.getStringBounds(tempString, frc);
+        Rectangle2D boundsCond = font.getStringBounds(condStr, frc);
+        int wText = Math.max((int)boundsTemp.getWidth(), (int)boundsCond.getWidth());
+        int hText = (int)boundsTemp.getHeight() + (int)boundsCond.getHeight();
+        int rX = (size.width-wText)/2;
+        int rY = (size.height-hText)/2;
+        
+        g.setColor(Color.LIGHT_GRAY);
+        g2.fillRect(rX, rY, wText, hText);
+	...
+</pre></blockquote>
+Try to modify the <code>WeatherWizard</code> demo to alter the graphical content.
+For example, use the <code>fillRoundRect</code> method instead of <code>fillRect</code> or apply 
+another font size in the <code>setFont</code> method.
+
+Find the complete code for this applet in the 
+<a class="SourceLink" target="_blank" href="examples/WeatherWizard.java"><code>WeatherWizard.java</code></a> file. The demo also requires the following images: 
+<a class="SourceLink" target="_blank" href="examples/images/weather-cloud.png"><code>weather-cloud.png</code></a>,
+<a class="SourceLink" target="_blank" href="examples/images/weather-rain.png"><code>weather-rain.png</code></a>,
+<a class="SourceLink" target="_blank" href="examples/images/weather-snow.png"><code>weather-snow.png</code></a>, and
+<a class="SourceLink" target="_blank" href="examples/images/weather-sun.png"><code>weather-sun.png</code></a> located in the <code>images</code> directory.
+<p>
+
+        </blockquote>
+    <div class=NavBit>
+        <a href=../overview/index.html>&laquo; Previous</a>
+        &bull;
+        <a href=../TOC.html>Trail</a>
+        &bull;
+        <a href=../geometry/index.html>Next &raquo;</a>
+    </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Previous Lesson
+        <br><b>Next page:</b> Working with Geometry
+    </div>
+    </body>
+</html> 

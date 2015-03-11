@@ -1,0 +1,19 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET        /                    controllers.Quiz_App.index
+GET        /ans.json            controllers.Quiz_App.ansJson
+GET        /getJson             controllers.Quiz_App.getJson
+
+GET        /getAns              controllers.Quiz_App.getAns
+#GET       /gen                 controllers.Application.genModels
+POST        /getQuest            controllers.Quiz_App.getQuest(a:String)
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET        /assets/*file        controllers.Assets.at(path="/public", file)
+
+    

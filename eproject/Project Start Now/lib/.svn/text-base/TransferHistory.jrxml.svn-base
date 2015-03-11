@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TransferHistory" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     TransferRecord."RecordID" AS TransferRecord_RecordID,
+     TransferRecord."RelievingDate" AS TransferRecord_RelievingDate,
+     TransferRecord."ReportingManager" AS TransferRecord_ReportingManager,
+     TransferRecord."Allowance" AS TransferRecord_Allowance,
+     TransferRecord."CreationDate" AS TransferRecord_CreationDate,
+     TransferRecord."TransferReason" AS TransferRecord_TransferReason,
+     TransferRecord."Status" AS TransferRecord_Status,
+     Employee."EmployeeName" AS Employee_EmployeeName,
+     Department."DepartmentName" AS Department_DepartmentName,
+     Project."ProjectName" AS Project_ProjectName
+FROM
+     "dbo"."Employee" Employee INNER JOIN "dbo"."TransferRecord" TransferRecord ON Employee."EmployeeID" = TransferRecord."EmployeeID"
+     INNER JOIN "dbo"."WorkItem" WorkItem ON Employee."WorkItemID" = WorkItem."WorkItemID"
+     AND WorkItem."WorkItemID" = TransferRecord."WorkItemID"
+     INNER JOIN "dbo"."Department" Department ON WorkItem."DepartmentID" = Department."DepartmentID"
+     INNER JOIN "dbo"."Project" Project ON WorkItem."ProjectID" = Project."ProjectID"]]>
+	</queryString>
+	<field name="TransferRecord_RecordID" class="java.lang.Integer"/>
+	<field name="TransferRecord_RelievingDate" class="java.sql.Timestamp"/>
+	<field name="TransferRecord_ReportingManager" class="java.lang.String"/>
+	<field name="TransferRecord_Allowance" class="java.math.BigDecimal"/>
+	<field name="TransferRecord_CreationDate" class="java.sql.Timestamp"/>
+	<field name="TransferRecord_TransferReason" class="java.lang.String"/>
+	<field name="TransferRecord_Status" class="java.lang.String"/>
+	<field name="Employee_EmployeeName" class="java.lang.String"/>
+	<field name="Department_DepartmentName" class="java.lang.String"/>
+	<field name="Project_ProjectName" class="java.lang.String"/>
+	<group name="Project_ProjectName">
+		<groupExpression><![CDATA[$F{Project_ProjectName}]]></groupExpression>
+	</group>
+	<group name="Department_DepartmentName">
+		<groupExpression><![CDATA[$F{Department_DepartmentName}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="28" y="11" width="426" height="56"/>
+				<textElement>
+					<font size="38" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Transfer Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="36" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="28" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="28" y="0" width="157" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement/>
+				<text><![CDATA[Employee]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="185" y="0" width="100" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement/>
+				<text><![CDATA[Department]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="285" y="0" width="270" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+				<textElement/>
+				<text><![CDATA[Project]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="28" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{TransferRecord_RecordID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="28" y="0" width="157" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Employee_EmployeeName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Department_DepartmentName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Project_ProjectName}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="26" width="555" height="4"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

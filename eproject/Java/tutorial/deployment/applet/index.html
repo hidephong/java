@@ -1,0 +1,488 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Lesson: Applets (The Java&trade; Tutorials &gt; Deployment)</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                    <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                        <br>
+                        <a href="javascript:toggleLeft()"
+                            id="ToggleLeft">Hide the TOC</a>
+                    </div> 
+                </div> </div> </div> </div> </div>
+
+    <div id=LeftBar>
+        <div id=Contents>
+            <div class="nolinkLESSON">Applets</div>
+<div class="linkAHEAD"><a href="getStarted.html">Getting Started with Applets</a></div>
+<div class="linkBHEAD"><a href="import.html">Importing Classes and Packages for Applets</a></div>
+<div class="linkBHEAD"><a href="subclass.html">Defining an Applet Subclass</a></div>
+<div class="linkBHEAD"><a href="lifeCycle.html">The Life Cycle of an Applet</a></div>
+<div class="linkBHEAD"><a href="appletMethods.html">Methods for Milestones</a></div>
+<div class="linkBHEAD"><a href="componentMethods.html">Methods for Drawing and Event Handling</a></div>
+<div class="linkBHEAD"><a href="containerMethods.html">Methods for Adding UI Components</a></div>
+<div class="linkBHEAD"><a href="security.html">What Applets Can and Can't Do</a></div>
+<div class="linkAHEAD"><a href="appletsonlyindex.html">Taking Advantage of the Applet API</a></div>
+<div class="linkBHEAD"><a href="data.html">Finding and Loading Data Files</a></div>
+<div class="linkBHEAD"><a href="showStatus.html">Displaying Short Status Strings</a></div>
+<div class="linkBHEAD"><a href="browser.html">Displaying Documents in the Browser</a></div>
+<div class="linkBHEAD"><a href="iac.html">Sending Messages to Other Applets</a></div>
+<div class="linkBHEAD"><a href="sound.html">Playing Sounds</a></div>
+<div class="linkBHEAD"><a href="param.html">Defining and Using Applet Parameters</a></div>
+<div class="linkCHEAD"><a href="paramQs.html">Deciding Which Parameters to Support</a></div>
+<div class="linkCHEAD"><a href="getParam.html">Writing the Code to Support Parameters</a></div>
+<div class="linkCHEAD"><a href="paramInfo.html">Giving Information about Parameters</a></div>
+<div class="linkBHEAD"><a href="html.html">Using the APPLET Tag	</a></div>
+<div class="linkAHEAD"><a href="practicalindex.html">Practical Considerations When Writing Applets</a></div>
+<div class="linkBHEAD"><a href="security_practical.html">Security Restrictions</a></div>
+<div class="linkBHEAD"><a href="ui.html">Creating a User Interface</a></div>
+<div class="linkCHEAD"><a href="gui.html">Creating a GUI</a></div>
+<div class="linkCHEAD"><a href="stdout.html">Displaying Diagnostics to the Standard Output and Error Streams</a></div>
+<div class="linkBHEAD"><a href="properties.html">Getting System Properties</a></div>
+<div class="linkBHEAD"><a href="threads.html">Threads in Applets</a></div>
+<div class="linkCHEAD"><a href="threadExample.html">Threads in Applets: Examples</a></div>
+<div class="linkBHEAD"><a href="server.html">Working with a Server-Side Application </a></div>
+<div class="linkCHEAD"><a href="clientExample.html">A Simple Network Client Applet</a></div>
+<div class="linkCHEAD"><a href="workaround.html">Using a Server to Work Around Security Restrictions</a></div>
+<div class="linkAHEAD"><a href="finishingindex.html">Finishing an Applet</a></div>
+<div class="linkBHEAD"><a href="checklist.html">Before You Ship that Applet</a></div>
+<div class="linkBHEAD"><a href="perfect.html">The Perfectly Finished Applet</a></div>
+<div class="linkAHEAD"><a href="deployindex.html">Deploying Applets</a></div>
+<div class="linkBHEAD"><a href="generaldeploy.html">General Deployment Considerations</a></div>
+<div class="linkBHEAD"><a href="applettag.html">Using the applet Tag</a></div>
+<div class="linkBHEAD"><a href="objecttag.html">Using the object Tag</a></div>
+<div class="linkBHEAD"><a href="embedtag.html">Using the embed Tag</a></div>
+<div class="linkBHEAD"><a href="mixedbrowser.html">Deploying Applets in a Mixed-Browser Environment</a></div>
+<div class="linkAHEAD"><a href="problemsindex.html">Solving Common Applet Problems</a></div>
+<div class="linkQUESTIONS"><a href="QandE/questions.html">Questions and Exercises</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+        <div class=PrintHeaders>
+            <b>Trail:</b> Deployment
+        </div>
+        <div id=BreadCrumbs>
+            <a href=../../index.html target=_top>Home Page</a>
+        &gt;
+            <a href=../index.html target=_top>Deployment</a>
+        </div>
+        <div class=NavBit>
+                <a target=_top href=../webstart/index.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=getStarted.html>Next&nbsp;&raquo;</a>
+        </div>
+        <div id=PageTitle>Lesson: Applets</div>
+        <blockquote>
+<!-- Lesson: Applets -->
+
+</blockquote>
+<blockquote>
+This lesson talks about the basics of applets, advantages of applets over applications, how to load applets in a web page, how to convert applications to applets and how applets work. You should thoroughly understand this lesson before going further in this trail.
+<p> An applet is a special kind of Java program that a browser enabled with Java
+technology can download from the internet and run.
+An applet is typically embedded  inside a web-page and runs in the
+context of the browser. An applet must be a subclass of the
+<code>java.applet.Applet</code> class, which provides the standard
+interface between the applet and the browser environment.</p>
+<p> Swing provides a special subclass of Applet, called
+<code>javax.swing.JApplet</code>, which should be used for all
+applets that use Swing components to construct their GUIs.</p>
+<p> By calling certain methods, a browser manages an applet life cycle,
+if an applet is loaded in a web page.
+<p><b>Life Cycle of an Applet</b>: Basically,
+there are four methods in the <code>Applet</code> class on which any applet is built. 
+<li><b>init</b>: This method is intended for whatever initialization is needed for your applet. It is called after the param attributes of the applet tag. 
+<li><b>start</b>: This method is automatically called after init method. It is also called whenever user returns to the page containing the applet after visiting other pages. 
+<li><b>stop</b>: This method is automatically called whenever the user moves away from the page containing applets. You can use this method to stop an animation. 
+<li><b>destroy</b>: This method is only called when the browser shuts down normally. 
+<p> Thus, the applet can be initialized once and only once, started and stopped one or more times in its life, and destroyed once and only once.</p>
+For more information on Life Cylce of an Applet, please refer to 
+
+<a class="TutorialLink" target="_top" href="lifeCycle.html">The Life Cycle of an Applet</a>
+section.
+
+<h4><p><b>When to write Applets vs. Applications</b></p></h4>
+
+<p>In the early days of Java,  one of the critical advantages that Java applets had over Java applications was that applets could be easily deployed over  
+the web while Java applications required a more cumbersome installation process. Additionally, since applets are downloaded from the internet, by default they have to run in a restricted security environment, called the "sandbox", to ensure they don't perform any destructive operations on the user's computer, such as reading/writing to the filesystem.</p>
+<p> However,  the introduction of 
+<a class="TutorialLink" target="_top" href="../webstart/index.html">Java Web Start</a>has made it possible for Java applications to also be easily deployed over the web, as well as run in a secure environment. This means that the predominant difference between a Java applet and a Java application is that an applet runs in the context of a web browser, being typically embedded within an html page, while a Java application runs standalone, outside the browser. Thus, applets are particularly well suited for providing functions in a web page which require more interactivity or animation than HTML can provide, such as a graphical game, complex editing, or interactive data visualization. The end user is able to access the functionality without leaving the browser.</p>
+
+<h4><p><b>Loading Applets in a Web Page</b></p></h4>
+
+In order to load an applet in a web page, you must specify the applet class with appropriate applet tags. A simple example is below:
+
+<blockquote><pre>
+    &lt;applet code=AppletWorld.class width="200" height="200"&gt;
+    &lt;/applet&gt; 
+</pre></blockquote>
+
+<p>
+For development and testing purposes, you can run your applet using the lightweight appletviewer application that comes with the JDK. For example, if  
+AppletWorld.html is the html file name, then you run the command as 
+
+<blockquote><pre>
+	<code>appletviewer AppletWorld.html</code>
+</pre></blockquote>
+
+<p>Once you know your applet runs within the appletviewer, it is important to test your applet running in a web browser by loading the applet's web page into the browser window. The browser can retrieve the class files either from the internet or from the local working directory used during development.    If you make changes to your applet's code while it is loaded in the browser, then you must recompile the applet and press the "Shift + Reload" button  
+in the browser to load the new version.</p>
+
+<!--    GET STARTED     -->
+
+<h3>
+<a class="TutorialLink" target="_top" href="getStarted.html">Getting Started with Applets</a></h3>
+<blockquote>
+This section tells you how applets work. When you want a program to run directly in a browser window, you want an applet.
+</blockquote>
+
+<!--    APPLET API -->
+<h3>
+<a class="TutorialLink" target="_top" href="appletsonlyindex.html">Taking Advantage of the Applet API</a></h3>
+<blockquote>
+This section describes how to use the API to which only applets have access. It covers sound, applet parameters, the <code>&lt;APPLET&gt;</code> tag, interapplet communication, and making requests to the browser.
+</blockquote>
+
+
+<!--    PRACTICAL CONSIDERATIONS -->
+
+<h3>
+<a class="TutorialLink" target="_top" href="practicalindex.html">Practical Considerations When Writing Applets</a></h3>
+<blockquote>
+This section discusses topics that are covered elsewhere in this tutorial but that are affected by the applet environment. For example, it mentions some factors you should consider when writing the graphical user interface (GUI) for your applet. It also talks about security restrictions on applets and how a server-side application can help you
+get around those restrictions. 
+</blockquote>
+
+
+<!--    FINISHING AN APPLET    -->
+<h3>
+<a class="TutorialLink" target="_top" href="finishingindex.html">Finishing an Applet</a></h3>
+<blockquote>
+This section describes the characteristics of a high-quality applet.
+It includes <a href="checklist.html">Before You Ship That Applet</a>,
+a checklist of some annoying behaviors you should avoid in your applet.
+</blockquote>
+
+<!--    Deploying     -->
+
+<h3>
+<a class="TutorialLink" target="_top" href="deployindex.html">Deploying Applets</a></h3>
+<blockquote>
+This section explains to HTML authors how and when to use the <code>applet</code>, <code>object</code>, and <code>embed</code> tags to add Java applets to Web pages. 
+</blockquote>
+
+
+<!--    COMMON PROBLEMS    -->
+<h3>
+<a class="TutorialLink" target="_top" href="problemsindex.html">Common Problems (and Their Solutions)</a></h3>
+<blockquote>
+This section explains the solutions to some problems you might run into while writing your applet.
+</blockquote>
+
+<!--    COMMON PROBLEMS    -->
+<h3>
+<a class="TutorialLink" target="_top" href="QandE/questions.html">Questions and Exercises: Applets</a></h3>
+<blockquote>
+Test what you've learned about applets.
+</blockquote>
+
+
+<h3>Additional References</h3>
+<blockquote>
+This lesson is intended to get you started with applets and Java Plug-in and does not include all available documentation. For more information about applets, see the following:
+<ul>
+<li>
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/technotes/guides/plugin/developer_guide/contents.html">Java Plug-in Developer Guide</a></li>
+</blockquote>
+</blockquote>
+        </blockquote>
+    <div class=NavBit>
+        <a href=../webstart/index.html>&laquo; Previous</a>
+        &bull;
+        <a href=../TOC.html>Trail</a>
+        &bull;
+        <a href=getStarted.html>Next &raquo;</a>
+    </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Previous Lesson
+        <br><b>Next page:</b> Getting Started with Applets
+    </div>
+    </body>
+</html> 

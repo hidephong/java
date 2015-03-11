@@ -1,0 +1,824 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Setting Up Tables (The Java&trade; Tutorials &gt; 
+            JDBC(TM) Database Access &gt; JDBC Basics)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> JDBC(TM) Database Access
+        <br><b>Lesson:</b> JDBC Basics
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">JDBC Basics</a></div>
+<div class="linkAHEAD"><a href="gettingstarted.html">Getting Started</a></div>
+<div class="linkAHEAD"><a href="settingup.html">Setting Up a Database</a></div>
+<div class="linkAHEAD"><a href="connecting.html">Establishing a Connection</a></div>
+<div class="nolinkAHEAD">Setting Up Tables</div>
+<div class="linkAHEAD"><a href="retrieving.html">Retrieving Values from Result Sets</a></div>
+<div class="linkAHEAD"><a href="updating.html">Updating Tables</a></div>
+<div class="linkAHEAD"><a href="milestone.html">Milestone: The Basics of JDBC</a></div>
+<div class="linkAHEAD"><a href="prepared.html">Using Prepared Statements</a></div>
+<div class="linkAHEAD"><a href="joins.html">Using Joins</a></div>
+<div class="linkAHEAD"><a href="transactions.html">Using Transactions</a></div>
+<div class="linkAHEAD"><a href="storedprocedures.html">Stored Procedures</a></div>
+<div class="linkAHEAD"><a href="sql.html">SQL Statements for Creating a Stored Procedure</a></div>
+<div class="linkAHEAD"><a href="complete.html">Creating Complete JDBC Applications </a></div>
+<div class="linkAHEAD"><a href="running.html">Running the Sample Applications</a></div>
+<div class="linkAHEAD"><a href="applet.html">Creating an Applet from an Application</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>JDBC(TM) Database Access</a>
+                &gt;
+                <a href=index.html target=_top>JDBC Basics</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=connecting.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=retrieving.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Setting Up Tables</div>
+            <blockquote>
+
+
+For the following examples, you need to create a few tables in your database. The first table, <CODE>COFFEES</CODE>, contains the essential information about the coffees sold at The Coffee Break, including the coffee names, their prices, the number of pounds sold the current week, and the number of pounds sold to date. The table <CODE>
+COFFEES</CODE>, which is describe in more detail later, is shown here:
+<P>
+<TABLE BORDER="1">
+<TR>
+<TH ROWSPAN="1" COLSPAN="1">
+<h3 CLASS="TSH-Table-Side-Head">
+<A NAME="pgfId=1009401">
+ </A>
+COF_NAME</h3>
+</TH>
+<TH ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009403">
+ </A>
+SUP_ID</P>
+</TH>
+<TH ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009405">
+ </A>
+PRICE</P>
+</TH>
+<TH ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009407">
+ </A>
+SALES</P>
+</TH>
+<TH ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009409">
+ </A>
+TOTAL</P>
+</TH>
+</TR>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<h3 CLASS="TSH-Table-Side-Head">
+<A NAME="pgfId=1009411">
+ </A>
+Colombian</h3>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009413">
+ </A>
+101</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009415">
+ </A>
+7.99</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009417">
+ </A>
+0</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009419">
+ </A>
+0</P>
+</TD>
+</TR>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<h3 CLASS="TSH-Table-Side-Head">
+<A NAME="pgfId=1009421">
+ </A>
+French_Roast</h3>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009423">
+ </A>
+49</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009425">
+ </A>
+8.99</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009427">
+ </A>
+0</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009429">
+ </A>
+0</P>
+</TD>
+</TR>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<h3 CLASS="TSH-Table-Side-Head">
+<A NAME="pgfId=1009431">
+ </A>
+Espresso</h3>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009433">
+ </A>
+150</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009435">
+ </A>
+9.99</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009437">
+ </A>
+0</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009439">
+ </A>
+0</P>
+</TD>
+</TR>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<h3 CLASS="TSH-Table-Side-Head">
+<A NAME="pgfId=1009441">
+ </A>
+Colombian_Decaf</h3>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009443">
+ </A>
+101</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009445">
+ </A>
+8.99</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009447">
+ </A>
+0</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009449">
+ </A>
+0</P>
+</TD>
+</TR>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<h3 CLASS="TSH-Table-Side-Head">
+<A NAME="pgfId=1009491">
+ </A>
+French_Roast_Decaf</h3>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009493">
+ </A>
+49</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009495">
+ </A>
+9.99</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009497">
+ </A>
+0</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1009499">
+ </A>
+0</P>
+</TD>
+</TR>
+</TABLE>
+<p>
+The Tables Used in the Example Database</b>
+</p>
+<P>
+<A NAME="pgfId=1009215">
+ </A>
+The column storing the coffee name is <CODE>
+COF_NAME</CODE>, and it holds values with an SQL type of <CODE>
+VARCHAR</CODE> and a maximum length of 32 characters. Since the names are different for each type of coffee sold, the name uniquely identifies a particular coffee and serves as the primary key. The second column, named <CODE>
+SUP_ID</CODE>, holds a number identifying the coffee supplier; this number is of SQL type <CODE>INTEGER</CODE>. The third column, called <CODE>PRICE</CODE>, stores values with an SQL type of <CODE>FLOAT</CODE> because it needs to hold values with decimal points. (Note that money values would normally be stored in an SQL type <CODE>
+DECIMAL</CODE> or <CODE>NUMERIC</CODE>, but because of differences among DBMSs and to avoid incompatibility with older versions of JDBC, you are using the more standard type <CODE>FLOAT</CODE> for this tutorial.) The column named <CODE>SALES</CODE>
+ stores values of SQL type <CODE>INTEGER</CODE> and indicates the number of pounds of coffee sold during the current week. The final column, <CODE>TOTAL</CODE>, contains an SQL <CODE>INTEGER</CODE>, which gives the total number of pounds of coffee sold to date.</P>
+<P>
+<CODE>SUPPLIERS</CODE>, the second table in our database, gives information about each of the suppliers:
+<p>
+<TABLE BORDER="1">
+<TR>
+<TH ROWSPAN="1" COLSPAN="1">
+<h3 CLASS="TSH-Table-Side-Head">
+<A NAME="pgfId=1012832">
+ </A>
+SUP_ID</h3>
+</TH>
+<TH ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1012834">
+ </A>
+SUP_NAME</P>
+</TH>
+<TH ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1012836">
+ </A>
+STREET</P>
+</TH>
+<TH ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1012838">
+ </A>
+CITY</P>
+</TH>
+<TH ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1012840">
+ </A>
+STATE</P>
+</TH>
+<TH ROWSPAN="1" COLSPAN="1">
+<P CLASS="TAB-Table-Body">
+<A NAME="pgfId=1012842">
+ </A>
+ZIP</P>
+</TH>
+</TR>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012844">
+ </A>
+101</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012846">
+ </A>
+Acme, Inc.</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012848">
+ </A>
+99 Market Street</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012850">
+ </A>
+Groundsville</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012852">
+ </A>
+CA</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012854">
+ </A>
+95199</P>
+</TD>
+</TR>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012856">
+ </A>
+49</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012858">
+ </A>
+Superior Coffee</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012860">
+ </A>
+1 Party Place</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012862">
+ </A>
+Mendocino</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012864">
+ </A>
+CA</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012866">
+ </A>
+95460</P>
+</TD>
+</TR>
+<TR>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012868">
+ </A>
+150</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012870">
+ </A>
+The High Ground</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012872">
+ </A>
+100 Coffee Lane</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012874">
+ </A>
+Meadows</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012876">
+ </A>
+CA</P>
+</TD>
+<TD ROWSPAN="1" COLSPAN="1">
+<P CLASS="CellBody">
+<A NAME="pgfId=1012878">
+ </A>
+93966</P>
+</TD>
+</TR>
+</TABLE>
+<P>
+<A NAME="pgfId=1009602">
+ </A>
+The tables <CODE>COFFEES</CODE> and <CODE>SUPPLIERS</CODE>
+ both contain the column <CODE>SUP_ID</CODE>. These two tables can be used in <CODE>SELECT</CODE> statements to get data based on the information in both tables. The column <CODE>SUP_ID</CODE> is the primary key in the table <CODE>
+SUPPLIERS</CODE>, and as such, it uniquely identifies each of the coffee suppliers. In the table <CODE>COFFEES</CODE>, <CODE>SUP_ID</CODE> is called a foreign key. (You can think of a foreign key as being foreign in the sense that it is imported from another table.) Note that each <CODE>SUP_ID</CODE> number appears only once in the <CODE>SUPPLIERS</CODE>
+ table; this is required for it to be a primary key. In the <CODE>
+COFFEES</CODE> table, where it is a foreign key, it is all right for there to be duplicate <CODE>SUP_ID</CODE> numbers because one supplier may sell many types of coffee. Later in this chapter, you see an example of how to use primary and foreign keys in a <CODE>
+SELECT</CODE> statement.</P>
+ 
+ <h3>Creating Tables</h3> 
+ 
+ <p>You can create your tables in at least three ways:
+ </p>
+ <ul>
+ <li>Using the database or IDE graphical interface</li><br>
+ <li>Using ANT</li><br>
+ <li>Using JDBC SQL written into an application</li><br>
+ </ul>
+ 
+ <h4>Creating a Tables Using the NetBeans IDE</h4>
+ <p>
+ Most database vendors provide a graphical user interface (GUI) that makes creating tables in your database easy. In addition, many IDEs, such as the NetBeans IDE, also provides an easy-to-use GUI for table creation.
+ </p>
+ <p>
+ For example, in the NetBeans&trade; 5.0 IDE, creating tables in the Java DB&trade; database is easy. After starting the database, either through the pull-down menu, or by right-clicking Databases, you add tables simply by right-clicking the <b>Tables</b> icon and selecting BBBCreate Table.</b> You get a dialog box that looks like the one below:
+ </p>
+
+<p><center><IMG SRC="../../figures/jdbc/CreatTable.jpg" WIDTH="470   " HEIGHT="233     " ALIGN="BOTTOM" ALT="Table creator in NetBeans  "></center></p> 
+
+ <p>
+ Fill in the dialog box fields and the NetBeans IDE creates the table. Adding or deleting rows is just as easy. Right-click the table to want to edit.
+ 
+ 
+ 
+ <h4>Creating Tables Using ANT</h4>
+ 
+ <p>
+ First, you can use a properties file to feed ANT, which has a simple <code>sql</code> target. Create a simple properties file, such as the one below:
+ </p>
+ 
+ <blockquote><pre>
+ # Database properties are in derby.properties
+ db.delimiter=;
+ db.root=${javaee.home}/derby
+ db.driver=org.apache.derby.jdbc.ClientDriver
+ db.datasource=org.apache.derby.jdbc.ClientDataSource
+ db.host=localhost
+ db.port=1527
+ db.sid=sun-appserv-samples
+ db.url=jdbc:derby://${db.host}:${db.port}/${db.sid};create=true;
+ db.user=APP
+ db.pwd=APP 
+ </pre></blockquote>
+ 
+ <p>
+ Next, create a <code>build.xml</code> file that includes targets for compiling the Java code as well as a target similar to the following: 
+ </p>
+ <p>
+ <blockquote><pre>
+ &lt;target name="create-db_common" depends="init,start-db,delete-db" 
+               description="Create database tables and populate database."&gt;
+ -
+    &lt;sql driver="${db.driver}" url="${db.url}" userid="${db.user}" 
+         password="${db.password}" classpathref="db.classpath" 
+                 delimiter="${db.delimiter}" autocommit="false" onerror="abort"&gt;
+ &lt;transaction src="
+          {javaee.tutorial.home}/examples/common/sql/${db.vendor}/tutorial.sql"/&gt;
+ &lt;/sql&gt;
+ &lt;/target&gt;
+</pre></blockquote>
+ 
+ <p>
+ The <code>tutorial.sql</code> file can contain the commands to create the tables and, possibly, populate the tables if need be, such as the example below:
+ </p>
+ <blockquote><pre>
+ create table COFFEES(cof_name varchar32, price int, sup_id int,
+ price float, sales int, total int);
+ 
+ </pre></blockquote>
+ 
+ <p>
+ 
+ The ';' matches the <code>db.delimiter</code> property.
+ </p>
+ <p>
+ NetBeans contains everything you need, including the Java DB and <code>ANT.</code> <a href="http://www.netbeans.org/downloads/">Download NetBeans</a>.
+</p>
+ 
+<h4>Using SQL in an Application</h4>
+
+Finally, you can create tables from within the application code itself. The following SQL statement creates the table named  <CODE>COFFEES</CODE>. The entries within the outer pair of parentheses consist of the name of a column followed by a space and the SQL type to be stored in that column. A comma separates the entry for one column (consisting of column name and SQL type) from the next one. To be sure you are using the correct syntax, see your DBMS documentation. For the Java DB, read the current <a href="http://db.apache.org/derby/manuals/">documentation</a>.
+
+<P>
+This code does not end with a DBMS statement terminator, which can vary from DBMS to DBMS. For example, Oracle uses a semicolon (;) to indicate the end of a statement, and Sybase uses the word <CODE>go</CODE>. The driver you are using will automatically supply the appropriate statement terminator, and you will not need to include it in your JDBC code.</P>
+
+Note: In the <CODE>CREATE</CODE> <CODE>TABLE</CODE> statement, key words are printed in all capital letters, and each item is on a separate line. SQL does not require either; these conventions simply make statements easier to read. The standard in SQL is that keywords are not case sensitive, so, for example, the following <CODE>SELECT</CODE> statement can be written various ways. As an example, these two versions below are equivalent as far as SQL is concerned:</P>
+<blockquote><pre>
+SELECT SUP_NAME, CITY
+FROM Suppliers
+WHERE SUP_NAME LIKE &quot;Acme, Inc&quot;
+select SUP_Name, CITY from Suppliers where
+SUP_NAME like &quot;Acme, Inc;
+</pre></blockquote>
+<P>
+Quoted material, however, is case sensitive: in the name &quot;<CODE>
+Washington,</CODE>&quot; <CODE>W</CODE> must be capitalized, and the rest of the letters must be lowercase. </P>
+<P>
+Requirements can vary from one DBMS to another when it comes to identifier names.
+
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=connecting.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=retrieving.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Establishing a Connection
+        <br><b>Next page:</b> Retrieving Values from Result Sets
+    </div>
+    </body>
+</html> 

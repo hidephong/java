@@ -1,0 +1,461 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Running the Sample Applications (The Java&trade; Tutorials &gt; 
+            JDBC(TM) Database Access &gt; JDBC Basics)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> JDBC(TM) Database Access
+        <br><b>Lesson:</b> JDBC Basics
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">JDBC Basics</a></div>
+<div class="linkAHEAD"><a href="gettingstarted.html">Getting Started</a></div>
+<div class="linkAHEAD"><a href="settingup.html">Setting Up a Database</a></div>
+<div class="linkAHEAD"><a href="connecting.html">Establishing a Connection</a></div>
+<div class="linkAHEAD"><a href="tables.html">Setting Up Tables</a></div>
+<div class="linkAHEAD"><a href="retrieving.html">Retrieving Values from Result Sets</a></div>
+<div class="linkAHEAD"><a href="updating.html">Updating Tables</a></div>
+<div class="linkAHEAD"><a href="milestone.html">Milestone: The Basics of JDBC</a></div>
+<div class="linkAHEAD"><a href="prepared.html">Using Prepared Statements</a></div>
+<div class="linkAHEAD"><a href="joins.html">Using Joins</a></div>
+<div class="linkAHEAD"><a href="transactions.html">Using Transactions</a></div>
+<div class="linkAHEAD"><a href="storedprocedures.html">Stored Procedures</a></div>
+<div class="linkAHEAD"><a href="sql.html">SQL Statements for Creating a Stored Procedure</a></div>
+<div class="linkAHEAD"><a href="complete.html">Creating Complete JDBC Applications </a></div>
+<div class="nolinkAHEAD">Running the Sample Applications</div>
+<div class="linkAHEAD"><a href="applet.html">Creating an Applet from an Application</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>JDBC(TM) Database Access</a>
+                &gt;
+                <a href=index.html target=_top>JDBC Basics</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=complete.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=applet.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Running the Sample Applications</div>
+            <blockquote>
+You are now ready to actually try out some sample code. The directory <CODE CLASS="Code">
+book.html</CODE>
+ contains complete, runnable applications that illustrate concepts presented in this chapter and the next. You can download this sample code from the JDBC web site located at:</P>
+<blockquote><pre>
+
+<a class="OutsideLink" target="_blank" href="http://java.sun.com/products/jdbc/reference/codesamples/index.html">JDBC Technology Code Samples</a> </pre></blockquote>
+<P CLASS="Body">
+<A NAME="pgfId=1001591">
+ </A>
+Before you can run one of these applications, you will need to edit the file by substituting the appropriate information for the following variables: </P>
+<dl>
+<DT CLASS="UNL-Head">
+<A NAME="pgfId=1009861">
+ </A>
+<strong>
+<CODE CLASS="Code">
+url</CODE></strong>
+</DT>
+<DD CLASS="UNL">
+<A NAME="pgfId=1023462">
+ </A>
+the JDBC URL; parts one and two are supplied by your driver, and the third part specifies your data source</DD>
+<DT CLASS="UNL-Head">
+<A NAME="pgfId=1009862">
+ </A>
+<strong>
+<CODE CLASS="Code">
+myLogin</CODE></strong>
+</DT>
+<DD CLASS="UNL">
+<A NAME="pgfId=1023457">
+ </A>
+your login name or user name</DD>
+<DT CLASS="UNL-Head">
+<A NAME="pgfId=1009863">
+ </A>
+<strong>
+<CODE CLASS="Code">
+myPassword</CODE></strong>
+</DT>
+<DD CLASS="UNL">
+<A NAME="pgfId=1023458">
+ </A>
+your password for the DBMS</DD>
+<DT CLASS="UNL-Head">
+<A NAME="pgfId=1009864">
+ </A>
+<strong>
+<CODE CLASS="Code">
+myDriver.ClassName</CODE></strong>
+</DT>
+<DD CLASS="UNL1">
+<A NAME="pgfId=1023459">
+ </A>
+the class name supplied with your driver</DD>
+</dl>
+<P CLASS="Body">
+<A NAME="pgfId=1002398">
+ </A>
+The first example application is the class <CODE CLASS="Code">
+CreateCoffees</CODE>
+, which is in a file named
+
+<a class="SourceLink" target="_blank" href="examples/CreateCoffees.java"><code><CODE>CreateCoffees.java</CODE></code></a>.
+Below are instructions for running <CODE CLASS="Code">
+CreateCoffees.java</CODE>
+ on the three major platforms.</P>
+<P CLASS="Body">
+<A NAME="pgfId=1002459">
+ </A>
+The first line in the instructions below compiles the code in the file <CODE CLASS="Code">
+CreateCoffees.java</CODE>
+. If the compilation is successful, it will produce a file named <CODE CLASS="Code">
+CreateCoffees.class</CODE>
+, which contains the bytecodes translated from the file <CODE CLASS="Code">
+CreateCoffees.java</CODE>
+. These bytecodes will be interpreted by the Java Virtual Machine, which is what makes it possible for Java code to run on any machine with a Java Virtual Machine installed on it.</P>
+<P CLASS="Body">
+<A NAME="pgfId=1002460">
+ </A>
+The second line of code is what actually makes the code run. Note that you use the name of the class, <CODE CLASS="Code">
+CreateCoffees</CODE>
+, not the name of the file, <CODE CLASS="Code">
+CreateCoffees.class</CODE>
+.</P>
+<dl>
+<DT CLASS="UNL-Head1">
+<A NAME="pgfId=1002406">
+ </A>
+<strong>
+<CODE CLASS="Code">
+UNIX</CODE></strong>
+</DT>
+<DD CLASS="UNL">
+<blockquote><pre>
+javac CreateCoffees.java
+java CreateCoffees
+</pre></blockquote>
+</CODE>
+</DD>
+<DT CLASS="UNL-Head2">
+<A NAME="pgfId=1002427">
+ </A>
+<strong><CODE CLASS="Code">
+Windows 95/NT</CODE></strong>
+</DT>
+<DD CLASS="UNL">
+<A NAME="pgfId=1002435">
+ </A>
+<blockquote><pre>
+javac CreateCoffees.java
+java CreateCoffees
+</pre></blockquote>
+</DD>
+</DL>
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=complete.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=applet.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Creating Complete JDBC Applications 
+        <br><b>Next page:</b> Creating an Applet from an Application
+    </div>
+    </body>
+</html> 

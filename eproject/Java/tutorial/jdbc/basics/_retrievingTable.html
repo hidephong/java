@@ -1,0 +1,663 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Use of ResultSet.getXXX: Table-Free Versions (The Java&trade; Tutorials &gt; JDBC(TM) Database Access &gt;
+            JDBC Basics)</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+    </head>
+<body>
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                        </div>
+                            <div class=PrintHeaders>
+                                <b>Trail:</b> JDBC(TM) Database Access
+                                <br><b>Lesson:</b> JDBC Basics
+                            </div>
+                    </div> </div> </div> </div> </div>
+
+    <div class=MainFlow_wide>
+        <span id=BreadCrumbs>
+            <a href=../../index.html target=_top>Home Page</a>
+            &gt;
+            <a href=../index.html target=_top>JDBC(TM) Database Access</a>
+            &gt;
+            <a href=index.html target=_top>JDBC Basics</a>
+        </span>
+        <div class=NavBit>
+            <a href=retrieving.html>&laquo; Previous</a>&nbsp;&bull;&nbsp;<a href=../TOC.html>TOC</a>
+        </div>
+        <div id=PageTitle>Use of ResultSet.getXXX: Table-Free Versions</div>
+        <blockquote>
+Because the large table in 
+<a class="TutorialLink" target="_top" href="retrieving.html">Getting Started</a> can be hard to read (especially with screen readers),
+this page presents two alternate versions of the table's data.
+The first version displays the information you can get
+by looking down each column of the table.
+The second displays the information
+for each row of the table.
+
+<ul>
+<li> <a href="#table1">Version 1:
+     How to read each JDBC type
+     </a>
+<li> <a href="#table2">Version 2:
+     Which types each ResultSet.getXXX method can read
+     </a>
+
+</ul>
+
+If you have any suggestions for improving this page,
+please <a href="http://developer.sun.com/contact/tutorial_feedback.jsp" target="_top">tell us</a>.
+
+
+
+<a name="table1">
+<h3>
+Version 1: How to read each JDBC type
+</h3>
+</a>
+
+This section lists the ResultSet.getXXX methods
+recommended and allowed for retrieving data of each JDBC type.
+
+<dl>
+<dt>
+TINYINT: getByte (recommended)
+</dt>
+<dd>
+   Can also be read using getShort, getInt, getLong,
+   getFloat, getDouble, getBigDecimal, getBoolean,
+   getString, getObject
+</dd>
+
+<p>
+<dt>
+SMALLINT: getShort (recommended)
+</dt>
+<dd>
+   Can also be read using getByte, getInt, getLong,
+   getFloat, getDouble, getBigDecimal, getBoolean,
+   getString, getObject
+</dd>
+
+<p>
+<dt>
+INTEGER: getInt (recommended)
+</dt>
+<dd>
+   Can also be read using getByte, getShort, getLong,
+   getFloat, getDouble, getBigDecimal, getBoolean,
+   getString, getObject
+</dd>
+
+<p>
+<dt>
+BIGINT: getLong (recommended)
+</dt>
+<dd>
+   Can also be read using getByte, getShort, getInt,
+   getFloat, getDouble, getBigDecimal, getBoolean,
+   getString, getObject
+</dd>
+
+<p>
+<dt>
+REAL: getFloat (recommended)
+</dt>
+<dd>
+   Can also be read using getByte, getShort, getInt,
+   getLong, getDouble, getBigDecimal, getBoolean,
+   getString, getObject
+</dd>
+
+<p>
+<dt>
+FLOAT: getDouble (recommended)
+</dt>
+<dd>
+   Can also be read using getByte, getShort, getInt,
+   getLong, getFloat, getBigDecimal, getBoolean,
+   getString, getObject
+</dd>
+
+<p>
+<dt>
+DOUBLE: getDouble (recommended)
+</dt>
+<dd>
+   Can also be read using getByte, getShort, getInt,
+   getLong, getFloat, getBigDecimal, getBoolean,
+   getString, getObject
+</dd>
+
+<p>
+<dt>
+DECIMAL: getBigDecimal (recommended)
+</dt>
+<dd>
+   Can also be read using getByte, getShort, getInt,
+   getLong, getFloat, getDouble, getBoolean,
+   getString, getObject
+</dd>
+
+<p>
+<dt>
+NUMERIC: getBigDecimal (recommended)
+</dt>
+<dd>
+   Can also be read using getByte, getShort, getInt,
+   getLong, getFloat, getDouble, getBoolean,
+   getString, getObject
+</dd>
+
+<p>
+<dt>
+BIT: getBoolean (recommended)
+</dt>
+<dd>
+   Can also be read using getByte, getShort, getInt,
+   getLong, getFloat, getDouble, getBigDecimal,
+   getString, getObject
+</dd>
+
+<p>
+<dt>
+CHAR: getString (recommended)
+</dt>
+<dd>
+   Can also be read using getByte, getShort, getInt,
+   getLong, getFloat, getDouble, getBigDecimal,
+   getBoolean, getDate, getTime, getTimestamp,
+   getAsciiStream, getUnicodeStream, getObject
+</dd>
+
+<p>
+<dt>
+VARCHAR: getString (recommended)
+</dt>
+<dd>
+   Can also be read using getByte, getShort, getInt,
+   getLong, getFloat, getDouble, getBigDecimal,
+   getBoolean, getDate, getTime, getTimestamp,
+   getAsciiStream, getUnicodeStream, getObject
+</dd>
+
+<p>
+<dt>
+LONGVARCHAR: getAsciiStream, getUnicodeStream (both recommended)
+</dt>
+<dd>
+   Can also be read using getByte, getShort, getInt,
+   getLong, getFloat, getDouble, getBigDecimal,
+   getBoolean, getString, getDate, getTime, getTimestamp,
+   getObject
+</dd>
+
+<p>
+<dt>
+BINARY: getBytes (recommended)
+</dt>
+<dd>
+   Can also be read using getString, getAsciiStream, 
+   getUnicodeStream, getBinaryStream, getObject
+</dd>
+
+<p>
+<dt>
+VARBINARY: getBytes (recommended)
+</dt>
+<dd>
+   Can also be read using getString, getAsciiStream, 
+   getUnicodeStream, getBinaryStream, getObject
+</dd>
+
+<p>
+<dt>
+LONGVARBINARY: getBinaryStream (recommended)
+</dt>
+<dd>
+   Can also be read using getString, getBytes, 
+   getAsciiStream, getUnicodeStream, getObject
+</dd>
+
+<p>
+<dt>
+DATE: getDate (recommended)
+</dt>
+<dd>
+   Can also be read using getString, getTimestamp, 
+   getObject
+</dd>
+
+<p>
+<dt>
+TIME: getTime (recommended)
+</dt>
+<dd>
+   Can also be read using getString, getTimestamp, 
+   getObject
+</dd>
+
+<p>
+<dt>
+TIMESTAMP: getTimestamp (recommended)
+</dt>
+<dd>
+   Can also be read using getString, getDate, getTime, 
+   getObject
+</dl>
+
+
+
+<a name="table2">
+<h3>
+Version 2: Which types each ResultSet.getXXX method can read
+</h3>
+</a>
+
+This section lists the JDBC types
+that each ResultSet.getXXX method supports.
+
+<dl>
+<dt>
+getByte: TINYINT (recommended)
+</dt>
+<dd>
+   Can also read SMALLINT, INTEGER, BIGINT, 
+   REAL, FLOAT, DOUBLE, DECIMAL, NUMERIC, BIT, CHAR,
+   VARCHAR, LONGVARCHAR
+</dd>
+
+<p>
+<dt>
+getShort: SMALLINT (recommended)
+</dt>
+<dd>
+   Can also read TINYINT, INTEGER, BIGINT, 
+   REAL, FLOAT, DOUBLE, DECIMAL, NUMERIC, BIT, CHAR,
+   VARCHAR, LONGVARCHAR
+</dd>
+
+<p>
+<dt>
+getInt: INTEGER (recommended)
+</dt>
+<dd>
+   Can also read TINYINT, SMALLINT, BIGINT, 
+   REAL, FLOAT, DOUBLE, DECIMAL, NUMERIC, BIT, CHAR,
+   VARCHAR, LONGVARCHAR
+</dd>
+
+<p>
+<dt>
+getLong: BIGINT (recommended)
+</dt>
+<dd>
+   Can also read TINYINT, SMALLINT, INTEGER, 
+   REAL, FLOAT, DOUBLE, DECIMAL, NUMERIC, BIT, CHAR,
+   VARCHAR, LONGVARCHAR
+</dd>
+
+<p>
+<dt>
+getFloat: REAL (recommended)
+</dt>
+<dd>
+   Can also read TINYINT, SMALLINT, INTEGER, 
+   BIGINT, FLOAT, DOUBLE, DECIMAL, NUMERIC, BIT, CHAR,
+   VARCHAR, LONGVARCHAR
+</dd>
+
+<p>
+<dt>
+getDouble: FLOAT, DOUBLE (both recommended)
+</dt>
+<dd>
+   Can also read TINYINT, SMALLINT, INTEGER, 
+   BIGINT, REAL, DECIMAL, NUMERIC, BIT, CHAR,
+   VARCHAR, LONGVARCHAR
+</dd>
+
+<p>
+<dt>
+getBigDecimal: DECIMAL, NUMERIC (both recommended)
+</dt>
+<dd>
+   Can also read TINYINT, SMALLINT, INTEGER, 
+   BIGINT, REAL, FLOAT, DOUBLE, BIT, CHAR,
+   VARCHAR, LONGVARCHAR
+</dd>
+
+<p>
+<dt>
+getBoolean: BIT (recommended)
+</dt>
+<dd>
+   Can also read TINYINT, SMALLINT, INTEGER, 
+   BIGINT, REAL, FLOAT, DOUBLE, DECIMAL, NUMERIC, CHAR,
+   VARCHAR, LONGVARCHAR
+</dd>
+
+<p>
+<dt>
+getString: CHAR, VARCHAR (both recommended)
+</dt>
+<dd>
+   Can also read TINYINT, SMALLINT, INTEGER, 
+   BIGINT, REAL, FLOAT, DOUBLE, DECIMAL, NUMERIC, BIT, 
+   LONGVARCHAR, BINARY, VARBINARY, LONGVARBINARY, DATE,
+   TIME, TIMESTAMP
+</dd>
+
+<p>
+<dt>
+getBytes: BINARY, VARBINARY (both recommended)
+</dt>
+<dd>
+   Can also read LONGVARBINARY
+</dd>
+
+<p>
+<dt>
+getDate: DATE (recommended)
+</dt>
+<dd>
+   Can also read CHAR, VARCHAR, LONGVARCHAR, 
+   TIMESTAMP
+</dd>
+
+<p>
+<dt>
+getTime: TIME (recommended)
+</dt>
+<dd>
+   Can also read CHAR, VARCHAR, LONGVARCHAR,
+   TIMESTAMP
+</dd>
+
+<p>
+<dt>
+getTimestamp: TIMESTAMP (recommended)
+</dt>
+<dd>
+   Can also read CHAR, VARCHAR, LONGVARCHAR, 
+   DATE, TIME 
+</dd>
+
+<p>
+<dt>
+getAsciiStream: LONGVARCHAR (recommended)
+</dt>
+<dd>
+   Can also read CHAR, VARCHAR, BINARY, 
+   VARBINARY, LONGVARBINARY
+</dd>
+
+<p>
+<dt>
+getUnicodeStream: LONGVARCHAR (recommended)
+</dt>
+<dd>
+   Can also read CHAR, VARCHAR, BINARY, 
+   VARBINARY, LONGVARBINARY
+</dd>
+
+<p>
+<dt>
+getBinaryStream: LONGVARBINARY (recommended)
+</dt>
+<dd>
+   Can also read BINARY, VARBINARY
+</dd>
+   
+<p>
+<dt>
+getObject: (no recommended type) 
+</dt>
+<dd>
+   Can read TINYINT, SMALLINT, INTEGER, 
+   BIGINT, REAL, FLOAT, DOUBLE, DECIMAL, NUMERIC, BIT, 
+   CHAR, VARCHAR, LONGVARCHAR, BINARY, VARBINARY, 
+   LONGVARBINARY, DATE, TIME, TIMESTAMP
+</dd>
+</dl>
+        </blockquote>
+    </div>
+    <div id=Footer>
+        <span class=NavBit>
+            <a href=retrieving.html>&laquo; Previous</a>
+            &bull;
+            <a href=../TOC.html>TOC</a>
+        </span>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Retrieving Values from Result Sets
+    </div>
+    </body>
+</html> 

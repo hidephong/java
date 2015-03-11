@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:panelGroup rendered="#{newJSFManagedBean.username==null}">
+            <h:form>
+                <h:messages/>
+                username: <h:inputText value="#{newJSFManagedBean.username}" required="true" requiredMessage="nhap username di may"/>
+                <br/> password: <h:inputText value="#{newJSFManagedBean.password}" required="true" requiredMessage="nhap password di may"/>
+                <br/> <h:commandButton value="login" action="#{newJSFManagedBean.checkLogin}"/>
+            </h:form>
+        </h:panelGroup>
+        <h:panelGroup  rendered="#{newJSFManagedBean.username !=null}">
+            <h:outputText value="#{newJSFManagedBean.username}"/>
+        </h:panelGroup>
+        <ui:insert name="menu"/>
+    </h:body>
+</html>
+

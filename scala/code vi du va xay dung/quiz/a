@@ -1,0 +1,385 @@
+<div class="prev-lecture">
+    <a href=""></a>
+    <span>Previous Lecture</span>
+</div>
+
+<div class="top">
+                    <span class="ch">
+                        SECTION 1
+                    </span>
+                    <span class="le">
+                        QUIZ                    </span>
+                    <span class="no">
+                        1
+                    </span>
+    <h1>HTML  Basics</h1>
+</div>
+
+<li class="show-progress">
+    <span class="percent completion-ratio">3%</span>
+    <div class="note">
+        <span>You have completed <b class="completion-ratio">3%</b> of this course</span>
+    </div>
+</li>
+<li class="chapter">
+        <span class="percent chapter-number">
+            <span>Section</span>
+            1
+        </span>
+    <div class="note">
+        <span><b>Introduction to basic HTML</b></span>
+    </div>
+    <div class="bottom">
+        <a href="" class="next-lecture continue">Continue</a>
+    </div>
+</li><li class="on" data-lectureid="247079">
+
+    <div class="prev-lecture">
+        <a href=""></a>
+        <span>Previous Lecture</span>
+    </div>
+
+    <div class="top">
+            <span class="ch">
+                SECTION 1
+            </span>
+            <span class="le">
+                LECTURE            </span>
+            <span class="no">
+                1
+            </span>
+        <h1>Starting HTML5 Programming</h1>
+    </div>
+    <div class="asset-container">
+        <div class="ud-lectureangular" data-lectureid="247079" data-autoload="false"></div>
+    </div>
+    <div class="bottom">
+        <a class="autoplay" data-name="lectureAutoStart">
+            Auto Play
+                <span>
+                    ON
+                </span>
+        </a>
+
+        <a class="next-lecture" href="">NEXT LECTURE</a>
+
+        <div class="share mini-tooltip">
+            share                    <div class="tooltip-content">
+            <a class="f" href="http://www.facebook.com/sharer.php?t=Starting%20HTML5%20Programming&amp;u=https://www.udemy.com/lectures/starting-html5-programming-247079" data-h="370" data-w="640">facebook</a>
+            <a class="t" href="https://twitter.com/intent/tweet?text=Starting%20HTML5%20Programming&amp;url=https://www.udemy.com/lectures/starting-html5-programming-247079&amp;via=udemy">twitter</a>
+        </div>
+        </div>
+        <a href="" class="mark mini-tooltip"><span class="tooltip-content"><b>Mark as Completed</b><b>Mark as Uncompleted</b></span>
+        </a>
+    </div>
+</li><li class="show-progress">
+    <span class="percent completion-ratio">3%</span>
+    <div class="note">
+        <span>You have completed <b class="completion-ratio">3%</b> of this course</span>
+    </div>
+</li><li class="on" data-lectureid="235751">
+
+    <div class="prev-lecture">
+        <a href=""></a>
+        <span>Previous Lecture</span>
+    </div>
+
+    <div class="top">
+            <span class="ch">
+                SECTION 1
+            </span>
+            <span class="le">
+                LECTURE            </span>
+            <span class="no">
+                2
+            </span>
+        <h1>HTML Basics</h1>
+    </div>
+    <div class="asset-container">
+        <div class="ud-lectureangular" data-lectureid="235751" data-autoload="false"></div>
+    </div>
+    <div class="bottom">
+        <a class="autoplay" data-name="lectureAutoStart">
+            Auto Play
+                <span>
+                    ON
+                </span>
+        </a>
+
+        <a class="next-lecture" href="">NEXT LECTURE</a>
+
+        <div class="share mini-tooltip">
+            share                    <div class="tooltip-content">
+            <a class="f" href="http://www.facebook.com/sharer.php?t=HTML%20Basics&amp;u=https://www.udemy.com/lectures/html-basics-235751" data-h="370" data-w="640">facebook</a>
+            <a class="t" href="https://twitter.com/intent/tweet?text=HTML%20Basics&amp;url=https://www.udemy.com/lectures/html-basics-235751&amp;via=udemy">twitter</a>
+        </div>
+        </div>
+        <a href="" class="mark mini-tooltip"><span class="tooltip-content"><b>Mark as Completed</b><b>Mark as Uncompleted</b></span>
+        </a>
+    </div>
+</li><li class="show-progress">
+    <span class="percent completion-ratio">3%</span>
+    <div class="note">
+        <span>You have completed <b class="completion-ratio">3%</b> of this course</span>
+    </div>
+</li><li class="on" data-lectureid="235752">
+
+    <div class="prev-lecture">
+        <a href=""></a>
+        <span>Previous Lecture</span>
+    </div>
+
+    <div class="top">
+            <span class="ch">
+                SECTION 1
+            </span>
+            <span class="le">
+                LECTURE            </span>
+            <span class="no">
+                3
+            </span>
+        <h1>Creating a HTML Webpage</h1>
+    </div>
+    <div class="asset-container">
+        <div class="ud-lectureangular" data-lectureid="235752" data-autoload="false"></div>
+    </div>
+    <div class="bottom">
+        <a class="autoplay" data-name="lectureAutoStart">
+            Auto Play
+                <span>
+                    ON
+                </span>
+        </a>
+
+        <a class="next-lecture" href="">NEXT LECTURE</a>
+
+        <div class="share mini-tooltip">
+            share                    <div class="tooltip-content">
+            <a class="f" href="http://www.facebook.com/sharer.php?t=Creating%20a%20HTML%20Webpage&amp;u=https://www.udemy.com/lectures/creating-a-html-webpage-235752" data-h="370" data-w="640">facebook</a>
+            <a class="t" href="https://twitter.com/intent/tweet?text=Creating%20a%20HTML%20Webpage&amp;url=https://www.udemy.com/lectures/creating-a-html-webpage-235752&amp;via=udemy">twitter</a>
+        </div>
+        </div>
+        <a href="" class="mark mini-tooltip"><span class="tooltip-content"><b>Mark as Completed</b><b>Mark as Uncompleted</b></span>
+        </a>
+    </div>
+</li><li class="show-progress">
+    <span class="percent completion-ratio">3%</span>
+    <div class="note">
+        <span>You have completed <b class="completion-ratio">3%</b> of this course</span>
+    </div>
+</li><li class="on" data-lectureid="235756">
+
+    <div class="prev-lecture">
+        <a href=""></a>
+        <span>Previous Lecture</span>
+    </div>
+
+    <div class="top">
+            <span class="ch">
+                SECTION 1
+            </span>
+            <span class="le">
+                LECTURE            </span>
+            <span class="no">
+                4
+            </span>
+        <h1>HTML Tables and Lists</h1>
+    </div>
+    <div class="asset-container">
+        <div class="ud-lectureangular" data-lectureid="235756" data-autoload="false"></div>
+    </div>
+    <div class="bottom">
+        <a class="autoplay" data-name="lectureAutoStart">
+            Auto Play
+                <span>
+                    ON
+                </span>
+        </a>
+
+        <a class="next-lecture" href="">NEXT LECTURE</a>
+
+        <div class="share mini-tooltip">
+            share                    <div class="tooltip-content">
+            <a class="f" href="http://www.facebook.com/sharer.php?t=HTML%20Tables%20and%20Lists&amp;u=https://www.udemy.com/lectures/html-tables-and-lists-235756" data-h="370" data-w="640">facebook</a>
+            <a class="t" href="https://twitter.com/intent/tweet?text=HTML%20Tables%20and%20Lists&amp;url=https://www.udemy.com/lectures/html-tables-and-lists-235756&amp;via=udemy">twitter</a>
+        </div>
+        </div>
+        <a href="" class="mark mini-tooltip"><span class="tooltip-content"><b>Mark as Completed</b><b>Mark as Uncompleted</b></span>
+        </a>
+    </div>
+</li><li class="show-progress">
+    <span class="percent completion-ratio">3%</span>
+    <div class="note">
+        <span>You have completed <b class="completion-ratio">3%</b> of this course</span>
+    </div>
+</li><li class="on" data-lectureid="235757">
+
+    <div class="prev-lecture">
+        <a href=""></a>
+        <span>Previous Lecture</span>
+    </div>
+
+    <div class="top">
+            <span class="ch">
+                SECTION 1
+            </span>
+            <span class="le">
+                LECTURE            </span>
+            <span class="no">
+                5
+            </span>
+        <h1>HTML Table List Part - 2</h1>
+    </div>
+    <div class="asset-container">
+        <div class="ud-lectureangular" data-lectureid="235757" data-autoload="false"></div>
+    </div>
+    <div class="bottom">
+        <a class="autoplay" data-name="lectureAutoStart">
+            Auto Play
+                <span>
+                    ON
+                </span>
+        </a>
+
+        <a class="next-lecture" href="">NEXT LECTURE</a>
+
+        <div class="share mini-tooltip">
+            share                    <div class="tooltip-content">
+            <a class="f" href="http://www.facebook.com/sharer.php?t=HTML%20Table%20List%20Part%20-%202&amp;u=https://www.udemy.com/lectures/html-table-list-part-2-235757" data-h="370" data-w="640">facebook</a>
+            <a class="t" href="https://twitter.com/intent/tweet?text=HTML%20Table%20List%20Part%20-%202&amp;url=https://www.udemy.com/lectures/html-table-list-part-2-235757&amp;via=udemy">twitter</a>
+        </div>
+        </div>
+        <a href="" class="mark mini-tooltip"><span class="tooltip-content"><b>Mark as Completed</b><b>Mark as Uncompleted</b></span>
+        </a>
+    </div>
+</li><li class="show-progress">
+    <span class="percent completion-ratio">3%</span>
+    <div class="note">
+        <span>You have completed <b class="completion-ratio">3%</b> of this course</span>
+    </div>
+</li><li class="on" data-lectureid="235758">
+
+    <div class="prev-lecture">
+        <a href=""></a>
+        <span>Previous Lecture</span>
+    </div>
+
+    <div class="top">
+            <span class="ch">
+                SECTION 1
+            </span>
+            <span class="le">
+                LECTURE            </span>
+            <span class="no">
+                6
+            </span>
+        <h1>HTML Forms and Input -Part 1</h1>
+    </div>
+    <div class="asset-container">
+        <div class="ud-lectureangular" data-lectureid="235758" data-autoload="false"></div>
+    </div>
+    <div class="bottom">
+        <a class="autoplay" data-name="lectureAutoStart">
+            Auto Play
+                <span>
+                    ON
+                </span>
+        </a>
+
+        <a class="next-lecture" href="">NEXT LECTURE</a>
+
+        <div class="share mini-tooltip">
+            share                    <div class="tooltip-content">
+            <a class="f" href="http://www.facebook.com/sharer.php?t=HTML%20Forms%20and%20Input%20-Part%201&amp;u=https://www.udemy.com/lectures/html-forms-and-input-part-1-235758" data-h="370" data-w="640">facebook</a>
+            <a class="t" href="https://twitter.com/intent/tweet?text=HTML%20Forms%20and%20Input%20-Part%201&amp;url=https://www.udemy.com/lectures/html-forms-and-input-part-1-235758&amp;via=udemy">twitter</a>
+        </div>
+        </div>
+        <a href="" class="mark mini-tooltip"><span class="tooltip-content"><b>Mark as Completed</b><b>Mark as Uncompleted</b></span>
+        </a>
+    </div>
+</li><li class="show-progress">
+    <span class="percent completion-ratio">3%</span>
+    <div class="note">
+        <span>You have completed <b class="completion-ratio">3%</b> of this course</span>
+    </div>
+</li><li class="on" data-lectureid="235759">
+
+    <div class="prev-lecture">
+        <a href=""></a>
+        <span>Previous Lecture</span>
+    </div>
+
+    <div class="top">
+            <span class="ch">
+                SECTION 1
+            </span>
+            <span class="le">
+                LECTURE            </span>
+            <span class="no">
+                7
+            </span>
+        <h1>HTML Forms &amp; Input - Part 2</h1>
+    </div>
+    <div class="asset-container">
+        <div class="ud-lectureangular" data-lectureid="235759" data-autoload="false"></div>
+    </div>
+    <div class="bottom">
+        <a class="autoplay" data-name="lectureAutoStart">
+            Auto Play
+                <span>
+                    ON
+                </span>
+        </a>
+
+        <a class="next-lecture" href="">NEXT LECTURE</a>
+
+        <div class="share mini-tooltip">
+            share                    <div class="tooltip-content">
+            <a class="f" href="http://www.facebook.com/sharer.php?t=HTML%20Forms%20&amp;%20Input%20-%20Part%202&amp;u=https://www.udemy.com/lectures/html-forms-input-part-2-235759" data-h="370" data-w="640">facebook</a>
+            <a class="t" href="https://twitter.com/intent/tweet?text=HTML%20Forms%20&amp;%20Input%20-%20Part%202&amp;url=https://www.udemy.com/lectures/html-forms-input-part-2-235759&amp;via=udemy">twitter</a>
+        </div>
+        </div>
+        <a href="" class="mark mini-tooltip"><span class="tooltip-content"><b>Mark as Completed</b><b>Mark as Uncompleted</b></span>
+        </a>
+    </div>
+</li><li class="show-progress">
+    <span class="percent completion-ratio">3%</span>
+    <div class="note">
+        <span>You have completed <b class="completion-ratio">3%</b> of this course</span>
+    </div>
+</li><li class="on" data-lectureid="235764">
+
+    <div class="prev-lecture">
+        <a href=""></a>
+        <span>Previous Lecture</span>
+    </div>
+
+    <div class="top">
+            <span class="ch">
+                SECTION 1
+            </span>
+            <span class="le">
+                LECTURE            </span>
+            <span class="no">
+                8
+            </span>
+        <h1>Resources Chapter 1</h1>
+    </div>
+    <div class="asset-container">
+        <div class="ud-lectureangular" data-lectureid="235764" data-autoload="false"></div>
+    </div>
+    <div class="bottom">
+
+
+        <a class="next-lecture" href="">NEXT LECTURE</a>
+
+        <div class="share mini-tooltip">
+            share                    <div class="tooltip-content">
+            <a class="f" href="http://www.facebook.com/sharer.php?t=Resources%20Chapter%201&amp;u=https://www.udemy.com/lectures/resources-chapter-1-235764" data-h="370" data-w="640">facebook</a>
+            <a class="t" href="https://twitter.com/intent/tweet?text=Resources%20Chapter%201&amp;url=https://www.udemy.com/lectures/resources-chapter-1-235764&amp;via=udemy">twitter</a>
+        </div>
+        </div>
+        <a href="" class="mark mini-tooltip"><span class="tooltip-content"><b>Mark as Completed</b><b>Mark as Uncompleted</b></span>
+        </a>
+    </div>
+</li>

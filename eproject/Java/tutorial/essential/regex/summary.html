@@ -1,0 +1,68 @@
+In this chapter, you learned that regular expressions are a way to describe a set of strings 
+based on common characteristics shared by each string in the set.
+ The Java programming language supports regular expressions via the 
+<CODE>java.util.regex</CODE> package, primarily through the <CODE>Pattern</CODE>, 
+<CODE>Matcher</CODE>, and <CODE>PatternSyntaxException</CODE> classes. 
+<P>
+<UL>
+<LI>A <CODE>Pattern</CODE> object is a compiled representation of a regular expression. 
+The <CODE>Pattern</CODE> class 
+provides no public constructors. To create a pattern, you must invoke one of its 
+<CODE>public static compile</CODE> methods, both of which will return a <CODE>Pattern</CODE> object.
+<P>
+<LI>
+A <CODE>Matcher</CODE> object is the engine that interprets the pattern and performs match operations 
+against an input string. Like the <CODE>Pattern</CODE> class, <CODE>Matcher</CODE> defines no public 
+constructors. 
+You obtain a <CODE>Matcher</CODE> object by invoking the <CODE>public matcher</CODE> method on a 
+<CODE>Pattern</CODE> object.
+<P>
+<LI>
+A <CODE>PatternSyntaxException</CODE> object is an unchecked exception that indicates a syntax error 
+in a regular expression pattern.
+</UL>
+<P>
+The most basic form of pattern matching supported by this API is the match of a string literal. 
+You can also specify metacharacters &mdash; characters that carry special meaning &mdash; 
+that will be interpreted by the matcher. 
+<P>
+A character class is a set of characters enclosed within square brackets. It specifies the 
+characters that will successfully match a single character from a given input string. You can 
+define your own character classes, or use the predefined character classes included in the API. 
+<P>
+Quantifiers allow you to specify the number of occurrences to match against. There are three 
+different kinds of quantifiers: greedy, reluctant, and possessive. 
+<UL>
+<LI>Greedy quantifiers are considered "greedy" because they force the matcher to read in, or eat, 
+the entire input string prior to attempting the first match. If the first match attempt 
+(the entire input string) fails, the matcher backs off the input string by one character and tries again, 
+repeating the process until a match is found or there are no more characters left to back off from. 
+Depending on the quantifier used in the expression, the last thing it will try matching against is 1 or 0 
+characters.
+<P>
+<LI>Reluctant quantifiers take the opposite approach: they start at the beginning of 
+the input string, then reluctantly eat one character at a time looking for a match. The last 
+thing they try is the entire input string.
+<P>
+<LI>
+Possessive quantifiers always eat the entire input string, trying once 
+(and only once) for a match. Unlike the greedy quantifiers, possessive quantifiers never back off, 
+even if doing so would allow the overall match to succeed.
+</UL>
+<P>
+Capturing groups provide a way to treat multiple characters as a single unit. 
+They are created by 
+placing the characters to be grouped inside a set of parentheses, and are numbered by 
+counting their opening parentheses from left to right. The section of the input string matching the 
+capturing group(s) is saved in memory for later recall via a backreference. A backreference 
+is specified in the regular expression as a backslash <CODE>"\"</CODE> followed by a digit indicating the number 
+of the group to be recalled.
+<P>
+Boundary matchers make your matches more precise by specifying a match location within the input string.
+The regex API provides boundary matchers for the following locations: the beginning of a line, the end of a line, 
+word boundaries, non-word boundaries, the beginning of the input, the end of the input, and the end of the
+previous match. 
+<P>
+Finally, you explored the <CODE>Pattern</CODE>, <CODE>Matcher</CODE>, <CODE>PatternSyntaxException</CODE> 
+classes in detail to learn about
+their additional functionality, including their method equivalents in <CODE>java.lang.String</CODE>. 

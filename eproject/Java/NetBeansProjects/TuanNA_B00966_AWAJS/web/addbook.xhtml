@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <table width="800" >
+                <tr>
+                    <td colspan="3">Add new book</td>
+                </tr>
+                <tr>
+                    <td width="167">Name book</td>
+                    <td width="357">
+                        <p:inputText value="#{newBook.nameBook}"/>
+
+                    </td>
+                    <td width="254">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Author</td>
+                    <td>
+                        <p:inputText value="#{newBook.author}"/>
+
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Publisher</td>
+                    <td>
+                        <p:inputText value="#{newBook.publisher}"/>
+
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Year</td>
+                    <td>
+                        <p:inputText value="#{newBook.year}"/>
+
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>
+                        <p:inputText value="#{newBook.description}"/>
+
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Category</td>
+                    <td>
+                        <h:selectOneMenu value="#{newBook.selectedValue}" onchange="submit()"
+                                         valueChangeListener="#{newBook.changeValue}">
+                            <f:selectItems value="#{newBook.listForCombo}"/>
+                        </h:selectOneMenu>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <h:commandButton value="Add" action="#{newBook.add}">
+
+                        </h:commandButton>
+                        <p:commandButton type="Reset" value="Reset"/>
+
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+

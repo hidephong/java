@@ -1,0 +1,13 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET        /                    controllers.Application.index
+GET        /quiz                controllers.Quizs.quiz
+GET        /quizs               controllers.Quizs.getQuiz
+GET        /quiz/:idQuiz        controllers.Quizs.gQuiz(idQuiz)
+GET		   /albums.json			controllers.Application.list
+
+# Map static resources from the /public folder to the /assets URL path
+GET        /assets/*file        controllers.Assets.at(path="/public", file)

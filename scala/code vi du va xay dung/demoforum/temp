@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="css/bootstrap.css" type="text/css" />
+    <link href="js/bootstrap.js"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.minicolors.css" />
+    <link rel="stylesheet" type="text/css" href="css/index-original.css" />
+</head>
+<body id="bootstrap_1pxdeep" data-spy="scroll" data-target="#onepxdeep_navbar">
+<div class="modal" id="test_modal" tabindex="-1" role="dialog" aria-labelledby="test_modal_label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <p>This is the modal body.</p>
+                <p>This is the modal body.</p>
+                <p>This is the modal body.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="carousel-login-form" class="carousel slide sectional example color3b">
+    <h2 class="sectional-title"><strong>Example</strong>&nbsp; Login form</h2>
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4">
+                        <br />
+                        <br />
+
+                        <form class="panel">
+                            <div class="panel-heading color3a">
+                                <h3 class="panel-title">log in</h3>
+                            </div>
+                            <div class="panel-body color3c">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="e-mail">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="password">
+                                </div>
+                            </div>
+                            <div class="panel-footer color3c">
+                                <button type="submit" class="btn btn-default btn-lg btn-block color3a">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                                <pre>&lt;form class=&quot;panel&quot;&gt;
+        &lt;div class=&quot;panel-heading <strong>color3a</strong>&quot;&gt;
+            &lt;h3 class=&quot;panel-title&quot;&gt;log in&lt;/h3&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;e-mail&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;password&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;panel-footer <strong>color3c</strong>&quot;&gt;
+            &lt;button type=&quot;submit&quot; class=&quot;btn btn-default btn-lg btn-block <strong>color3a</strong>&quot;&gt;submit&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ol class="carousel-indicators color3">
+        <li data-target="#carousel-login-form" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-login-form" data-slide-to="1"></li>
+    </ol>
+</div>
+
+<div id="carousel-loading-screen" class="carousel slide sectional example color2">
+    <h2 class="sectional-title"><strong>Example</strong>&nbsp; Loading screen</h2>
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <h5 class="text-center">Loading assets...</h5>
+                        <div class="progress color2">
+                            <div class="progress-bar color3" style="width: 42%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                                <pre class="color2">&lt;h5 class=&quot;text-center&quot;&gt;Loading assets...&lt;/h5&gt;
+    &lt;div class=&quot;progress <strong>color2</strong>&quot;&gt;
+        &lt;div class=&quot;progress-bar <strong>color3</strong>&quot; style=&quot;width: 42%&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ol class="carousel-indicators color2">
+        <li data-target="#carousel-loading-screen" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-loading-screen" data-slide-to="1"></li>
+    </ol>
+</div>
+<div id="carousel-status-report" class="carousel slide sectional example color2b">
+    <h2 class="sectional-title"><strong>Example</strong>&nbsp; Status report</h2>
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-lg-offset-4">
+                        <br />
+                        <br />
+                        <h4>Aliens destroyed</h4>
+                        <ul class="list-group color1">
+                            <li class="list-group-item">Crawler <span class="badge color1">113</span></li>
+                            <li class="list-group-item">Tripod <span class="badge color1">40</span></li>
+                            <li class="list-group-item">Xenomorph <span class="badge color1">12</span></li>
+                            <li class="list-group-item">Mothership <span class="badge color1">1</span></li>
+                        </ul>
+                        <p class="text-center">
+                            <a data-toggle="modal" href="#test_modal" class="btn btn-info">Launch demo modal</a>&nbsp;
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                                <pre class="color3">&lt;h4&gt;Aliens destroyed&lt;/h4&gt;
+    &lt;ul class=&quot;list-group <strong>color1</strong>&quot;&gt;
+        &lt;li class=&quot;list-group-item&quot;&gt;Crawler &lt;span class=&quot;badge <strong>color1</strong>&quot;&gt;113&lt;/span&gt;&lt;/li&gt;
+        &lt;li class=&quot;list-group-item&quot;&gt;Tripod &lt;span class=&quot;badge <strong>color1</strong>&quot;&gt;40&lt;/span&gt;&lt;/li&gt;
+        &lt;li class=&quot;list-group-item&quot;&gt;Xenomorph &lt;span class=&quot;badge <strong>color1</strong>&quot;&gt;12&lt;/span&gt;&lt;/li&gt;
+        &lt;li class=&quot;list-group-item&quot;&gt;Mothership &lt;span class=&quot;badge <strong>color1</strong>&quot;&gt;1&lt;/span&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p class=&quot;text-center&quot;&gt;
+        &lt;a data-toggle=&quot;modal&quot; href=&quot;#test_modal&quot; class=&quot;btn btn-info&quot;&gt;Launch demo modal&lt;/a&gt;&amp;nbsp;
+    &lt;/p&gt;
+    &lt;!-- Buttons like .btn-info get schemified, so they're always blue --&gt;
+    </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ol class="carousel-indicators color2">
+        <li data-target="#carousel-status-report" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-status-report" data-slide-to="1"></li>
+    </ol>
+</div>
+
+<div id="carousel-poem" class="carousel slide sectional example color1b">
+    <h2 class="sectional-title"><strong>Example</strong>&nbsp; Poem</h2>
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-lg-offset-4">
+                        <br />
+                        <br />
+                        <h3>Men will</h3>
+                        <p>men will be lovers of themselves</p>
+                        <p>men will be men</p>
+                        <p>men will dream dreams</p>
+                        <p>men will call evil good</p>
+
+                        <p class="pull-right">&mdash; <em><a href="https://twitter.com/GooglePoetics">Google Poetics</a></em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                                <pre class="color2">&lt;h3&gt;Men will&lt;/h3&gt;
+    &lt;p&gt;men will be lovers of themselves&lt;/p&gt;
+    &lt;p&gt;men will be men&lt;/p&gt;
+    &lt;p&gt;men will dream dreams&lt;/p&gt;
+    &lt;p&gt;men will call evil good&lt;/p&gt;
+
+    &lt;p class=&quot;pull-right&quot;&gt;&amp;mdash; &lt;em&gt;&lt;a href=&quot;https://twitter.com/GooglePoetics&quot;&gt;Google Poetics&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+    &lt;!-- Sometimes you don't need to use color classes at all --&gt;
+    </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ol class="carousel-indicators color1">
+        <li data-target="#carousel-poem" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-poem" data-slide-to="1"></li>
+    </ol>
+</div>
+
+<div id="carousel-newsletter-signup" class="carousel slide sectional example color4">
+    <h2 class="sectional-title"><strong>Example</strong>&nbsp; Signup form</h2>
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <br />
+                        <div class="jumbotron color4">
+                            <h2><small>Subscribe now to </small><br /><strong>Up-and-coming mimes</strong></h2>
+                            <!-- Thanks to Billy McClure at GoodRx for the funniest answer to "What's a newsletter that nobody would ever sign up for?" -->
+                            <form action="" method="post">
+                                <input class="form-control" type="text" placeholder="e-mail address">
+                                <br />
+                                <input type="submit" value="Subscribe Now!" class="btn btn-lg color2" />
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-1">
+                                <pre class="color4">&lt;div class=&quot;jumbotron <strong>color4</strong>&quot;&gt;
+    &lt;h2&gt;&lt;small&gt;Subscribe now to &lt;/small&gt;&lt;br /&gt;&lt;strong&gt;Up-and-coming mimes&lt;/strong&gt;&lt;/h2&gt;
+    &lt;form action=&quot;&quot; method=&quot;post&quot;&gt;
+        &lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;e-mail address&quot;&gt;
+        &lt;br /&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Subscribe Now!&quot; class=&quot;btn btn-lg <strong>color4</strong>&quot; /&gt;
+    &lt;/form&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<link rel="stylesheet/less" id="index_less" type="text/css" href="less/index.less" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/1pxdeep.js"></script>
+<script type="text/javascript" src="js/jquery.minicolors.min.js"></script>
+<script type="text/javascript" src="js/transition.js"></script>
+<script type="text/javascript" src="js/carousel.js"></script>
+<script type="text/javascript" src="js/scrollspy.js"></script>
+<script type="text/javascript" src="js/modal.js"></script>
+<script type="text/javascript" src="js/collapse.js"></script>
+
+</body>
+</html>

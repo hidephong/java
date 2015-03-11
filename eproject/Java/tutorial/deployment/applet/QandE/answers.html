@@ -1,0 +1,416 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Answers to Questions and Exercises: Java Applets (The Java&trade; Tutorials &gt; Deployment &gt;
+            Applets)</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+    </head>
+<body>
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                        </div>
+                            <div class=PrintHeaders>
+                                <b>Trail:</b> Deployment
+                                <br><b>Lesson:</b> Applets
+                            </div>
+                    </div> </div> </div> </div> </div>
+
+    <div class=MainFlow_wide>
+        <span id=BreadCrumbs>
+            <a href=../../../index.html target=_top>Home Page</a>
+            &gt;
+            <a href=../../index.html target=_top>Deployment</a>
+            &gt;
+            <a href=../index.html target=_top>Applets</a>
+        </span>
+        <div class=NavBit>
+            <a href=../QandE/questions.html>&laquo; Previous</a>&nbsp;&bull;&nbsp;<a href=../../TOC.html>TOC</a>
+        </div>
+        <div id=PageTitle>Answers to Questions and Exercises: Java Applets</div>
+        <blockquote>
+</blockquote>
+
+<h3>Questions</h3>
+<blockquote>
+
+<ol>
+
+<li><font color=red>Question:</font>
+Which classes can an applet extend?
+
+<p>
+<font color=green>Answer:</font> 
+An applet can extend the <code>java.applet.Applet</code> class or the <code>java.swing.JApplet</code> class. 
+<p>
+The <code>java.applet.Applet</code> class extends the <code>java.awt.Panel</code> class and enables you to use the GUI tools in the AWT package.
+<p>
+The <code>java.swing.JApplet</code> class is a subclass of <code>java.applet.Applet</code> that also enables you to use the Swing GUI tools.
+
+</li>
+
+<p>
+
+<li><font color=red>Question:</font>
+How do you cause the applet GUI in the browser to be refreshed when data in it may have changed?
+<p>
+<font color=green>Answer:</font> 
+You invoke the <code>repaint()</code> method. This method causes the <code>paint</code> method, which is required in any applet, to be invoked again, updating the display.
+
+
+</li>
+
+<p>
+
+<li><font color=red>Question:</font>
+For what do you use the <code>start()</code> method?
+<p>
+<font color=green>Answer:</font> 
+You use the <code>start()</code> method when the applet must perform a task after it is initialized, before receiving user input. The <code>start()</code> method either performs the applet's work or (more likely) starts up one or more threads to perform the work. 
+
+</li>
+
+<p>
+
+<li><font color=red>Question:</font>
+True or false: An applet can make network connections to any host on the Internet.
+<p>
+<font color=green>Answer:</font> 
+<strong>False</strong>: An applet can only connect to the host that it came from.
+
+</li>
+
+<p>
+
+<li><font color=red>Question:</font>
+How do you get the value of a parameter specified in the <code>APPLET</code> tag from within the applet's code?
+<p>
+<font color=green>Answer:</font> 
+You use the <code>getParameter("<em>Parameter name</em>")</code> method, which returns the String value of the parameter.
+
+</li>
+
+<p>
+
+<li><font color=red>Question:</font>
+True of false: An applet can run multiple threads.
+
+<p>
+<font color=green>Answer:</font> 
+<strong>True</strong>. The <code>paint</code> and <code>update</code> methods are always called from the AWT drawing and event handling thread. You can have your applet create additional threads, which is recommended for performing time-consuming tasks.
+
+
+</li>
+
+<p>
+
+<li><font color=red>Question:</font>
+Match the following tag names with the descriptions in the following lists:
+<ol>
+<li><code>EMBED</code> tag
+<li><code>APPLET</code> tag
+<li><code>OBJECT</code> tag
+</ol>
+<p>
+<ol type="a">
+<li>Use to deploy applets to a multi-browser environment.
+<li>Use to deploy applets that are to be used only with the Mozilla family of browsers
+<li>Use to deploy applets that are to be used only with Internet Explorer
+</ol>
+
+<p>
+<font color=green>Answer:</font> 
+<ol>
+<li><code>EMBED</code> tag:  <strong>b</strong>
+<li><code>APPLET</code> tag: <strong>a</strong>
+<li><code>OBJECT</code> tag: <strong>c</strong>
+</ol>
+
+
+</li>
+</ol>
+</blockquote>
+
+<h3>Exercises</h3>
+
+<blockquote>
+
+<ol>
+
+<li><font color=red>Exercise:</font>
+
+For an applet using the <code>Exercise</code> class, write the <code>Applet</code> tag that sets the <code>ButtonName</code> parameter to <code>Save</code>.
+
+<p>
+<font color=green>Answer:</font> 
+<blockquote><pre>
+&lt;APPLET CODE=AppletButton.class&gt; 
+  &lt;PARAM NAME=ButtonName VALUE=Save&gt;
+&lt;/APPLET> 
+</pre></blockquote>
+
+
+</li>
+
+<p>
+
+<li><font color=red>Exercise:</font>
+Write the method to display an applet in the browser, so that the contents are contained in a rectangle around the phrase "Exercise Applet". Have the applet be one pixel less than the size specified ont he web page, and the phrase starting at the coordinates 5, 15.
+<p>
+<font color=green>Answer:</font> 
+
+<blockquote><pre>
+public void paint(Graphics g) {
+	//Draw a Rectangle around the applet's display area.
+        g.drawRect(0, 0, 
+		   getWidth() - 1,
+		   getHeight() - 1);
+
+	//Draw the current string inside the rectangle.
+        g.drawString("Exercise Applet", 5, 15);
+    }
+</pre></blockquote>
+
+</li>
+</ol>
+
+</blockquote>
+        </blockquote>
+    </div>
+    <div id=Footer>
+        <span class=NavBit>
+            <a href=../QandE/questions.html>&laquo; Previous</a>
+            &bull;
+            <a href=../../TOC.html>TOC</a>
+        </span>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Questions and Exercises: Java Applets
+    </div>
+    </body>
+</html> 

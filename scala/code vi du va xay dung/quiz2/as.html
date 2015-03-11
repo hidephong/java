@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class=" js cssanimations csstransitions"><head>
+
+
+<title>Welcome to Hocngay</title>
+<link src="a.css" type="text/css"></link>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row-fluid">
+        
+    <style>
+        body{
+            overflow-x: hidden;
+        }
+    </style>
+    <script type="text/javascript" src="http://hocngay.com/assets/js/jquery_003.js"></script>
+    <script type="text/javascript">
+    var a = Math.ceil(Math.random() * 10);
+    var b = Math.ceil(Math.random() * 10);
+    var c = a + b;
+    function DrawBotBoot()
+    {
+    document.write("<label class='col-sm-12'>"+"What is "+ a + " + " + b +" ? "+" <span class='text-danger'>*</span></label>");
+    document.write("<div class='col-sm-6' style='margin-bottom: 20px'><input id='BotBootInput' name='BotBootInput' type='text' maxlength='2' size='2' class='form-control'/></div>");
+    }
+    function ValidBotBoot(){
+    var d = document.getElementById('BotBootInput').value;
+    if (d == c) return true;
+    return false;
+    }
+    $.validator.addMethod(
+    "captcha",
+    function(value) {
+    if (value == c) return true;
+    return false;
+    },
+    "Please enter a correct answer."
+    );
+    </script>
+     
+
+<form novalidate="novalidate" id="regform" class="msform form-horizontal" method="post" action="as.html">
+    
+    <fieldset style="transform: scale(0.8); opacity: 0; display: none;" id="field1">
+            <div id="panel0" class="quizPanel" style="display:block;">
+                <p>New quiz</p>
+                <br/>
+
+                <br/>
+
+                <button class="btnStart"> Start quiz</button>
+            </div>
+                     <input name="next" class="next action-button" value="Tiếp" type="button">
+                </fieldset>
+
+    <fieldset style="display: block; left: 0%; opacity: 1;" id="field2">
+        <div id="panel1" class="quizPanel" style="display: none;">
+            <p>div tags are block level elements 1</p>
+            <br/>
+
+            <div class="answers" id="answers11">
+                <li value="1">True
+                    <span class="false"></span>
+                </li>
+            </div>
+            <br/>
+
+            <div class="answers" id="answers12">
+                <li value="2"> False
+                    <span class="false"></span>
+                </li>
+            </div>
+            <br/>
+
+            <button class="next action-button" > Next</button>
+        </div>
+        <input name="next" class="next action-button" value="Tiếp" type="button">  </fieldset>
+    <fieldset style="display: block; left: 0%; opacity: 1;" id="field3">
+        <div id="panel2" style="display: none;" class="quizPanel">
+            <p>div tags are block level elements 2</p>
+            <br/>
+
+            <div class="answers" id="answers21">
+                <li value="1">True
+                    <span class="false"></span>
+                </li>
+            </div>
+            <br/>
+
+            <div class="answers" id="answers22">
+                <li value="2"> False
+                    <span class="false"></span>
+                </li>
+            </div>
+            <br/>
+
+            <button  class="next action-button" > Next</button>
+        </div>
+        <input name="next" class="next action-button" value="Tiếp" type="button">
+    </fieldset>
+    <fieldset style="display: block; left: 0%; opacity: 1;" id="field4">
+        <div id="panel3" style="display: none;" class="quizPanel">
+            <p>What is the correct syntax for a dropdown list element?</p>
+            <br/>
+
+            <div class="answers" id="answers31">
+                <li value="1">
+                    input type=”select” name=”somename”
+                    <span class="false"></span>
+                </li>
+            </div>
+            <br/>
+
+            <div class="answers" id="answers32">
+                <li value="2">
+
+                    input type=”list” name=”somename”
+                    <span class="false"></span>
+                </li>
+            </div>
+            <br/>
+
+            <div class="answers" id="answers33">
+                <li value="3">
+                    select name=”somename”
+                    <span class="false"></span>
+                </li>
+            </div>
+            <br/>
+            <div class="answers" id="answers34">
+                <li value="4">
+                    dropdown name=”somename”
+                    <span class="false"></span>
+                </li>
+            </div>
+            <br/>
+            <button id="sb" class="next action-button" > Next</button>
+        </div>
+        <input name="next" class="next action-button" value="Tiếp" type="button">  </fieldset>
+    <fieldset style="display: block; left: 0%; opacity: 1;" id="field5">
+        <div id="panel4" style="display: none;" class="quizPanel">
+            <p>Do you want submit?</p>
+            <br/>
+            <button class="sb1">Yes</button>
+            <button class="sbBack">Back</button>
+        </div>
+
+    </fieldset>
+
+</form>
+
+
+    <script type="text/javascript">
+    $(function(){
+        
+    });
+
+    var current_fs, next_fs, previous_fs; //fieldsets
+    var left, opacity, scale; //fieldset properties which we will animate
+    var animating; //flag to prevent quick multi-click glitches
+
+    $(".next").on("click",function(){
+        if(animating) return false;
+        animating = true;
+
+        current_fs = $(this).parent();
+        next_fs = $(this).parent().next();
+
+        //activate next step on progressbar using the index of next_fs
+        $("#progressbar div").eq($("fieldset").index(next_fs)).addClass("active");
+
+        //show the next fieldset
+        next_fs.show();
+        //hide the current fieldset with style
+        current_fs.animate({opacity: 0}, {
+        step: function(now, mx) {
+        //as the opacity of current_fs reduces to 0 - stored in "now"
+        //1. scale current_fs down to 80%
+        scale = 1 - (1 - now) * 0.2;
+        //2. bring next_fs from the right(50%)
+        left = (now * 50)+"%";
+        //3. increase opacity of next_fs to 1 as it moves in
+        opacity = 1 - now;
+        current_fs.css({'transform': 'scale('+scale+')'});
+        next_fs.css({'left': left, 'opacity': opacity});
+        },
+        duration: 800,
+        complete: function(){
+        current_fs.hide();
+        animating = false;
+        },
+        //this comes from the custom easing plugin
+        easing: 'easeInOutBack'
+        });
+    });
+
+    $(".previous").on("click",function(){
+        if(animating) return false;
+        animating = true;
+
+        current_fs = $(this).parent();
+        previous_fs = $(this).parent().prev();
+
+        //de-activate current step on progressbar
+        $("#progressbar div").eq($("fieldset").index(current_fs)).removeClass("active");
+
+        //show the previous fieldset
+        previous_fs.show();
+        //hide the current fieldset with style
+        current_fs.animate({opacity: 0}, {
+        step: function(now, mx) {
+        //as the opacity of current_fs reduces to 0 - stored in "now"
+        //1. scale previous_fs from 80% to 100%
+        scale = 0.8 + (1 - now) * 0.2;
+        //2. take current_fs to the right(50%) - from 0%
+        left = ((1-now) * 50)+"%";
+        //3. increase opacity of previous_fs to 1 as it moves in
+        opacity = 1 - now;
+        current_fs.css({'left': left});
+        previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+        },
+        duration: 800,
+        complete: function(){
+        current_fs.hide();
+        animating = false;
+        },
+        //this comes from the custom easing plugin
+        easing: 'easeInOutBack'
+        });
+    });
+
+
+
+    $(".li").each(function (index, element) {
+
+        if ($(element).is('#selected')) {
+            $(element).toggleClass('selected');
+            $(element).css("backgroundColor", "#DF904F");
+            $(element).find("span").css("display", "block");
+            alert("a");
+        }
+
+        if ($(element).attr('class')=="correct") {
+            $(element).toggleClass("correct");
+            alert("b");
+            $(element).css('background-color', "#B5C763");
+            $(element).css('color', '#ffffff');
+            $(element).find("span").removeClass("false").addClass("true");
+        }
+    });
+    $("#answers2"+arr[1]+ " li").css('background-color','#B5C763');
+    $("#answers3"+arr[2]+" li").css('background-color','#B5C763');
+    $("#answers4"+arr[3]+" li").css('background-color','#B5C763');
+    $("#answers5"+arr[4]+" li").css('background-color','#B5C763');
+    </script>
+
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <!-- jQuery easing plugin -->
+    <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+<script src="a.js"></script>
+</body></html>

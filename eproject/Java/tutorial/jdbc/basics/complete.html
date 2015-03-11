@@ -1,0 +1,659 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Creating Complete JDBC Applications  (The Java&trade; Tutorials &gt; 
+            JDBC(TM) Database Access &gt; JDBC Basics)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> JDBC(TM) Database Access
+        <br><b>Lesson:</b> JDBC Basics
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">JDBC Basics</a></div>
+<div class="linkAHEAD"><a href="gettingstarted.html">Getting Started</a></div>
+<div class="linkAHEAD"><a href="settingup.html">Setting Up a Database</a></div>
+<div class="linkAHEAD"><a href="connecting.html">Establishing a Connection</a></div>
+<div class="linkAHEAD"><a href="tables.html">Setting Up Tables</a></div>
+<div class="linkAHEAD"><a href="retrieving.html">Retrieving Values from Result Sets</a></div>
+<div class="linkAHEAD"><a href="updating.html">Updating Tables</a></div>
+<div class="linkAHEAD"><a href="milestone.html">Milestone: The Basics of JDBC</a></div>
+<div class="linkAHEAD"><a href="prepared.html">Using Prepared Statements</a></div>
+<div class="linkAHEAD"><a href="joins.html">Using Joins</a></div>
+<div class="linkAHEAD"><a href="transactions.html">Using Transactions</a></div>
+<div class="linkAHEAD"><a href="storedprocedures.html">Stored Procedures</a></div>
+<div class="linkAHEAD"><a href="sql.html">SQL Statements for Creating a Stored Procedure</a></div>
+<div class="nolinkAHEAD">Creating Complete JDBC Applications </div>
+<div class="linkAHEAD"><a href="running.html">Running the Sample Applications</a></div>
+<div class="linkAHEAD"><a href="applet.html">Creating an Applet from an Application</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>JDBC(TM) Database Access</a>
+                &gt;
+                <a href=index.html target=_top>JDBC Basics</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=sql.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=running.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Creating Complete JDBC Applications </div>
+            <blockquote>
+<P>Up to this point, you have seen only code fragments. Now you will see some samples.</P>
+<P>
+
+The first sample code creates the table <CODE>
+COFFEES</CODE>; the second one inserts values into the table and prints the results of a query. The third application creates the table <CODE>
+SUPPLIERS,</CODE>
+ and the fourth populates it with values. After you have run this code, you can try a query that is a join between the tables <CODE>
+COFFEES</CODE>
+ and <CODE>
+SUPPLIERS</CODE>, as in the fifth code example. The sixth code sample is an application that demonstrates a transaction and also shows how to set placeholder parameters in a <CODE>
+PreparedStatement</CODE>
+ object using a <CODE>for</CODE> loop.</P>
+<P>
+
+Because they are complete applications, they include some elements of the Java programming language we have not shown before in the code fragments. We will explain these elements briefly here.</P>
+</blockquote>
+<h3>
+
+Putting Code in a Class Definition</h3>
+<blockquote>
+<P>
+
+In the Java&trade; programming language, any code you want to execute must be inside a class definition. You type the class definition in a file and give the file the name of the class with <CODE>
+.java</CODE>
+ appended to it. So if you have a class named <CODE>
+MySQLStatement</CODE>, its definition should be in a file named <CODE>
+MySQLStatement.java</CODE>.</P>
+</blockquote>
+
+<h3>
+
+Importing Classes to Make Them Visible</h3>
+<blockquote>
+<P>
+
+The first thing to do is to import the packages or classes you will be using in the new class. The classes in our examples all use the <CODE>
+java.sql</CODE>
+ package (the JDBC&trade; API), which becomes available when the following line of code precedes the class definition:</P>
+<blockquote><pre>
+import java.sql.*;
+</pre></blockquote>
+<P>
+
+The star (<CODE>
+*</CODE>
+) indicates that all of the classes in the package <CODE>
+java.sql</CODE>
+ are to be imported. Importing a class makes it visible and means that you do not have to write out the fully qualified name when you use a method or field from that class. If you do not include &quot;<CODE>
+import java.sql.*;</CODE>
+&quot; in your code, you will have to write &quot;<CODE>
+java.sql.</CODE>
+&quot; plus the class name in front of all the JDBC fields or methods you use every time you use them. Note that you can import individual classes selectively rather than a whole package. Java does not require that you import classes or packages, but doing so makes writing code a lot more convenient.</P>
+
+<P>
+
+Any lines importing classes appear at the top of all the code samples, as they must if they are going to make the imported classes visible to the class being defined. The actual class definition follows any lines that import classes.</P>
+</blockquote>
+
+<h3>
+
+Using the main Method</h3>
+<blockquote>
+<P>
+
+If a class is to be executed, it must contain a <CODE>
+static</CODE>
+ <CODE>
+public</CODE>
+ <CODE>
+main</CODE>
+ method. This method comes right after the line declaring the class and invokes the other methods in the class. The keyword <CODE>
+static</CODE>
+ indicates that this method operates on a class level rather than on individual instances of a class. The keyword <CODE>
+public</CODE>
+ means that members of any class can access this method. Since we are not just defining classes to be used by other classes but instead want to run them, the example applications in this chapter all include a <CODE>
+main</CODE>
+ method.</P>
+</blockquote>
+
+<h3>
+
+Using try and catch Blocks</h3>
+<blockquote>
+<P>
+
+Something else all the sample applications include is <CODE>
+try</CODE>
+ and <CODE>
+catch</CODE>
+ blocks. These are the Java programming language's mechanism for handling exceptions. Java requires that when a method throws an exception, there be some mechanism to handle it. Generally a <CODE>
+catch</CODE>
+ block will catch the exception and specify what happens (which you may choose to be nothing). In the sample code, we use two <CODE>
+try</CODE>
+ blocks and two <CODE>
+catch</CODE>
+ blocks. The first <CODE>
+try</CODE>
+ block contains the method <CODE>
+Class.forName,</CODE>
+ from the <CODE>
+java.lang</CODE>
+ package. This method throws a <CODE>
+ClassNotFoundException</CODE>, so the <CODE>
+catch</CODE>
+ block immediately following it deals with that exception. The second <CODE>
+try</CODE>
+ block contains JDBC methods, which all throw <CODE>
+SQLException</CODE>s, so one <CODE>
+catch</CODE>
+ block at the end of the application can handle all of the rest of the exceptions that might be thrown because they will all be <CODE>
+SQLException</CODE>
+ objects. </P>
+</blockquote>
+<h3>
+
+Retrieving Exceptions</h3>
+<blockquote>
+<P>
+
+JDBC lets you see the warnings and exceptions generated by your DBMS and by the Java compiler. To see exceptions, you can have a <CODE>
+catch</CODE>
+ block print them out. For example, the following two <CODE>
+catch</CODE>
+ blocks from the sample code print out a message explaining the exception:</P>
+<blockquote><pre>
+try {
+	// Code that could generate an exception goes here.
+	// If an exception is generated, the catch block below
+	// will print out information about it.
+} catch(SQLException ex) {
+	System.err.println(&quot;SQLException: &quot; + ex.getMessage());
+}
+
+try {
+	Class.forName(&quot;myDriverClassName&quot;);
+} catch(java.lang.ClassNotFoundException e) {
+	System.err.print(&quot;ClassNotFoundException: &quot;); 
+	System.err.println(e.getMessage());
+}
+</pre></blockquote>
+<P>
+
+If you were to run <CODE>
+CreateCOFFEES.java</CODE>
+ twice, you would get an error message similar to this:</P>
+<blockquote><pre>
+SQLException: There is already an object named 'COFFEES'
+in the database.
+Severity 16, State 1, Line 1
+</pre></blockquote>
+<P>
+
+This example illustrates printing out the message component of an <CODE>
+SQLException</CODE>
+ object, which is sufficient for most situations. </P>
+<P>
+
+There are actually three components, however, and to be complete, you can print them all out. The following code fragment shows a <CODE>
+catch</CODE>
+ block that is complete in two ways. First, it prints out all three parts of an <CODE>
+SQLException</CODE>
+ object: the message (a string that describes the error), the SQL state (a string identifying the error according to the X/Open SQLState conventions), and the vendor error code (a number that is the driver vendor's error code number). The <CODE>
+SQLException</CODE>
+ object <CODE CLASS="Code-Variable1">
+ex</CODE>
+ is caught, and its three components are accessed with the methods <CODE>
+getMessage</CODE>
+, <CODE>
+getSQLState</CODE>
+, and <CODE>
+getErrorCode</CODE>
+. </P>
+<P>
+
+The second way the following <CODE>
+catch</CODE>
+ block is complete is that it gets all of the exceptions that might have been thrown. If there is a second exception, it will be chained to <CODE CLASS="Code-Variable1">
+ex</CODE>, so <CODE>
+ex.getNextException</CODE>
+ is called to see if there is another exception. If there is, the <CODE>
+while</CODE>
+ loop continues and prints out the next exception's message, SQLState, and vendor error code. This continues until there are no more exceptions.</P>
+<blockquote><pre>
+try {
+	// Code that could generate an exception goes here.
+	// If an exception is generated, the catch block below
+	// will print out information about it.
+} catch(SQLException ex) {
+	System.out.println(&quot;\n--- SQLException caught ---\n&quot;);
+	while (ex != null) {
+		System.out.println(&quot;Message:   &quot;
+                                   + ex.getMessage ());
+		System.out.println(&quot;SQLState:  &quot;
+                                   + ex.getSQLState ());
+		System.out.println(&quot;ErrorCode: &quot;
+                                   + ex.getErrorCode ());
+		ex = ex.getNextException();
+		System.out.println(&quot;&quot;);
+	}
+}
+</pre></blockquote>
+<P>
+
+If you were to substitute the <CODE>
+catch</CODE>
+ block above into the code
+ and run it after the table <CODE>
+COFFEES</CODE>
+ had already been created, you would get the following printout:</P>
+<blockquote><pre>
+--- SQLException caught ---
+Message:  There is already an object named 'COFFEES' in the database.
+Severity 16, State 1, Line 1
+SQLState: 42501
+ErrorCode:   2714
+</pre></blockquote>
+<P>
+
+
+The vendor error code is specific to each driver, so you need to check your driver documentation for a list of error codes and what they mean.</P>
+</blockquote>
+<h3>
+
+Retrieving Warnings</h3>
+<blockquote>
+<P>
+
+<CODE>
+SQLWarning</CODE>
+ objects are a subclass of <CODE>
+SQLException</CODE>
+ that deal with database access warnings. Warnings do not stop the execution of an application, as exceptions do; they simply alert the user that something did not happen as planned. For example, a warning might let you know that a privilege you attempted to revoke was not revoked. Or a warning might tell you that an error occurred during a requested disconnection.</P>
+<P>
+
+A warning can be reported on a <CODE>
+Connection</CODE>
+ object, a <CODE>
+Statement</CODE>
+ object (including <CODE>
+PreparedStatement</CODE>
+ and <CODE>
+CallableStatement</CODE>
+ objects), or a <CODE>
+ResultSet</CODE>
+ object. Each of these classes has a <CODE>
+getWarnings</CODE>
+ method, which you must invoke in order to see the first warning reported on the calling object. If <CODE>
+getWarnings</CODE>
+ returns a warning, you can call the <CODE>
+SQLWarning</CODE>
+ method <CODE>
+getNextWarning</CODE>
+ on it to get any additional warnings. Executing a statement automatically clears the warnings from a previous statement, so they do not build up. This means, however, that if you want to retrieve warnings reported on a statement, you must do so before you execute another statement.</P>
+<P>
+
+ The following code fragment illustrates how to get complete information about any warnings reported on the <CODE>
+Statement</CODE>
+ object <CODE CLASS="Code-Variable1">
+stmt</CODE>
+ and also on the <CODE>
+ResultSet</CODE>
+ object <CODE CLASS="Code-Variable1">
+rs</CODE>
+:</P>
+<blockquote><pre>
+Statement stmt = con.createStatement();
+ResultSet rs = stmt.executeQuery(&quot;select COF_NAME from COFFEES&quot;);
+while (rs.next()) {
+	String coffeeName = rs.getString(&quot;COF_NAME&quot;);
+	System.out.println(&quot;Coffees available at the Coffee Break:  &quot;);
+	System.out.println(&quot;    &quot; + coffeeName);
+	SQLWarning warning = stmt.getWarnings();
+	if (warning != null) {
+		System.out.println(&quot;\n---Warning---\n&quot;);
+		while (warning != null) {
+			System.out.println(&quot;Message: &quot;
+                                           + warning.getMessage());
+			System.out.println(&quot;SQLState: &quot;
+                                           + warning.getSQLState());
+			System.out.print(&quot;Vendor error code: &quot;);
+			System.out.println(warning.getErrorCode());
+			System.out.println(&quot;&quot;);
+			warning = warning.getNextWarning();
+		}
+	}
+	SQLWarning warn = rs.getWarnings();
+	if (warn != null) {
+		System.out.println(&quot;\n---Warning---\n&quot;);
+		while (warn != null) {
+			System.out.println(&quot;Message: &quot;
+                                           + warn.getMessage());
+			System.out.println(&quot;SQLState: &quot;
+                                           + warn.getSQLState());
+			System.out.print(&quot;Vendor error code: &quot;);
+			System.out.println(warn.getErrorCode());
+			System.out.println(&quot;&quot;);
+			warn = warn.getNextWarning();
+		}
+	}
+}
+</pre></blockquote>
+<P>
+
+Warnings are actually rather uncommon. Of those that are reported, by far the most common warning is a <CODE>
+DataTruncation</CODE>
+ warning, a subclass of <CODE>
+SQLWarning</CODE>. All <CODE>
+DataTruncation</CODE>
+ objects have an SQLState of <CODE>
+01004</CODE>, indicating that there was a problem with reading or writing data. <CODE>
+DataTruncation</CODE>
+ methods let you find out in which column or parameter data was truncated, whether the truncation was on a read or write operation, how many bytes should have been transferred, and how many bytes were actually transferred.</P>
+
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=sql.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=running.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> SQL Statements for Creating a Stored Procedure
+        <br><b>Next page:</b> Running the Sample Applications
+    </div>
+    </body>
+</html> 
