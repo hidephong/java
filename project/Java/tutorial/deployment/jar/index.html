@@ -1,0 +1,451 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Lesson: Packaging Programs in JAR Files (The Java&trade; Tutorials &gt; Deployment)</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                    <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                        <br>
+                        <a href="javascript:toggleLeft()"
+                            id="ToggleLeft">Hide the TOC</a>
+                    </div> 
+                </div> </div> </div> </div> </div>
+
+    <div id=LeftBar>
+        <div id=Contents>
+            <div class="nolinkLESSON">Packaging Programs in JAR Files</div>
+<div class="linkAHEAD"><a href="basicsindex.html">Using JAR Files: The Basics</a></div>
+<div class="linkBHEAD"><a href="build.html">Creating a JAR File</a></div>
+<div class="linkBHEAD"><a href="view.html">Viewing the Contents of a JAR File</a></div>
+<div class="linkBHEAD"><a href="unpack.html">Extracting the Contents of a JAR File</a></div>
+<div class="linkBHEAD"><a href="update.html">Updating a JAR File</a></div>
+<div class="linkBHEAD"><a href="run.html">Running JAR-Packaged Software</a></div>
+<div class="linkAHEAD"><a href="manifestindex.html">Working with Manifest Files: The Basics</a></div>
+<div class="linkBHEAD"><a href="defman.html">Understanding the Default Manifest</a></div>
+<div class="linkBHEAD"><a href="modman.html">Modifying a Manifest File</a></div>
+<div class="linkBHEAD"><a href="appman.html">Setting an Application's Entry Point</a></div>
+<div class="linkBHEAD"><a href="downman.html">Adding Classes to the JAR File's Classpath</a></div>
+<div class="linkBHEAD"><a href="packageman.html">Setting Package Version Information</a></div>
+<div class="linkBHEAD"><a href="sealman.html">Sealing Packages within a JAR File</a></div>
+<div class="linkAHEAD"><a href="signindex.html">Signing and Verifying JAR Files</a></div>
+<div class="linkBHEAD"><a href="intro.html">Understanding Signing and Verification</a></div>
+<div class="linkBHEAD"><a href="signing.html">Signing JAR Files</a></div>
+<div class="linkBHEAD"><a href="verify.html">Verifying Signed JAR Files</a></div>
+<div class="linkAHEAD"><a href="apiindex.html">Using JAR-related APIs</a></div>
+<div class="linkBHEAD"><a href="jarclassloader.html">The JarClassLoader Class</a></div>
+<div class="linkBHEAD"><a href="jarrunner.html">The JarRunner Class</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+        <div class=PrintHeaders>
+            <b>Trail:</b> Deployment
+        </div>
+        <div id=BreadCrumbs>
+            <a href=../../index.html target=_top>Home Page</a>
+        &gt;
+            <a href=../index.html target=_top>Deployment</a>
+        </div>
+        <div class=NavBit>
+                <a target=_top href=../index.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=basicsindex.html>Next&nbsp;&raquo;</a>
+        </div>
+        <div id=PageTitle>Lesson: Packaging Programs in JAR Files</div>
+        <blockquote>
+<!-- Lesson: Packaging Programs in JAR Files -->
+
+The Java<sup><font size="-2">TM</font></sup> Archive (JAR) file format 
+enables you to bundle multiple files into a single archive file. 
+
+Typically a JAR file contains the class files and auxiliary resources
+associated with applets and applications.  
+
+<p>
+The JAR file format provides many benefits:
+
+<ul>
+<li><em>Security</em>: You can digitally sign the contents of a JAR 
+file.  Users who recognize your signature can then optionally grant 
+your software security privileges it wouldn't otherwise have.
+
+<li><em>Decreased download time</em>: If your applet is bundled in a 
+JAR file, the applet's class files and associated resources can be downloaded 
+to a browser in a single HTTP transaction without the need for opening a new 
+connection for each file.
+
+<li><em>Compression</em>: The JAR format allows you to compress 
+your files for efficient storage.
+
+<li><em>Packaging for extensions</em>: The extensions framework provides a 
+means by which you can add functionality to the Java core platform, and 
+the JAR file format defines the packaging for extensions. 
+
+<a class="OutsideLink" target="_blank" href="http://java.sun.com/products/java-media/3D">Java 3D&trade;</a> and 
+<a class="OutsideLink" target="_blank" href="http://java.sun.com/products/javamail/index.html">JavaMail&trade;</a>  are examples of extensions developed by 
+Sun<font size="-2"><sup>TM</sup></font>.  By using the JAR file format, 
+you can turn your software into extensions as well.
+
+<li><em>Package Sealing</em>: Packages stored in JAR files can 
+be optionally sealed so that the package can enforce version consistency. 
+Sealing a package within a JAR file means that all classes defined 
+in that package must be found in the same JAR file.
+
+<li><em>Package Versioning</em>: A JAR file can hold 
+data about the files it contains, such as 
+vendor and version information. 
+
+<li><em>Portability</em>: The mechanism for handling JAR files is a 
+standard part of the Java platform's core API. 
+</ul>
+<p>
+This lesson has four sections:
+
+</blockquote>
+
+<!--    Using JAR Files: The Basics    -->
+<h3>
+<a class="TutorialLink" target="_top" href="basicsindex.html">Using JAR Files: The Basics</a></h3>
+<blockquote>
+This section shows you how to perform basic JAR-file operations, and how 
+to run software that is bundled in JAR files.
+
+</blockquote>
+<!--    Working with Manifest Files: The Basics    -->
+<h3>
+<a class="TutorialLink" target="_top" href="manifestindex.html">Working with Manifest Files: The Basics</a></h3>
+<blockquote>
+This section explains manifest files and how to customize them so you can do such things as seal packages and set an application's entry point.
+</blockquote>
+
+<!--    Signing JAR files    -->
+<h3>
+<a class="TutorialLink" target="_top" href="signindex.html">Signing and Verifying JAR Files</a></h3>
+<blockquote>
+This section shows you how to digitally sign JAR files and verify the signatures of signed JAR files.
+
+</blockquote>
+<!--    Using New JAR-related Features in the JDK 1.2 Software   -->
+<h3>
+<a class="TutorialLink" target="_top" href="apiindex.html">Using JAR-related APIs</a></h3>
+<blockquote>
+This section introduces you to some of the JAR-handling features of 
+the Java platform. 
+
+<!--    JAR Files and the Extension Mechanism    -->
+
+The JAR file format is an important part of the 
+Java platform's extension mechanism.  You can learn more about 
+that aspect of JAR 
+files in the 
+<a href="../../ext/index.html">The Extension Mechanism</a> 
+trail of this tutorial.
+</blockquote>
+
+<!--    Questions and Exercises: JAR -->
+<h3>
+<a class="TutorialLink" target="_top" href="QandE/questions.html">Questions and Exercises: JAR</a></h3>
+<blockquote>
+Test what you've learned about JAR.
+</blockquote>
+
+<!--Additional References -->
+
+<h3>Additional References</h3>
+<blockquote>
+The documentation for the Java Development Kit includes information about the Jar tool:
+<ul>
+<li>
+<a class="OutsideLink" target="_blank" href="http://java.sun.com/javase/6/docs/technotes/guides/jar/index.html">Java Archive (JAR) Files Guide</a> </li><li>
+<a class="OutsideLink" target="_blank" href="http://java.sun.com/javase/6/docs/technotes/guides/jar/jar.html">JAR File Specification</a> </li></ul>
+</blockquote>
+        </blockquote>
+    <div class=NavBit>
+        <a href=../index.html>&laquo; Previous</a>
+        &bull;
+        <a href=../TOC.html>Trail</a>
+        &bull;
+        <a href=basicsindex.html>Next &raquo;</a>
+    </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Table of Contents
+        <br><b>Next page:</b> Using JAR Files: The Basics
+    </div>
+    </body>
+</html> 

@@ -1,0 +1,512 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>The JNLP API (The Java&trade; Tutorials &gt; 
+            Deployment &gt; Java Web Start)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> Deployment
+        <br><b>Lesson:</b> Java Web Start
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">Java Web Start</a></div>
+<div class="linkAHEAD"><a href="running.html">Running Java Web Start Applications</a></div>
+<div class="linkAHEAD"><a href="deploying.html">Deploying Java Web Start Applications</a></div>
+<div class="linkAHEAD"><a href="packaging.html">Developing Java Web Start Applications</a></div>
+<div class="nolinkAHEAD">The JNLP API</div>
+<div class="linkAHEAD"><a href="security.html">Java Web Start and Security</a></div>
+<div class="linkAHEAD"><a href="problems.html">Common Java Web Start Problems</a></div>
+<div class="linkQUESTIONS"><a href="QandE/questions.html">Questions and Exercises</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>Deployment</a>
+                &gt;
+                <a href=index.html target=_top>Java Web Start</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=packaging.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=security.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>The JNLP API</div>
+            <blockquote>
+The Java platform includes the JNLP API to enable you to provide additional information to applications deployed through Java Web Start. 
+
+<p>
+
+The JNLP API is included in the 
+
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/jre/api/javaws/jnlp/index.html"><code>javax.jnlp</code> </a> package, which is delivered in the <code>jnlp.jar</code> as part of te Java Development Kit version 6, in the <code>sample/jnlp/servlet</code> directory. The <code>javax.jnlp</code> package is also delivered in the <code>javaws.jar</code>, which is located in the JRE's <code>lib</code> directory.
+
+<p>
+
+The following table provides an overview of the main interfaces and classes in the <code>javax.jnlp</code> package. For more information, see the API documentation and the
+
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/technotes/guides/javaws/developersguide/contents.html">Java Web Start Guide</a>.
+<p>
+
+<blockquote><hr><strong><FONT COLOR="red">Warning</FONT>:</strong>&nbsp;Java Web Start warns users of the following Interfaces and Classes about the potential security risk of allowing an untrusted application to access the file system, use the system printer, use the system clipboard, or increase the disk space used by the PersistenceService.
+
+<hr></blockquote>
+
+<table  WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3>
+<caption><strong>Interfaces and Classes in the <code>javax.jnlp</code> Package</strong></caption>
+<tr>
+<th width=25%>Interface or Class</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/jre/api/javaws/jnlp/javax/jnlp/BasicService.html"><code>BasicService</code></a></td>
+
+<td>
+Provides methods for:
+
+<ul>
+<li>Determining the codebase of the application</li>
+<li>Determining whether the application is online or not</li>
+<li>Determining whether a Web browser is supported on the current platform and by the JNLP client.</li>
+<li>Opening a specific URL in the browser</li>
+</ul>
+</td>
+</tr>
+
+
+<tr>
+<td>
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/jre/api/javaws/jnlp/javax/jnlp/ClipboardService.html"><code>ClipboardService</code></a></td>
+
+<td>
+ Provides methods for copying contents to and from the client system's clipboard. The <code>ClipboardService</code> interface works for applications running in a sandbox.
+</td>
+</tr>
+
+<tr>
+<td>
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/jre/api/javaws/jnlp/javax/jnlp/DownloadService.html"><code>DownloadService</code></a></td>
+
+<td>
+Provides the ability to control how the application's resources are cached.
+</td>
+</tr>
+<tr>
+<td>
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/jre/api/javaws/jnlp/javax/jnlp/ExtendedService.html"><code>ExtendedService</code></a></td>
+
+<td>
+Provides additional support to the current JNLP API. It allows applications to open specific file(s) in the client's file system.
+</td>
+</tr>
+
+<tr>
+<td>
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/jre/api/javaws/jnlp/javax/jnlp/FileContents.html"><code>FileContents</code></a>
+</td>
+
+<td>
+Encapsulates the name and contents of a file.  An object of this class is used by the <code>FileOpenService</code>, <code>FileSaveService</code> and <code>PersistenceService</code> interfaces.
+</td>
+</tr>
+
+<tr>
+<td>
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/jre/api/javaws/jnlp/javax/jnlp/FileOpenService.html"><code>FileOpenService</code></a></td>
+
+<td>
+Provides the ability for applications to open files on the local file system.
+</td>
+</tr>
+
+
+<tr>
+<td>
+
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/jre/api/javaws/jnlp/javax/jnlp/FileSaveService.html"><code>FileSaveService</code></a></td>
+
+<td>
+Provides methods for exporting files to the local disk, even for applications that are running in the restricted execution environment.
+
+<p>
+<strong>Note: </strong>
+This interface provides the same level of disk access to potentially untrusted Web-deployed applications that a Web browser provides for content it displays through its Save As . . . dialog box.
+
+</td>
+</tr>
+<tr>
+
+<td>
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/jre/api/javaws/jnlp/javax/jnlp/JNLPRandomAccessFile.html"><code>JNLPRandomAccessFile</code></a></td>
+
+<td>
+
+Supports reading from and writing to a random access file.  A random access file behaves like a large array of bytes stored in the file system. 
+
+</td>
+
+</tr>
+
+<tr>
+<td>
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/jre/api/javaws/jnlp/javax/jnlp/PersistenceService.html"><code>PersistenceService</code></a></td>
+
+<td>
+Provides methods for storing data locally on the client system, even for applications that are running in a sandbox.
+
+
+<p>
+<strong>Note: </strong>
+
+This service is similar to the cookie mechanism for HTML-based applications.  Cookies allow a small amount of data to be stored locally on the client system.  That data can be securely managed by the browser and can only be retrieved by HTML pages which originate from the same URL as the page that stored the data.
+
+
+</td>
+</tr>
+<tr>
+<td>
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/jre/api/javaws/jnlp/javax/jnlp/PrintService.html"><code>PrintService</code></a></td>
+
+<td>
+Provides methods for access to printing, even for applications that are running in the restricted execution environment.
+
+
+<p>
+<strong>Note: </strong>
+Starting with Java Web Start 5.0, you can use the Java Printing APIs, so there is no need to use this interface. If the application is running in a sandbox, Java Web Start opens a security dialog box asking the user for permission to print.
+
+
+</td>
+</tr>
+
+
+
+
+
+
+
+
+
+<tr>
+<td>
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/jre/api/javaws/jnlp/javax/jnlp/SingleInstanceService.html"><code>SingleInstanceService</code></a></td>
+
+<td>
+Provides a set of methods for applications to register themselves as singletons, and to register listener(s) for handling arguments passed in from different instances of applications.
+</td>
+</tr>
+
+
+
+
+</table>
+
+
+
+</blockquote>
+
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=packaging.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=security.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Developing Java Web Start Applications
+        <br><b>Next page:</b> Java Web Start and Security
+    </div>
+    </body>
+</html> 

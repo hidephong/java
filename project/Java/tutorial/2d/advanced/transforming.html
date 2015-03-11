@@ -1,0 +1,469 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Transforming Shapes, Text, and Images (The Java&trade; Tutorials &gt; 
+            2D Graphics &gt; Advanced Topics in Java2D)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> 2D Graphics
+        <br><b>Lesson:</b> Advanced Topics in Java2D
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">Advanced Topics in Java2D</a></div>
+<div class="nolinkAHEAD">Transforming Shapes, Text, and Images</div>
+<div class="linkAHEAD"><a href="clipping.html">Clipping the Drawing Region</a></div>
+<div class="linkAHEAD"><a href="compositing.html">Compositing Graphics</a></div>
+<div class="linkAHEAD"><a href="quality.html">Controlling Rendering Quality</a></div>
+<div class="linkAHEAD"><a href="complexshapes.html">Constructing Complex Shapes from Geometry Primitives</a></div>
+<div class="linkAHEAD"><a href="user.html">Supporting User Interaction</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>2D Graphics</a>
+                &gt;
+                <a href=index.html target=_top>Advanced Topics in Java2D</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=index.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=clipping.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Transforming Shapes, Text, and Images</div>
+            <blockquote>
+You can modify the transform attribute in the <CODE>Graphics2D</CODE>
+context to move, rotate, scale, and shear graphics primitives when they
+are rendered. The transform attribute is defined by an instance of the
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/java/awt/geom/AffineTransform.html"><CODE>AffineTransform</CODE></a> class. An affine transform is a transformation
+such as translate, rotate, scale, or shear in which parallel lines
+remain parallel even after being transformed.
+<P>
+The 
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/java/awt/Graphics2D.html"><code>Graphics2D</code></a> class provides several methods for changing the transform attribute. You can
+construct a new <CODE>AffineTransform</CODE> and change the
+<CODE>Graphics2D</CODE> transform attribute by calling
+<CODE>transform</CODE>.
+
+<P>
+<CODE>AffineTransform</CODE> defines the following factory methods to
+make it easier to construct new transforms:
+<UL>
+<LI> <CODE>getRotateInstance</CODE>
+<LI> <CODE>getScaleInstance</CODE>
+<LI> <CODE>getShearInstance</CODE>
+<LI> <CODE>getTranslateInstance</CODE>
+</UL>
+<P>
+Alternatively you can use one of the <CODE>Graphics2D</CODE>
+transformation methods to modify the current transform. When you call
+one of these convenience methods, the resulting transform is
+concatenated with the current transform and is applied during
+rendering:
+<UL>
+<LI> <CODE>rotate</CODE>--to specify an angle of rotation in radians
+<LI> <CODE>scale</CODE>--to specify a scaling factor in the <EM CLASS="Emphasis">x</EM>
+     and <EM CLASS="Emphasis">y</EM> directions
+<LI> <CODE>shear</CODE>--to specify a shearing factor in the <EM CLASS="Emphasis">x</EM>
+     and <EM CLASS="Emphasis">y</EM> directions
+<LI> <CODE>translate</CODE>--to specify a translation offset in the
+     <EM CLASS="Emphasis">x</EM> and <EM CLASS="Emphasis">y</EM> directions
+</UL>
+<P>
+You can also construct an <CODE>AffineTransform</CODE> object directly and
+concatenate it with the current transform by calling the
+<CODE>transform </CODE> method.
+<P>
+The <CODE>drawImage</CODE> method is also overloaded to allow you to
+specify an <CODE>AffineTransform</CODE> that is applied to the image as
+it is rendered. Specifying a transform when you call
+<CODE>drawImage</CODE> does not affect the <CODE>Graphics2D</CODE>
+transform attribute.
+
+</blockquote>
+<h3> Example: Transform</h3>
+<blockquote>
+The following program is the same as <CODE>StrokeandFill</CODE>, but
+also allows the user to choose a transformation to apply to the
+selected object when it is rendered.
+
+<p align="center">
+<APPLET CODE="Transform.class"
+        codebase="examples/"
+        WIDTH=550 HEIGHT=400>
+</APPLET>
+<blockquote><hr><strong>Note:</strong> If you don't see the applet running above, you need to install <a href="http://java.sun.com/javase/downloads/index.jsp">release 6 of the JDK</a>.
+<P>
+
+<a class="SourceLink" target="_blank" href="examples/Transform.java"><code>Transform.java</code></a>
+ contains the complete code for this applet.
+<P>
+When a transform is chosen from the Transform menu, the transform is
+concatenated onto the <code>AffineTransform</code> <code>at</code>:
+
+<blockquote><pre>
+public void setTrans(int transIndex) {
+    // Sets the AffineTransform.
+    switch ( transIndex ) {
+    case 0 : at.setToIdentity();
+             at.translate(w/2, h/2); break;
+    case 1 : at.rotate(Math.toRadians(45)); break;
+    case 2 : at.scale(0.5, 0.5); break;
+    case 3 : at.shear(0.5, 0.0); break;
+    }
+}
+</pre></blockquote>    
+Before displaying the shape corresponding to the menu choices, the application  
+first retrieves the current transform from the <code>Graphics2D</code> object:
+
+<blockquote><pre>
+AffineTransform saveXform = g2.getTransform();
+</pre></blockquote>  
+
+This transform will be restored to the <code>Graphics2D</code> after rendering.
+<P>
+After retrieving the current transform, another <code>AffineTransform</code>, 
+<code>toCenterAt</code>, is 
+created that causes shapes to be rendered in the center of the panel.  The <code>at</code> 
+<code>AffineTransform</code> is concatenated onto <code>toCenterAt</code>:
+
+<blockquote><pre>
+AffineTransform toCenterAt = new AffineTransform();
+toCenterAt.concatenate(at);
+toCenterAt.translate(-(r.width/2), -(r.height/2));
+</pre></blockquote> 
+
+The <code>toCenterAt</code> transform is concatenated onto the <code>Graphics2D</code> transform with the 
+<code>transform</code> method:
+
+<blockquote><pre>
+g2.transform(toCenterAt);
+</pre></blockquote> 
+
+After rendering is completed, the original transform is restored using the 
+<code>setTransform</code> method:
+
+<blockquote><pre>
+g2.setTransform(saveXform);
+</pre></blockquote> 
+
+<blockquote><hr><strong>Note:</strong>&nbsp;Never use the <code>setTransform</code> method to concatenate a coordinate transform onto
+an existing transform.  The <code>setTransform</code> method overwrites the 
+<code>Graphics2D</code>  
+object's current transform, which might be needed for other reasons, such 
+as positioning Swing and lightweight components in a window.  Use these steps to perform
+transformations:
+
+<OL>
+  <li>Use the <code>getTransform</code> method to get the current transform.</li>
+  <li>Use <code>transform</code>, <code>translate</code>, <code>scale</code>, 
+  <code>shear</code>, or <code>rotate</code> to concatenate a
+   transform.</li>
+  <li>Perform the rendering.</li>
+  <li>Restore the original transform using the <code>setTransform</code> method.</li>
+</OL>
+<hr></blockquote>
+
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=index.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=clipping.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Advanced Topics in Java2D
+        <br><b>Next page:</b> Clipping the Drawing Region
+    </div>
+    </body>
+</html> 

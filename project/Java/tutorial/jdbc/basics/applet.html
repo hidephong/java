@@ -1,0 +1,642 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Creating an Applet from an Application (The Java&trade; Tutorials &gt; 
+            JDBC(TM) Database Access &gt; JDBC Basics)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> JDBC(TM) Database Access
+        <br><b>Lesson:</b> JDBC Basics
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">JDBC Basics</a></div>
+<div class="linkAHEAD"><a href="gettingstarted.html">Getting Started</a></div>
+<div class="linkAHEAD"><a href="settingup.html">Setting Up a Database</a></div>
+<div class="linkAHEAD"><a href="connecting.html">Establishing a Connection</a></div>
+<div class="linkAHEAD"><a href="tables.html">Setting Up Tables</a></div>
+<div class="linkAHEAD"><a href="retrieving.html">Retrieving Values from Result Sets</a></div>
+<div class="linkAHEAD"><a href="updating.html">Updating Tables</a></div>
+<div class="linkAHEAD"><a href="milestone.html">Milestone: The Basics of JDBC</a></div>
+<div class="linkAHEAD"><a href="prepared.html">Using Prepared Statements</a></div>
+<div class="linkAHEAD"><a href="joins.html">Using Joins</a></div>
+<div class="linkAHEAD"><a href="transactions.html">Using Transactions</a></div>
+<div class="linkAHEAD"><a href="storedprocedures.html">Stored Procedures</a></div>
+<div class="linkAHEAD"><a href="sql.html">SQL Statements for Creating a Stored Procedure</a></div>
+<div class="linkAHEAD"><a href="complete.html">Creating Complete JDBC Applications </a></div>
+<div class="linkAHEAD"><a href="running.html">Running the Sample Applications</a></div>
+<div class="nolinkAHEAD">Creating an Applet from an Application</div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>JDBC(TM) Database Access</a>
+                &gt;
+                <a href=index.html target=_top>JDBC Basics</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=running.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=../end.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Creating an Applet from an Application</div>
+            <blockquote>
+<P CLASS="Body">
+<A NAME="pgfId=1024745">
+ </A>
+Suppose that the owner of The Coffee Break wants to display his current coffee prices in an applet on his web page. He can be sure of always displaying the most current price by having the applet get the price directly from his database. </P>
+<P CLASS="Body">
+<A NAME="pgfId=1010545">
+ </A>
+In order to do this, he needs to create two files of code, one with applet code, and one with HTML code. The applet code contains the JDBC code that would appear in a regular application plus additional code for running the applet and displaying the results of the database query. In our example, the applet code is in the file <CODE CLASS="Code">
+<a class="SourceLink" target="_blank" href="examples/OutputApplet.java"><code>OutputApplet.java</code></a></CODE>. To display our applet in an HTML page, the file <CODE CLASS="Code"><a href="examples/OutputApplet.html">
+OutputApplet.html</a></CODE>
+ tells the browser what to display and where to display it.</P>
+<P CLASS="Body">
+<A NAME="pgfId=1010452">
+ </A>
+The rest of this section will tell you about various elements found in applet code that are not present in standalone application code. Some of these elements involve advanced aspects of the Java programming language. We will give you some rationale and some basic explanation, but explaining them fully is beyond the scope of this tutorial. For purposes of this sample applet, you only need to grasp the general idea, so don't worry if you don't understand everything. You can use the applet code as a template, substituting your own queries for the one in the applet. </P>
+</blockquote>
+<h3 CLASS="C-Head">
+<A NAME="pgfId=1002532">
+ </A>
+Writing Applet Code</h3>
+<blockquote>
+<P CLASS="Body">
+<A NAME="pgfId=1010494">
+ </A>
+To begin with, applets will import classes not used by standalone applications. Our applet imports two classes that are special to applets: the class <CODE CLASS="Code">
+Applet</CODE>
+, which is part of the <CODE CLASS="Code">
+java.applet</CODE>
+ package, and the class <CODE CLASS="Code">
+Graphics</CODE>
+, which is part of the <CODE CLASS="Code">
+java.awt</CODE>
+ package. This applet also imports the general-purpose class <CODE CLASS="Code">
+java.util.Vector</CODE>
+ so that we have access to an array-like container whose size can be modified. This code uses <CODE CLASS="Code">
+Vector</CODE>
+ objects to store query results so that they can be displayed later.</P>
+<P CLASS="Body">
+<A NAME="pgfId=1006399">
+ </A>
+All applets extend the <CODE CLASS="Code">
+Applet</CODE>
+ class; that is, they are subclasses of <CODE CLASS="Code">
+Applet</CODE>
+. Therefore, every applet definition must contain the words <CODE CLASS="Code">
+extends</CODE>
+ <CODE CLASS="Code">
+Applet</CODE>
+, as shown here:</P>
+<blockquote><pre>
+public class MyAppletName extends Applet {
+    . . . 
+}
+</pre></blockquote>
+<P CLASS="Body">
+<A NAME="pgfId=1004753">
+ </A>
+In our applet example,
+
+<a class="SourceLink" target="_blank" href="examples/OutputApplet.java"><code>OutputApplet</code></a>,
+this line also includes the words <CODE CLASS="Code">
+implements</CODE>
+ <CODE CLASS="Code">
+Runnable</CODE>
+, so it looks like this:</P>
+<blockquote><pre>
+public class OutputApplet extends Applet implements Runnable {
+    . . .
+}
+</pre></blockquote>
+<P CLASS="Body">
+<A NAME="pgfId=1010385">
+ </A>
+<CODE CLASS="Code">
+Runnable</CODE>
+ is an interface that makes it possible to run more than one thread at a time. A thread is a sequential flow of control, and it is possible for a program to be multithreaded, that is, to have many threads doing different things concurrently. The class <CODE CLASS="Code">
+OutputApplet</CODE>
+ implements the interface <CODE CLASS="Code">
+Runnable</CODE>
+ by defining the method <CODE CLASS="Code">
+run</CODE>
+, the only method in <CODE CLASS="Code">
+Runnable</CODE>
+. In our example the <CODE CLASS="Code">
+run</CODE>
+ method contains the JDBC code for opening a connection, executing a query, and getting the results from the result set. Since database connections can be slow, and can sometimes take several seconds, it is generally a good idea to structure an applet so that it can handle the database work in a separate thread. </P>
+<P CLASS="Body">
+<A NAME="pgfId=1004754">
+ </A>
+Similar to a standalone application, which must have a <CODE CLASS="Code">
+main</CODE>
+ method, an applet must implement at least one <CODE CLASS="Code">
+init</CODE>
+, <CODE CLASS="Code">
+start</CODE>
+, or <CODE CLASS="Code">
+paint</CODE>
+ method. Our example applet defines a <CODE CLASS="Code">
+start</CODE>
+ method and a <CODE CLASS="Code">
+paint</CODE>
+ method. Every time <CODE CLASS="Code">
+start</CODE>
+ is invoked, it creates a new thread (named <CODE CLASS="Code-Variable1">
+worker</CODE>
+) to re-evaluate the database query. Every time <CODE CLASS="Code">
+paint</CODE>
+ is invoked, it displays either the query results or a string describing the current status of the applet.</P>
+<P CLASS="Body">
+<A NAME="pgfId=1010521">
+ </A>
+As stated previously, the <CODE CLASS="Code">
+run</CODE>
+ method defined in <CODE CLASS="Code">
+OutputApplet</CODE>
+ contains the JDBC code. When the thread <CODE CLASS="Code-Variable1">
+worker</CODE>
+ invokes the method <CODE CLASS="Code">
+start</CODE>
+, the <CODE CLASS="Code">
+run</CODE>
+ method is called automatically, and it executes the JDBC code in the thread <CODE CLASS="Code-Variable1">
+worker</CODE>
+. The code in <CODE CLASS="Code">
+run</CODE>
+ is very similar to the code you have seen in our other sample code with three exceptions. First, it uses the class <CODE CLASS="Code">
+Vector</CODE>
+ to store the results of the query. Second, it does not print out the results but rather adds them to the <CODE CLASS="Code">
+Vector</CODE>
+ <CODE CLASS="Code-Variable1">
+results</CODE>
+ for display later. Third, it likewise does not print out exceptions and instead records error messages for later display.</P>
+<P CLASS="Body">
+<A NAME="pgfId=1010522">
+ </A>
+Applets have various ways of drawing, or displaying, their content. This applet, a very simple one that has only text, uses the method <CODE CLASS="Code">
+drawString</CODE>
+ (part of the <CODE CLASS="Code">
+Graphics</CODE>
+ class) to display its text. The method <CODE CLASS="Code">
+drawString</CODE>
+ takes three arguments: (1) the string to be displayed, (2) the <CODE CLASS="Code">
+x</CODE>
+ coordinate, indicating the horizontal starting point for displaying the string, and (3) the <CODE CLASS="Code">
+y</CODE>
+ coordinate, indicating the vertical starting point for displaying the string (which is below the text).</P>
+<P CLASS="Body">
+<A NAME="pgfId=1010588">
+ </A>
+The method <CODE CLASS="Code">
+paint</CODE>
+ is what actually displays something on the screen, and in <CODE CLASS="Code">
+OutputApplet.java</CODE>
+, it is defined to contain calls to the method <CODE CLASS="Code">
+drawString</CODE>
+. The main thing <CODE CLASS="Code">
+drawString</CODE>
+ displays is the contents of the <CODE CLASS="Code">
+Vector</CODE>
+ <CODE CLASS="Code-Variable1">
+results</CODE>
+ (the stored query results). When there are no query results to display, <CODE CLASS="Code">
+drawString</CODE>
+ will display the current contents of the <CODE CLASS="Code">
+String</CODE>
+ <CODE CLASS="Code-Variable1">
+message</CODE>
+. This string will be &quot;Initializing&quot; to begin with. It gets set to &quot;Connecting to database&quot; when the method <CODE CLASS="Code">
+start</CODE>
+ is called, and the method <CODE CLASS="Code">
+setError</CODE>
+ sets it to an error message when an exception is caught. Thus, if the database connection takes much time, the person viewing this applet will see the message &quot;Connecting to database&quot; because that will be the contents of <CODE CLASS="Code-Variable1">
+message</CODE>
+ at that time. (The method <CODE CLASS="Code">
+paint</CODE>
+ is called by AWT when it wants the applet to display its current state on the screen.)</P>
+<P CLASS="Body">
+<A NAME="pgfId=1010631">
+ </A>
+The last two methods defined in the class <CODE CLASS="Code">
+OutputApplet,</CODE>
+ <CODE CLASS="Code">
+setError</CODE>
+ and <CODE CLASS="Code">
+setResults</CODE>
+ are private, which means that they can be used only by <CODE CLASS="Code">
+OutputApplet</CODE>. These methods both invoke the method <CODE CLASS="Code">
+repaint</CODE>
+, which clears the screen and calls <CODE CLASS="Code">
+paint</CODE>
+. So if <CODE CLASS="Code">
+setResults</CODE>
+ calls <CODE CLASS="Code">
+repaint</CODE>
+, the query results will be displayed, and if <CODE CLASS="Code">
+setError</CODE>
+ calls <CODE CLASS="Code">
+repaint</CODE>
+, an error message will be displayed.</P>
+<P CLASS="Body">
+<A NAME="pgfId=1010632">
+ </A>
+A final point to be made is that all the methods defined in <CODE CLASS="Code">
+OutputApplet</CODE>
+ except <CODE CLASS="Code">
+run</CODE>
+ are <CODE CLASS="Code-Variable1">
+synchronized</CODE>
+. The keyword <CODE CLASS="Code">
+synchronized</CODE>
+ indicates that while a method is accessing an object, other <CODE CLASS="Code">
+synchronized</CODE>
+ methods are blocked from accessing that object. The method <CODE CLASS="Code">
+run</CODE>
+ is not declared <CODE CLASS="Code">
+synchronized</CODE>
+ so that the applet can still paint itself on the screen while the database connection is in progress. If the database access methods were <CODE CLASS="Code">
+synchronized</CODE>
+, they would prevent the applet from being repainted while they are executing, and that could result in delays with no accompanying status message.</P>
+<P CLASS="Body">
+<A NAME="pgfId=1011143">
+ </A>
+To summarize, in an applet, it is good programming practice to do some things you would not need to do in a standalone application:</P>
+<OL>
+<LI CLASS="Numbered-Start1">
+<A NAME="pgfId=1011144">
+ </A>
+Put your JDBC code in a separate thread </LI>
+<LI CLASS="Numbered1">
+<A NAME="pgfId=1011145">
+ </A>
+Display status messages on the screen during any delays, such as when a database connection is taking a long time</LI>
+<LI CLASS="Numbered1">
+<A NAME="pgfId=1011150">
+ </A>
+Display error messages on the screen instead of printing them to <CODE CLASS="Code">
+System.out</CODE>
+ or <CODE CLASS="Code">
+System.err</CODE>
+. </LI>
+</OL>
+</blockquote>
+
+<h3 CLASS="C-Head">
+<A NAME="pgfId=1004780">
+ </A>
+Running an Applet</h3>
+<blockquote>
+<P CLASS="Body">
+<A NAME="pgfId=1010344">
+ </A>
+Before running our sample applet, you need to compile the file <CODE CLASS="Code">
+OutputApplet.java</CODE>
+. This creates the file <CODE CLASS="Code">
+OutputApplet.class</CODE>
+, which is referenced by the file
+<a href="examples/OutputApplet.html">
+<CODE CLASS="Code">OutputApplet.html</CODE></a>.</P>
+<P CLASS="Body">
+<A NAME="pgfId=1010563">
+ </A>
+The easiest way to run an applet is to use the appletviewer, which is included as part of the JDK. Simply follow the instructions below for your platform to compile and run <CODE CLASS="Code">
+OutputApplet.java</CODE>
+:</P>
+<dl>
+<DT CLASS="UNL-Head2">
+<strong>UNIX</strong></DT>
+<DD CLASS="UNL2">
+<blockquote><pre>
+javac OutputApplet.java
+appletviewer OutputApplet.html
+</pre></blockquote>
+</DD>
+<DT CLASS="UNL-Head2">
+<strong>Windows 95/NT</strong>
+ </DT>
+<DD CLASS="UNL2">
+<blockquote><pre>
+javac OutputApplet.java
+appletviewer OutputApplet.html
+</pre></blockquote>
+</DD>
+</DL>
+<P CLASS="Body">
+<A NAME="pgfId=1013379">
+ </A>
+Applets loaded over the network are subject to various security restrictions. Although this can seem bothersome at times, it is absolutely necessary for network security, and security is one of the major advantages of using the Java programming language. An applet cannot make network connections except to the host it came from unless the browser allows it. Whether one is able to treat locally installed applets as &quot;trusted&quot; also depends on the security restrictions imposed by the browser. An applet cannot ordinarily read or write files on the host that is executing it, and it cannot load libraries or define native methods. </P>
+<P CLASS="Body">
+<A NAME="pgfId=1004827">
+ </A>
+Applets can usually make network connections to the host they came from, so they can work very well on intranets. </P>
+<P CLASS="Body">
+<A NAME="pgfId=1006586">
+ </A>
+The JDBC-ODBC Bridge driver is a somewhat special case. It can be used quite successfully for intranet access, but it requires that ODBC, the bridge, the bridge native library, and JDBC be installed on every client. With this configuration, intranet access works from Java applications and from trusted applets. However, since the bridge requires special client configuration, it is not practical to run applets on the Internet with the JDBC-ODBC Bridge driver. Note that this is a limitation of the JDBC-ODBC Bridge, not of JDBC. With a pure Java JDBC driver, you do not need any special configuration to run applets on the Internet.</P>
+
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=running.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=../end.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Running the Sample Applications
+        <br><b>Next page:</b> End of Trail
+    </div>
+    </body>
+</html> 

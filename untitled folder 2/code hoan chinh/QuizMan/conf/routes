@@ -1,0 +1,17 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+#
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file        controllers.Assets.at(path="/public", file)
+#GET        /demos               controllers.DemoController.list
+#POST        /demo/$ean<\d{13}>/delete        controllers.DemoController.delete(ean: String)
+POST        /demos               controllers.DemoController.save
+GET         /demos/new           controllers.DemoController.newDemo
+GET         /demos/:ean          controllers.DemoController.show(ean: String)
+GET         /gen                 controllers.Application.genModels
+GET         /findQuiz            controllers.DemoController.findQuiz
+GET         /findAns            controllers.DemoController.findAns

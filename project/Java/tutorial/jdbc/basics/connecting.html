@@ -1,0 +1,488 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Establishing a Connection (The Java&trade; Tutorials &gt; 
+            JDBC(TM) Database Access &gt; JDBC Basics)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> JDBC(TM) Database Access
+        <br><b>Lesson:</b> JDBC Basics
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">JDBC Basics</a></div>
+<div class="linkAHEAD"><a href="gettingstarted.html">Getting Started</a></div>
+<div class="linkAHEAD"><a href="settingup.html">Setting Up a Database</a></div>
+<div class="nolinkAHEAD">Establishing a Connection</div>
+<div class="linkAHEAD"><a href="tables.html">Setting Up Tables</a></div>
+<div class="linkAHEAD"><a href="retrieving.html">Retrieving Values from Result Sets</a></div>
+<div class="linkAHEAD"><a href="updating.html">Updating Tables</a></div>
+<div class="linkAHEAD"><a href="milestone.html">Milestone: The Basics of JDBC</a></div>
+<div class="linkAHEAD"><a href="prepared.html">Using Prepared Statements</a></div>
+<div class="linkAHEAD"><a href="joins.html">Using Joins</a></div>
+<div class="linkAHEAD"><a href="transactions.html">Using Transactions</a></div>
+<div class="linkAHEAD"><a href="storedprocedures.html">Stored Procedures</a></div>
+<div class="linkAHEAD"><a href="sql.html">SQL Statements for Creating a Stored Procedure</a></div>
+<div class="linkAHEAD"><a href="complete.html">Creating Complete JDBC Applications </a></div>
+<div class="linkAHEAD"><a href="running.html">Running the Sample Applications</a></div>
+<div class="linkAHEAD"><a href="applet.html">Creating an Applet from an Application</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>JDBC(TM) Database Access</a>
+                &gt;
+                <a href=index.html target=_top>JDBC Basics</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=settingup.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=tables.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Establishing a Connection</div>
+            <blockquote>
+
+
+<p>First, you need to establish a connection with the DBMS you want to use. Typically,
+a JDBC&trade; application connects to a target data source using one of two mechanisms:
+
+<ul>
+<li> <code>DriverManager</code>:&nbsp;&nbsp; This fully implemented class requires an application to load a specific driver, using a hardcoded URL. As part of its initialization, the <code>DriverManager</code> class attempts to load the driver classes referenced in the <code>jdbc.drivers</code> system property. This allows you to customize the JDBC Drivers used by your applications. </li><br>
+
+<li> <code>DataSource</code>:&nbsp;&nbsp; This interface is preferred over <code>DriverManager</code> because it allows details about the
+underlying data source to be transparent to your application. A <code>DataSource</code>
+object's properties are set so that it represents a particular data source.</li><br>
+</ul>
+</p>
+<p> 
+
+Establishing a connection involves two steps: Loading the driver, and making the connection. </P>
+
+<h4>Loading the Driver</h4>
+
+<P>
+Loading the driver you want to use is very simple. It involves just one line of code in your program. To use the Java DB driver, add the following line of code:</P>
+<blockquote><pre>
+Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+</pre></blockquote>
+<P>
+ </A>
+Your driver documentation provides the class name to use. In the example above, <code>EmbeddedDriver</code> is one of the drivers for Java DB.
+<P>
+ </A>
+Calling the <CODE>Class.forName</CODE> automatically creates an instance of a driver and registers it with the <CODE>
+DriverManager</CODE>, so you don't need to create an instance of the class. If you were to create your own instance, you would be creating an unnecessary duplicate, but it would do no harm.</P>
+
+
+<P>After you have loaded a driver, it can make a connection with a DBMS. </P>
+
+<h4>Making the Connection</h4>
+
+<P >The second step in establishing a connection is to have the appropriate driver connect to the DBMS. 
+
+
+<h4>Using the DriverManager Class</h4>
+
+
+<p>The <code>DriverManager</code> class works with the <code>Driver</code> interface to manage the set of drivers available to a JDBC client. When the client requests a connection and
+provides a URL, the <code>DriverManager</code> is responsible for finding a driver that
+recognizes the URL and for using it to connect to the corresponding data source. Connection URLs have the following form:
+</p>
+<code>
+jdbc:derby:&lt;dbName&gt;[propertyList]
+</code>
+<p>
+The <code>dbName</code> portion of the URL identifies a specific database. A database can be in one of many locations: in the current working directory, on the classpath, in a JAR file, in a specific Java DB database home directory, or in an absolute location on your file system.
+</p>
+<p>
+If you are using a vendor-specific driver, such as Oracle, the documentation will tell you what subprotocol to use, that is, what to put after <CODE>
+jdbc:</CODE>
+ in the JDBC URL. For example, if the driver developer has registered the name <code>OracleDriver</code> as the subprotocol, the first and second parts of the JDBC URL will be <CODE>
+jdbc.driver.OracleDriver</CODE>
+. The driver documentation will also give you guidelines for the rest of the JDBC URL. This last part of the JDBC URL supplies information for identifying the data source.</P>
+<p>
+The <code>getConnection</code> method establishes a connection:
+
+</P>
+<blockquote><pre>
+Connection conn = DriverManager.getConnection(&quot;jdbc:derby:COFFEES&quot;);
+</pre></blockquote>
+</p>
+ <p>
+In place of &quot;<CODE>
+myLogin</CODE>
+&quot; you insert the name you use to log in to the DBMS; in place of &quot;<CODE>
+myPassword</CODE>
+&quot; you insert your password for the DBMS. So, if you log in to your DBMS with a login name of &quot;<CODE>
+Fernanda</CODE>
+&quot; and a password of &quot;<CODE>
+J8,</CODE>
+&quot; just these two lines of code will establish a connection:</P>
+
+<blockquote><pre>
+String url = &quot;jdbc:derby:Fred&quot;;
+Connection con = DriverManager.getConnection(url, &quot;Fernanda&quot;, &quot;J8&quot;);
+</pre></blockquote>
+<P>
+ 
+
+<P>If one of the drivers you loaded recognizes the JDBC URL supplied to the method <CODE >
+DriverManager.getConnection</CODE>, that driver establishes a connection to the DBMS specified in the JDBC URL. The <CODE >DriverManager</CODE> class, true to its name, manages all of the details of establishing the connection for you behind the scenes. Unless you are writing a driver, you  probably won't use any of the methods in the interface <CODE >Driver</CODE>, and the only <CODE >DriverManager</CODE> method you really need to know is <CODE >
+DriverManager.getConnection</CODE>
+</P>
+
+
+<P>The connection returned by the method <CODE>DriverManager.getConnection</CODE>
+ is an open connection you can use to create JDBC statements that pass your SQL statements to the DBMS. In the previous example, <CODE>con</CODE> is an open connection, and you use it in the examples that follow.</P>
+ 
+<h4>Using a DataSource Object for a connection</h4>
+
+Using a <code>DataSource</code> object increases application portability by making it possible for an application to use a logical name for a data source instead of having to supply information specific to a particular driver. The following example shows how to use a <code>DataSource</code> to establish a connection:</p>
+ 
+<p>
+
+You can configure a <code>DataSource</code> using a tool or manually. For example, Here is an example of a  <code>DataSource</code> lookup:
+ </p>
+ <blockquote><pre>
+ InitialContext ic = new InitialContext()
+ 
+ DataSource ds = ic.lookup("java:comp/env/jdbc/myDB");
+ Connection con = ds.getConnection();
+ DataSource ds = (DataSource) org.apache.derby.jdbc.ClientDataSource()
+ ds.setPort(1527);
+ ds.setHost("localhost");
+ ds.setUser("APP")
+ ds.setPassword("APP");
+ 
+Connection con = ds.getConnection(); 
+</pre></blockquote>
+
+ <p>
+ <code>DataSource</code> implementations must provide <i>getter</i> and <i>setter</i> methods for each
+ property they support. These properties typically are initialized when the
+<code>DataSource</code> object is deployed.</P>
+
+<blockquote><pre>
+VendorDataSource vds = new VendorDataSource();
+vds.setServerName("my_database_server");
+String name = vds.getServerName();
+</pre></blockquote>
+
+
+
+<h4>JDBC-ODBC Bridge Driver</h4> 
+ 
+ <p>For normal use, you should obtain a commercial JDBC driver from a vendor such as your database vendor or your database middleware vendor. The JDBC-ODBC Bridge driver provided with JDBC is recommended only for development and testing, or when no other  alternative is available.  </p>
+ 
+  
+ <p>
+ <!-- 
+ For installation and configuration details, see <a href="bridge.html">Connecting with the JDBC-ODBC Bridge Driver</a>. 
+ -->
+ </p>
+
+</DIV>
+
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=settingup.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=tables.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Setting Up a Database
+        <br><b>Next page:</b> Setting Up Tables
+    </div>
+    </body>
+</html> 

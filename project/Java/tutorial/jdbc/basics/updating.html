@@ -1,0 +1,487 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Updating Tables (The Java&trade; Tutorials &gt; 
+            JDBC(TM) Database Access &gt; JDBC Basics)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> JDBC(TM) Database Access
+        <br><b>Lesson:</b> JDBC Basics
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">JDBC Basics</a></div>
+<div class="linkAHEAD"><a href="gettingstarted.html">Getting Started</a></div>
+<div class="linkAHEAD"><a href="settingup.html">Setting Up a Database</a></div>
+<div class="linkAHEAD"><a href="connecting.html">Establishing a Connection</a></div>
+<div class="linkAHEAD"><a href="tables.html">Setting Up Tables</a></div>
+<div class="linkAHEAD"><a href="retrieving.html">Retrieving Values from Result Sets</a></div>
+<div class="nolinkAHEAD">Updating Tables</div>
+<div class="linkAHEAD"><a href="milestone.html">Milestone: The Basics of JDBC</a></div>
+<div class="linkAHEAD"><a href="prepared.html">Using Prepared Statements</a></div>
+<div class="linkAHEAD"><a href="joins.html">Using Joins</a></div>
+<div class="linkAHEAD"><a href="transactions.html">Using Transactions</a></div>
+<div class="linkAHEAD"><a href="storedprocedures.html">Stored Procedures</a></div>
+<div class="linkAHEAD"><a href="sql.html">SQL Statements for Creating a Stored Procedure</a></div>
+<div class="linkAHEAD"><a href="complete.html">Creating Complete JDBC Applications </a></div>
+<div class="linkAHEAD"><a href="running.html">Running the Sample Applications</a></div>
+<div class="linkAHEAD"><a href="applet.html">Creating an Applet from an Application</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>JDBC(TM) Database Access</a>
+                &gt;
+                <a href=index.html target=_top>JDBC Basics</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=retrieving.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=milestone.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Updating Tables</div>
+            <blockquote>
+<p>Next, you learn to update rows in a result set, using methods in the Java 
+programming language rather than having to send an SQL 
+command. 
+
+<p>
+Updating a row in a <code>ResultSet</code> object is a two-phase process. First, the new value
+for each column being updated is set, and then the change is applied to the row. The
+row in the underlying data source is not updated until the second phase is
+completed.
+</p>
+
+<p>
+The <code>ResultSet</code> interface contains two update methods for each JDBC&trade; type, one
+specifying the column to be updated as an index and one specifying the column
+name as it appears in the select list.
+Column names supplied to updater methods are case insensitive. If a select list
+contains the same column more than once, the first instance of the column will be
+updated.
+</p>
+<p>
+First, you need to create a <code>ResultSet</code> object that is updatable. To do this, supply the <code>ResultSet</code>  constant <code>CONCUR_UPDATABLE</code> to the <code>createStatement</code>  method, as you have seen in previous examples. The <code>Statement</code>  object it creates produces an updatable <code>ResultSet</code> object each time it executes a query. The following code fragment illustrates creating the updatable <code>ResultSet</code> object <code>uprs</code>. Note that the code also makes <code>uprs</code>  scrollable. An updatable <code>ResultSet</code> object does not necessarily have to be scrollable, but when you are making changes to a result set, you generally want to be able to move around in it. With a scrollable result set, you can move to rows you want to change, and if the type is <code>TYPE_SCROLL_SENSITIVE</code>, you can get the new value in a row after you have changed it.
+</p>
+<p> 
+
+<blockquote><pre>     
+Connection con = DriverManager.getConnection("jdbc:mySubprotocol:mySubName");
+Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, 
+                                     ResultSet.CONCUR_UPDATABLE);
+ResultSet uprs = stmt.executeQuery("SELECT COF_NAME, PRICE FROM COFFEES");
+</pre></blockquote>
+<p>
+The <code>ResultSet</code> object <code>uprs</code> looks something like this:
+</p>
+<blockquote><pre>     
+COF_NAME                PRICE
+------------------      -----
+Colombian               7.99
+French_Roast            8.99
+Espresso                9.99
+Colombian_Decaf         8.99
+French_Roast_Decaf      9.99
+</pre></blockquote>
+
+<p>
+The method <code>updateRow</code> applies all column changes to the current row. The
+changes are not made to the row until <code>updateRow</code> has been called. You can use the 
+<code>cancelUpdates</code> method to back out changes made to the row before the <code>updateRow</code> method is called.
+</p>
+
+<blockquote><pre>
+Statement stmt = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY,
+ResultSet.CONCUR_UPDATABLE);
+ResultSet srs = stmt.executeQuery("select COF_Name from COFFEES " +
+"where price = 7.99");
+srs.next();
+srs.updateString("COF_NAME", "Foldgers");
+srs.updateRow();
+</pre></blockquote>
+<p>
+An update is the modification of a column value in the current row. Let's suppose that you want to raise the price of French Roast Decaf coffee to 10.99:
+</p>
+<blockquote><pre>
+uprs.last();
+uprs.updateFloat(&quot;PRICE&quot;, 10.99);
+</pre></blockquote>
+
+<P>
+
+Update operations affect column values in the row where the cursor is positioned, so in the first line the <CODE>ResultSet</CODE> <CODE>uprs</CODE>
+ calls the method <CODE>last</CODE> to move its cursor to the last row (the row where the column <CODE>COF_NAME</CODE> has the value <CODE>
+FRENCH_ROAST_DECAF</CODE>). Once the cursor is on the last row, all of the update methods you call will operate on that row until you move the cursor to another row. The second line changes the value in the <CODE>PRICE</CODE> column to <code>10.99</code> by calling the method <CODE>
+updateFloat</CODE>. This method is used because the column value we want to update is a <CODE>float</CODE> in the Java programming language.</P>
+<P>
+
+ 
+The <CODE>
+ResultSet.</CODE>
+<CODE>
+update<i>XXX</i></CODE>
+ methods take two parameters: the column to update and the new value to put in that column. As with the <CODE>ResultSet.</CODE><CODE>getXXX</CODE> methods, the parameter designating the column may be either the column name or the column number. There is a different <CODE>update<i>XXX</i></CODE> method for updating each datatype (<CODE>
+updateString</CODE>, <CODE>updateBigDecimal</CODE>, <CODE>updateInt</CODE>, and so on) just as there are different <CODE>getXXX</CODE> methods for retrieving different datatypes.</P>
+<P>
+
+ 
+
+At this point, the price in <CODE>uprs</CODE> for French Roast Decaf will be 10.99, but the price in the table <CODE>COFFEES</CODE> in the database will still be 9.99. To make the update take effect in the database and not just the result set, we must call the <CODE>ResultSet</CODE> method <CODE>updateRow</CODE>. Here is what the code should look like to update both <CODE>uprs</CODE> and <CODE>COFFEES</CODE>
+:</P>
+<blockquote><pre>
+uprs.last();
+uprs.updateFloat(&quot;PRICE&quot;, 10.99f);
+uprs.updateRow();
+</pre></blockquote>
+
+<P>
+
+ 
+If you had moved the cursor to a different row before calling the method <CODE>
+updateRow</CODE>, the update would have been lost. If, on the other hand, you realized that the price should really have been 10.79 instead of 10.99, you could have cancelled the update to 10.99 by calling the method <CODE>cancelRowUpdates</CODE>. You have to invoke <CODE>
+cancelRowUpdates</CODE> before invoking the method <CODE>updateRow</CODE>; once <CODE>updateRow</CODE> is called, calling the method <CODE>cancelRowUpdates</CODE>
+ does nothing. Note that <CODE>cancelRowUpdates</CODE> cancels all of the updates in a row, so if there are many invocations of the <CODE>update<i>XXX</i></CODE>
+ methods on the same row, you cannot cancel just one of them. The following code fragment first cancels updating the price to 10.99 and then updates it to 10.79:</P>
+ 
+<blockquote><pre>
+uprs.last();
+uprs.updateFloat(&quot;PRICE&quot;, 10.99);
+uprs.cancelRowUpdates();
+uprs.updateFloat(&quot;PRICE&quot;, 10.79);
+uprs.updateRow();
+</pre></blockquote>
+<P>
+
+ 
+In this example, only one column value was updated, but you can call an appropriate <CODE>update<i>XXX</i></CODE> method for any or all of the column values in a single row. The concept to remember is that updates and related operations apply to the row where the cursor is positioned. Even if there are many calls to <CODE>update<i>XXX</i></CODE> methods, it takes only one call to the method <CODE>updateRow</CODE> to update the database with all of the changes made in the current row.</P>
+<P>
+
+ 
+If you want to update the price for <CODE>COLOMBIAN_DECAF</CODE> as well, you have to move the cursor to the row containing that coffee. Because the row for <CODE>COLOMBIAN_DECAF</CODE> immediately precedes the row for <CODE>FRENCH_ROAST_DECAF</CODE>, you can call the method <CODE>previous</CODE> to position the cursor on the row for <CODE>COLOMBIAN_DECAF</CODE>. The following code fragment changes the price in that row to 9.79 in both the result set and the underlying table in the database:</P>
+
+
+<blockquote><pre>
+uprs.previous();
+uprs.updateFloat(&quot;PRICE&quot;, 9.79);
+uprs.updateRow();
+</pre></blockquote>
+<P>
+
+ 
+All cursor movements refer to rows in a <CODE>
+ResultSet</CODE>
+ object, not rows in the underlying database. If a query selects five rows from a database table, there will be five rows in the result set, with the first row being row 1, the second row being row 2, and so on. Row 1 can also be identified as the first, and, in a result set with five rows, row 5 is the last.</P>
+<P>
+
+
+ 
+The ordering of the rows in the result set has nothing at 
+all to do with the order of the rows in the base table. 
+In fact, the order of the rows in a database table is 
+indeterminate. The DBMS keeps track of which rows were 
+selected, and it makes updates to the proper rows, but 
+they may be located anywhere in the table. When a row 
+is inserted, for example, there is no way to know where 
+in the table it has been inserted.</P>
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=retrieving.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=milestone.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Retrieving Values from Result Sets
+        <br><b>Next page:</b> Milestone: The Basics of JDBC
+    </div>
+    </body>
+</html> 

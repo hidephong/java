@@ -1,0 +1,453 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Lesson: Java Web Start (The Java&trade; Tutorials &gt; Deployment)</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                    <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                        <br>
+                        <a href="javascript:toggleLeft()"
+                            id="ToggleLeft">Hide the TOC</a>
+                    </div> 
+                </div> </div> </div> </div> </div>
+
+    <div id=LeftBar>
+        <div id=Contents>
+            <div class="nolinkLESSON">Java Web Start</div>
+<div class="linkAHEAD"><a href="running.html">Running Java Web Start Applications</a></div>
+<div class="linkAHEAD"><a href="deploying.html">Deploying Java Web Start Applications</a></div>
+<div class="linkAHEAD"><a href="packaging.html">Developing Java Web Start Applications</a></div>
+<div class="linkAHEAD"><a href="api.html">The JNLP API</a></div>
+<div class="linkAHEAD"><a href="security.html">Java Web Start and Security</a></div>
+<div class="linkAHEAD"><a href="problems.html">Common Java Web Start Problems</a></div>
+<div class="linkQUESTIONS"><a href="QandE/questions.html">Questions and Exercises</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+        <div class=PrintHeaders>
+            <b>Trail:</b> Deployment
+        </div>
+        <div id=BreadCrumbs>
+            <a href=../../index.html target=_top>Home Page</a>
+        &gt;
+            <a href=../index.html target=_top>Deployment</a>
+        </div>
+        <div class=NavBit>
+                <a target=_top href=../jar/index.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=running.html>Next&nbsp;&raquo;</a>
+        </div>
+        <div id=PageTitle>Lesson: Java Web Start</div>
+        <blockquote>
+Java Web Start provides the power to launch full-featured applications with a single click. Users can download and launch applications, such as a complete spreadsheet program or an Internet chat client, without going through complicated installation procedures.
+
+<p>
+
+With Java Web Start, the user can launch a Java application by clicking a link in a Web page. The link points to a <code>JNLP</code> file, which instructs Java Web Start to download, cache and run the application.
+
+<p>
+
+Java Web Start provides Java developers and users with many deployment advantages:
+
+<ul>
+<li>
+ With Java Web Start, you can place a single Java application on a Web server for deployment to a wide variety of platforms, including Windows 2003/Vista/2000/XP, Linux, and Solaris<sup>TM</sup>
+ 
+ </li>
+ 
+ <li>
+ Java Web Start supports multiple, simultaneous versions of the Java Standard Edition platform. Specific applications can request specific Java versions without conflicting with the different needs of other applications. Java Web Start automatically downloads and installs the correct version of the Java platform as necessary based on the application's needs and the user's environment.
+ 
+ </li>
+ 
+ <li>
+ Users can launch a Java Web Start application independently of a Web browser. The user can be off-line, or unable to access the browser. Desktop shortcuts can also launch the application, providing the user with the same experience as a native application. 
+ 
+ </li>
+ 
+ <li>
+ 
+ Java Web Start takes advantage of the inherent security of the Java platform. By default, applications have restricted access to local disk and network resources. Users can safely run applications from sources that are not trusted.
+ 
+ </li>
+ 
+ <li>
+ 
+ Applications launched with Java Web Start are cached locally, for improved performance.
+ 
+ </li>
+ 
+ <li>
+ Java Web Start provides limited support for applets through its built-in applet viewer. However, this is not intended to be a full- scale applet environment, such as the one provided by Java Plug-in. Java Web Start's applet viewer has certain limitations; for example, you cannot specify class files as resources, and it does not accept policy files.
+ </li>
+</ul>
+In Java Version 1.4.2 and beyond, Java Web Start is installed as part of the JRE. Users do not have to install it separately or perform additional tasks to use Java Web Start applications.
+<p>
+
+This lesson contains the following sections:
+
+</blockquote>
+
+
+<h3>
+<a class="TutorialLink" target="_top" href="running.html">Running Java Web Start Applications</a></h3>
+<blockquote>
+You can run an application with Java Web Start in three different ways.
+</blockquote>
+
+<h3>
+<a class="TutorialLink" target="_top" href="deploying.html">Deploying Java Web Start Applications</a></h3>
+<blockquote>
+You deploy an application for Java Web Start in four simple steps.
+</blockquote>
+
+<h3>
+<a class="TutorialLink" target="_top" href="packaging.html">Developing Java Web Start Applications</a></h3>
+<blockquote>
+You develop an application for use through Java Web Start just as you would any Java application, with a few special considerations.
+</blockquote>
+
+<h3>
+<a class="TutorialLink" target="_top" href="api.html">The JNLP API</a></h3>
+<blockquote>
+You can use the JNLP API to access additional information in applications run through Java Web Start. 
+</blockquote>
+
+<h3>
+<a class="TutorialLink" target="_top" href="security.html">Java Web Start and Security</a></h3>
+<blockquote>
+Java Web Start applications run in a <em>sandbox</em> by default. You can provide digital signatures and permissions in the JNLP file to enable functionality beyond the sandbox.
+</blockquote>
+
+
+<h3>
+<a class="TutorialLink" target="_top" href="problems.html">Common Java Web Start Problems</a></h3>
+<blockquote>
+Gives solutions to some problems you might encounter while learning Java Web Start.
+</blockquote>
+
+<h3>
+<a class="TutorialLink" target="_top" href="QandE/questions.html">Questions and Exercises: Java Web Start</a></h3>
+<blockquote>
+Test what you've learned about Java Web Start.
+</blockquote>
+
+
+
+<h3>Additional References</h3>
+<blockquote>
+This lesson is intended to get you started with Java Web Start and does not include all available documentation. For more information about Java Web Start, see the following:
+
+<ul>
+<li>
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/technotes/guides/javaws/developersguide/contents.html">Java Web Start Guide</a></li>
+
+<li>
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/technotes/guides/javaws/developersguide/faq.html">Java Web Start FAQ</a></li>
+
+
+<li>
+<a class="APILink" target="_blank" href="http://jcp.org/en/jsr/detail?id=56">JNLP Specification</a></li>
+
+<li>
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/jre/api/javaws/jnlp/index.html"><code>javax.jnlp</code> API Documentation</a></li>
+
+<li>
+<a class="APILink" target="_blank" href="http://java.sun.com/products/javawebstart/developers.html">Java Web Start Developers Site</a></li>
+
+
+</ul>
+
+</blockquote>
+
+        </blockquote>
+    <div class=NavBit>
+        <a href=../jar/index.html>&laquo; Previous</a>
+        &bull;
+        <a href=../TOC.html>Trail</a>
+        &bull;
+        <a href=running.html>Next &raquo;</a>
+    </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Previous Lesson
+        <br><b>Next page:</b> Running Java Web Start Applications
+    </div>
+    </body>
+</html> 

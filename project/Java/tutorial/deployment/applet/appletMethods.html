@@ -1,0 +1,476 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Methods for Milestones (The Java&trade; Tutorials &gt; 
+            Deployment &gt; Applets)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> Deployment
+        <br><b>Lesson:</b> Applets
+        <br><b>Section:</b> Getting Started with Applets
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">Applets</a></div>
+<div class="linkAHEAD"><a href="getStarted.html">Getting Started with Applets</a></div>
+<div class="linkBHEAD"><a href="import.html">Importing Classes and Packages for Applets</a></div>
+<div class="linkBHEAD"><a href="subclass.html">Defining an Applet Subclass</a></div>
+<div class="linkBHEAD"><a href="lifeCycle.html">The Life Cycle of an Applet</a></div>
+<div class="nolinkBHEAD">Methods for Milestones</div>
+<div class="linkBHEAD"><a href="componentMethods.html">Methods for Drawing and Event Handling</a></div>
+<div class="linkBHEAD"><a href="containerMethods.html">Methods for Adding UI Components</a></div>
+<div class="linkBHEAD"><a href="security.html">What Applets Can and Can't Do</a></div>
+<div class="linkAHEAD"><a href="appletsonlyindex.html">Taking Advantage of the Applet API</a></div>
+<div class="linkBHEAD"><a href="data.html">Finding and Loading Data Files</a></div>
+<div class="linkBHEAD"><a href="showStatus.html">Displaying Short Status Strings</a></div>
+<div class="linkBHEAD"><a href="browser.html">Displaying Documents in the Browser</a></div>
+<div class="linkBHEAD"><a href="iac.html">Sending Messages to Other Applets</a></div>
+<div class="linkBHEAD"><a href="sound.html">Playing Sounds</a></div>
+<div class="linkBHEAD"><a href="param.html">Defining and Using Applet Parameters</a></div>
+<div class="linkCHEAD"><a href="paramQs.html">Deciding Which Parameters to Support</a></div>
+<div class="linkCHEAD"><a href="getParam.html">Writing the Code to Support Parameters</a></div>
+<div class="linkCHEAD"><a href="paramInfo.html">Giving Information about Parameters</a></div>
+<div class="linkBHEAD"><a href="html.html">Using the APPLET Tag	</a></div>
+<div class="linkAHEAD"><a href="practicalindex.html">Practical Considerations When Writing Applets</a></div>
+<div class="linkBHEAD"><a href="security_practical.html">Security Restrictions</a></div>
+<div class="linkBHEAD"><a href="ui.html">Creating a User Interface</a></div>
+<div class="linkCHEAD"><a href="gui.html">Creating a GUI</a></div>
+<div class="linkCHEAD"><a href="stdout.html">Displaying Diagnostics to the Standard Output and Error Streams</a></div>
+<div class="linkBHEAD"><a href="properties.html">Getting System Properties</a></div>
+<div class="linkBHEAD"><a href="threads.html">Threads in Applets</a></div>
+<div class="linkCHEAD"><a href="threadExample.html">Threads in Applets: Examples</a></div>
+<div class="linkBHEAD"><a href="server.html">Working with a Server-Side Application </a></div>
+<div class="linkCHEAD"><a href="clientExample.html">A Simple Network Client Applet</a></div>
+<div class="linkCHEAD"><a href="workaround.html">Using a Server to Work Around Security Restrictions</a></div>
+<div class="linkAHEAD"><a href="finishingindex.html">Finishing an Applet</a></div>
+<div class="linkBHEAD"><a href="checklist.html">Before You Ship that Applet</a></div>
+<div class="linkBHEAD"><a href="perfect.html">The Perfectly Finished Applet</a></div>
+<div class="linkAHEAD"><a href="deployindex.html">Deploying Applets</a></div>
+<div class="linkBHEAD"><a href="generaldeploy.html">General Deployment Considerations</a></div>
+<div class="linkBHEAD"><a href="applettag.html">Using the applet Tag</a></div>
+<div class="linkBHEAD"><a href="objecttag.html">Using the object Tag</a></div>
+<div class="linkBHEAD"><a href="embedtag.html">Using the embed Tag</a></div>
+<div class="linkBHEAD"><a href="mixedbrowser.html">Deploying Applets in a Mixed-Browser Environment</a></div>
+<div class="linkAHEAD"><a href="problemsindex.html">Solving Common Applet Problems</a></div>
+<div class="linkQUESTIONS"><a href="QandE/questions.html">Questions and Exercises</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>Deployment</a>
+                &gt;
+                <a href=index.html target=_top>Applets</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=lifeCycle.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=componentMethods.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Methods for Milestones</div>
+            <blockquote>
+<p>
+The <code>Simple</code> applet, like every other applet,
+features a subclass of the <code>Applet</code> class.
+The <code>Simple</code> class overrides four <code>Applet</code> methods
+so that it can respond to major events:
+
+</p>
+<dl>
+<dt> <code>init</code>
+<dd> To <em>initialize</em> the applet
+     each time it's loaded (or reloaded).
+
+<dt> <code>start</code>
+<dd> To <em>start</em> the applet's execution, 
+     such as when the applet is loaded
+     or when the user revisits a page that contains the applet.
+
+<dt> <code>stop</code>
+<dd> To <em>stop</em> the applet's execution,
+     such as when the user leaves the applet's page
+     or quits the browser.
+
+<dt> <code>destroy</code>
+<dd> To perform a <em>final cleanup</em> in preparation for unloading.
+
+</dl>
+<p>
+Following is the interface for these methods:
+<blockquote><pre>
+public class Simple extends JApplet {
+    . . .
+    public void <strong>init()</strong> { . . . }
+    public void <strong>start()</strong> { . . . }
+    public void <strong>stop()</strong> { . . . }
+    public void <strong>destroy()</strong> { . . . }
+    . . .
+}
+</pre></blockquote>
+<p>
+The <code>init</code>, <code>start</code>, <code>stop</code>, and
+<code>destroy</code> methods are discussed and used throughout this tutorial. For more information, you can also refer to the
+
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/javax/swing/JApplet.html"><code>JApplet</code></a> API Specification.
+</p>
+</blockquote>
+<h3>Overriding These Methods</h3>
+<blockquote>
+<p>
+Not every applet needs to override every one of these methods.
+Some very simple applets override none of them. For example, the <a href="getStarted.html">HelloWorld applet</a> at the beginning of this section doesn't override any of these methods, since it doesn't do anything except draw itself.
+</p>
+<p>
+The "Hello World" applet just displays a string once, using its <code>paint</code> method. (The <code>paint</code> method is described on the following page.) Most applets, however, do more.
+</p>
+</blockquote>
+<h3>The init Method</h3>
+<blockquote>
+<p>
+The <code>init</code> method is useful for one-time initialization 
+that doesn't take very long. In general, the <code>init</code> method
+should contain the code that you would normally put into a constructor.
+The reason applets shouldn't usually have constructors is that an applet isn't guaranteed to have a full environment until its <code>init</code> method is called. For example, the <code>Applet</code> image loading methods simply don't work inside of an applet constructor. The <code>init</code> method, on the other hand, is a great place to call the image loading methods, since the methods return quickly.
+</p>
+
+
+<blockquote><hr><strong>Browser note:</strong>&nbsp;
+Some browsers sometimes call the <code>init</code> method more than once 
+after the applet has been loaded. See the <a href=lifeCycle.html>previous page</a> for more details.
+<hr></blockquote>
+</blockquote>
+<h3>The start Method</h3>
+<blockquote>
+<p>
+Every applet that does something after initialization (except in direct response to user actions) must override the <code>start</code> method.
+The <code>start</code> method either performs the applet's work or
+(more likely) starts up one or more threads to perform the work.
+You'll learn more about threads later in this trail, in the
+<a class="TutorialLink" target="_top" href="threads.html">Threads in Applets</a> section.
+You'll learn more about handling the events that represent user actions
+on the <a href=componentMethods.html>next page</a>.
+</p>
+</blockquote>
+<h3>The stop Method</h3>
+<blockquote>
+<p>
+Most applets that override <code>start</code> should also override the <code>stop</code> method. The <code>stop</code> method should suspend the applet's execution, so that it doesn't take up system resources
+when the user isn't viewing the applet's page. For example, an applet that displays animation should stop trying to draw the animation
+when the user isn't looking at it.
+</p>
+</blockquote>
+<h3>The destroy Method</h3>
+<blockquote>
+<p>
+Many applets don't need to override the <code>destroy</code> method, since their <code>stop</code> method (which is called before <code>destroy</code>) does everything necessary to shut down the applet's execution. However, <code>destroy</code> is available
+for applets that need to release additional resources.
+</p>
+
+<blockquote><hr><strong>Note:</strong>&nbsp;You should keep implementations of the <code>destroy</code> method as short as possible, because there is no guarantee that this method will be completely executed.  The Java Virtual Machine might exit before a long destroy method has completed.
+<hr></blockquote>
+
+</blockquote>
+
+
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=lifeCycle.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=componentMethods.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> The Life Cycle of an Applet
+        <br><b>Next page:</b> Methods for Drawing and Event Handling
+    </div>
+    </body>
+</html> 

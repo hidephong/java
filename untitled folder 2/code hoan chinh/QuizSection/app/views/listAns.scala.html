@@ -1,0 +1,14 @@
+@(ans: List[QuizanswersRow])(implicit  lang: Lang)
+
+@main(title = Messages("quiz.details")) {
+	<h2>
+		@Messages("quiz.details")
+	</h2>
+			<ul>
+				@for(q <- ans) {
+					<li>@q.answertext</li>}
+
+</ul>
+
+
+}

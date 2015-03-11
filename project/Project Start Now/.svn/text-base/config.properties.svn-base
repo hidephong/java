@@ -1,0 +1,8 @@
+#SERVER CONGIG PROPERTIES
+#Thu Apr 14 20:08:08 ICT 2011
+SQLEXPRESS=SQLEXPRESS
+PassWord=sa
+PortNumber=54632
+ServerName=localhost
+Database=EmployeeTransferManagement_DB
+UserName=sa

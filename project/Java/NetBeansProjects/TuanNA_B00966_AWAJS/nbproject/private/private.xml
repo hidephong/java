@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/src/java/bean/BookDetail.java</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/web/addbook.xhtml</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/src/java/bean/NewBook.java</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/src/java/model/dal/BookDAL.java</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/src/java/bean/listCateBean.java</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/web/admin.xhtml</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/web/adminlogin.xhtml</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/src/java/bean/AdminBean.java</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/src/java/bean/UserBean.java</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/src/java/entity/UserEntity.java</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/src/java/model/dal/UserLoginDAL.java</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/web/upload.xhtml</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/web/bookview.xhtml</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/web/category.xhtml</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/web/search.xhtml</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/web/searchview.xhtml</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/web/success.xhtml</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/web/userlogin.xhtml</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/web/cateview.xhtml</file>
+        <file>file:/C:/Users/TuanNA/Documents/NetBeansProjects/TuanNA_B00966_AWAJS/src/java/bean/listBean.java</file>
+    </open-files>
+</project-private>

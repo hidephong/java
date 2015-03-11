@@ -1,0 +1,214 @@
+@(message: String)
+
+@main() {
+	<div class="container" style="margin-top : 10px">
+		<form id="search" action="/searchResult" method="post">
+			<div class="flex-wrapper index-search-flex-wrapper">
+				<div id="search-input-wrapper" class="flex">
+					<input id="home-search-box" placeholder="Gõ vào đây để tìm việc" name="f" type="text">
+				</div>
+				<button id="search-btn" class="btn-a btn-large" type="submit"><span class="glyphicon glyphicon-search"></span><p style="margin-top : 7px">
+					TÌM KIẾM</p></button>
+			</div>
+		</form>
+		<h1 class="side-lined thin">Việc làm tốt </h1>
+		<ul id="topcourses" class="discover-works-list multi-line" style="text-align : center">
+			<li class="works-box">
+				<a href="#" class="mask">
+					<img src="@routes.Assets.at("images/s66.png")" alt="Senior iOS Developer" class="iconHldr">
+					<span class="title">
+						Senior iOS Developer
+					</span>
+					<span class="work-address">
+						Nơi làm việc: Ho Chi Minh, Others.
+							<br/>
+							Mức lương: $1000 - $1500
+					</span>
+
+					<span class="details2">
+						<span class="ins-job-title ellipsis">
+							Yêu Cầu Công Việc:
+						</span>
+						- Tốt nghiệp các trường Đại học chuyên ngành công nghệ thông tin hoặc điện tử viễn thông.<br/>
+						- Nắm vững ngôn ngữ lập trình C/C++, Objective C, iOS SDK.<br/>
+						- Có kinh nghiệm ít nhất 2 năm một trong phát triển ứng dụng trên iOS.<br/>
+						- Có kinh nghiệm ít nhất 1  như My SQL, SQL Server.
+					</span>
+
+				</a>
+			</li>
+			<li class="works-box">
+				<a href="http://http://hocngay.com/courseDetail/30/lap-trinh-android-can-ban" class="mask">
+					<img src="@routes.Assets.at("images/img/DotNet.png")" alt="Lập trình Android căn bản" class="iconHldr">
+					<span class="title">
+						Lập Trình Viên Dotnet
+					</span>
+					<span class="work-address">
+						Nơi làm việc: Hà Nội.
+							<br/>
+							Mức lương: $1000 - $1500
+					</span>
+
+					<span class="details2">
+						<span class="ins-job-title ellipsis">
+							Yêu Cầu Công Việc:
+						</span>
+						1. Understanding object oriented programing method. Understanding Data Driven Application model and Service Oriented Application model is an advantage.
+						2. Require at least 1 years experiences with Microsoft .Net developing technologies and tools include of Visual Studio IDE, Asp.net MVC, C#, WCF.</span>
+
+				</a>
+			</li>
+			<li class="works-box">
+				<a href="http://http://hocngay.com/courseDetail/30/lap-trinh-android-can-ban" class="mask">
+					<img src="@routes.Assets.at("images/img/s65.jpg")" alt="Lập trình Android căn bản" class="iconHldr">
+					<span class="title">
+						Mobile App Developer $2500-$10,000us Per Month
+					</span>
+					<span class="work-address">
+						Nơi làm việc: Hà Nội.
+						<br/>
+						Mức lương: $1000 - $1500
+					</span>
+
+					<span class="details2">
+						<span class="ins-job-title ellipsis">
+							Yêu Cầu Công Việc:
+						</span>
+						- University/ College graduate in software engineering or relevant field
+						<br/>
+						- Minimum 2 year of relevant work experience is required
+						<br/>
+						- Experienced in web development, UI and usability understanding
+						<br/>
+						- Excellent logical thinking ability</span>
+
+				</a>
+			</li>
+			<li class="works-box">
+				<a href="#" class="mask">
+					<img src="@routes.Assets.at("images/img/hanel.png")" alt="" class="iconHldr">
+					<span class="title">
+						Nhân Viên Xử Lý Dữ Liệu
+					</span>
+					<span class="work-address">
+						Nơi làm việc: Hà Nội.
+							<br/>
+							Mức lương: $1000 - $1500
+					</span>
+
+					<span class="details2">
+						<span class="ins-job-title ellipsis">
+							Yêu Cầu Công Việc:
+						</span>
+						- Không yêu cầu bằng cấp và kinh nghiệm.<br/>
+						- Sử dụng thành thạo máy vi tính.<br/>
+						- Sử dụng được các công thức, hàm tính toán trong Microsoft Excel<br/>
+						- Chấp hành các chính sách về bảo mật thông tin của công ty<br/>
+						- Cẩn thận và có tinh thần trách nhiệm
+					</span>
+				</a>
+			</li>
+		</ul>
+		<h1 class="side-lined thin">Việc làm mới </h1>
+
+		<ul id="courses" class="discover-works-list multi-line" style="text-align: center">
+			<li class="works-box">
+				<a href="details" class="mask">
+					<img src="@routes.Assets.at("images/s66.png")" alt="Senior iOS Developer" class="iconHldr">
+					<span class="title">
+						Senior iOS Developer
+					</span>
+					<span class="work-address">
+						Nơi làm việc: Ho Chi Minh, Others.
+							<br/>
+							Mức lương: $1000 - $1500
+					</span>
+
+					<span class="details2">
+						<span class="ins-job-title ellipsis">
+							Yêu Cầu Công Việc:
+						</span>
+						- Tốt nghiệp các trường Đại học chuyên ngành công nghệ thông tin hoặc điện tử viễn thông.<br/>
+						- Nắm vững ngôn ngữ lập trình C/C++, Objective C, iOS SDK.<br/>
+						- Có kinh nghiệm ít nhất 2 năm một trong phát triển ứng dụng trên iOS.<br/>
+						- Có kinh nghiệm sử dụng hệ quản trị cơ sở dữ liệu như My SQL, SQL Server.
+					</span>
+
+				</a>
+			</li>
+			<li class="works-box">
+				<a href="http://http://hocngay.com/courseDetail/30/lap-trinh-android-can-ban" class="mask">
+					<img src="@routes.Assets.at("images/img/DotNet.png")" alt="Lập trình Android căn bản" class="iconHldr">
+					<span class="title">
+						Lập Trình Viên Dotnet
+					</span>
+					<span class="work-address">
+						Nơi làm việc: Hà Nội.<br/>
+						Mức lương: Thỏa thuận
+					</span>
+
+					<span class="details2">
+						<span class="ins-job-title ellipsis">
+							Yêu Cầu Công Việc:
+						</span>
+						Tốt nghiệp các trường Đại học chuyên ngành CNTT, điện tử viễn thông hoặc liên quan.
+						- Hiểu sâu về cơ sở dữ liệu, biết phân tích thiết kế cơ sở dữ liệu chuyển hóa sơ đồ ERD sang bảng dữ liệu.
+						- Sử dụng thành thạo các hệ quản trị cơ sở dữ liệu SQL server hoặc Oracle.
+						- Biết viết các Procedure, thành thạo các câu lệnh truy vấn.</span>
+
+				</a>
+			</li>
+			<li class="works-box">
+				<a href="http://http://hocngay.com/courseDetail/30/lap-trinh-android-can-ban" class="mask">
+					<img src="@routes.Assets.at("images/img/s65.jpg")" alt="Lập trình Android căn bản" class="iconHldr">
+					<span class="title">
+						Mobile App Developer $2500-$10,000us Per Month
+					</span>
+					<span class="work-address">
+						Nơi làm việc: Hà Nội.<br/>
+						Mức lương: Thỏa thuận
+					</span>
+
+					<span class="details2">
+						<span class="ins-job-title ellipsis">
+							Yêu Cầu Công Việc:
+						</span>
+						- University/ College graduate in software engineering or relevant field
+						<br/>
+						- Minimum 2 year of relevant work experience is required
+						<br/>
+						- Experienced in web development, UI and usability understanding
+						<br/>
+						- Excellent logical thinking ability</span>
+
+				</a>
+			</li>
+			<li class="works-box">
+				<a href="#" class="mask">
+					<img src="@routes.Assets.at("images/img/hanel.png")" alt="" class="iconHldr">
+					<span class="title">
+						Nhân Viên Xử Lý Dữ Liệu
+					</span>
+					<span class="work-address">
+						Nơi làm việc: Hà Nội.<br/>
+						Mức lương: Thỏa thuận
+					</span>
+
+					<span class="details2">
+						<span class="ins-job-title ellipsis">
+							Yêu Cầu Công Việc:
+						</span>
+						- Không yêu cầu bằng cấp và kinh nghiệm.<br/>
+						- Sử dụng thành thạo máy vi tính.<br/>
+						- Sử dụng được các công thức, hàm tính toán trong Microsoft Excel<br/>
+						- Chấp hành các chính sách về bảo mật thông tin của công ty<br/>
+						- Cẩn thận và có tinh thần trách nhiệm
+					</span>
+				</a>
+			</li>
+		</ul>
+		<a href="#" class="internal-index">Xem tất cả danh sách tuyển dụng</a>
+	</div>
+
+
+}

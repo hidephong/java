@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : user.xml
+    Created on : March 28, 2012, 1:51 PM
+    Author     : TuanNA
+    Description:
+        Purpose of the document follows.
+-->
+
+<users>
+    <user>
+        <username>admin</username>
+        <password>123</password>
+    </user>
+</users>

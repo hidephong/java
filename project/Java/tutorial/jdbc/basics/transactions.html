@@ -1,0 +1,497 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Using Transactions (The Java&trade; Tutorials &gt; 
+            JDBC(TM) Database Access &gt; JDBC Basics)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> JDBC(TM) Database Access
+        <br><b>Lesson:</b> JDBC Basics
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">JDBC Basics</a></div>
+<div class="linkAHEAD"><a href="gettingstarted.html">Getting Started</a></div>
+<div class="linkAHEAD"><a href="settingup.html">Setting Up a Database</a></div>
+<div class="linkAHEAD"><a href="connecting.html">Establishing a Connection</a></div>
+<div class="linkAHEAD"><a href="tables.html">Setting Up Tables</a></div>
+<div class="linkAHEAD"><a href="retrieving.html">Retrieving Values from Result Sets</a></div>
+<div class="linkAHEAD"><a href="updating.html">Updating Tables</a></div>
+<div class="linkAHEAD"><a href="milestone.html">Milestone: The Basics of JDBC</a></div>
+<div class="linkAHEAD"><a href="prepared.html">Using Prepared Statements</a></div>
+<div class="linkAHEAD"><a href="joins.html">Using Joins</a></div>
+<div class="nolinkAHEAD">Using Transactions</div>
+<div class="linkAHEAD"><a href="storedprocedures.html">Stored Procedures</a></div>
+<div class="linkAHEAD"><a href="sql.html">SQL Statements for Creating a Stored Procedure</a></div>
+<div class="linkAHEAD"><a href="complete.html">Creating Complete JDBC Applications </a></div>
+<div class="linkAHEAD"><a href="running.html">Running the Sample Applications</a></div>
+<div class="linkAHEAD"><a href="applet.html">Creating an Applet from an Application</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>JDBC(TM) Database Access</a>
+                &gt;
+                <a href=index.html target=_top>JDBC Basics</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=joins.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=storedprocedures.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Using Transactions</div>
+            <blockquote>
+<P>There are times when you do not want one statement to take effect unless another one completes. For example, when the proprietor of The Coffee Break updates the amount of coffee sold each week, he will also want to update the total amount sold to date. However, he will not want to update one without  updating the other; otherwise, the data will be inconsistent. The way to be sure that either both actions occur or neither action occurs is to use a transaction. A transaction is a set of one or more statements that are executed together as a unit, so either all of the statements are executed, or none of the statements is executed. </P>
+
+
+<h3>
+
+ </A>
+<A NAME="disabling autocommit">
+ </A>
+Disabling Auto-commit Mode</h3>
+
+<P>
+
+ 
+When a connection is created, it is in auto-commit mode. This means that each individual SQL statement is treated as a transaction and is automatically committed right after it is executed. (To be more precise, the default is for an SQL statement to be committed when it is completed, not when it is executed. A statement is completed when all of its result sets and update counts have been retrieved. In almost all cases, however, a statement is completed, and therefore committed, right after it is executed.) </P>
+<P>
+
+ 
+The way to allow two or more statements to be grouped into a transaction is to disable auto-commit mode. This is demonstrated in the following line of code, where <CODE CLASS="Code-Variable1">
+con</CODE> is an active connection:</P>
+<blockquote><pre>
+con.setAutoCommit(false);
+</pre></blockquote>
+
+
+
+<h3>
+Committing a Transaction</h3>
+
+<P>
+Once auto-commit mode is disabled, no SQL statements are committed until you call the method <CODE>commit</CODE> explicitly. All statements executed after the previous call to the method <CODE>commit</CODE> are included in the current transaction and committed together as a unit. The following code, in which <CODE CLASS="Code-Variable1">con</CODE> is an active connection, illustrates a transaction:</P>
+
+<blockquote><pre>
+con.setAutoCommit(false);
+PreparedStatement updateSales = con.prepareStatement(
+    &quot;UPDATE COFFEES SET SALES = ? WHERE COF_NAME LIKE ?&quot;);
+updateSales.setInt(1, 50);
+updateSales.setString(2, &quot;Colombian&quot;);
+updateSales.executeUpdate();
+PreparedStatement updateTotal = con.prepareStatement(
+    &quot;UPDATE COFFEES SET TOTAL = TOTAL + ? WHERE COF_NAME LIKE ?&quot;);
+updateTotal.setInt(1, 50);
+updateTotal.setString(2, &quot;Colombian&quot;);
+updateTotal.executeUpdate();
+con.commit();
+con.setAutoCommit(true);
+</pre></blockquote>
+<P>
+
+ 
+In this example, auto-commit mode is disabled for the connection <CODE CLASS="Code-Variable1">
+con</CODE>, which means that the two prepared statements <CODE CLASS="Code-Variable1">
+updateSales</CODE> and <CODE CLASS="Code-Variable1">updateTotal</CODE>
+ are committed together when the method <CODE>commit</CODE>
+ is called. Whenever the <CODE>commit</CODE>
+ method is called (either automatically when auto-commit mode is enabled or explicitly when it is disabled), all changes resulting from statements in the transaction are made permanent. In this case, that means that the <CODE>
+SALES</CODE> and <CODE>TOTAL</CODE> columns for Colombian coffee have been changed to <CODE>50</CODE> (if <CODE>TOTAL</CODE> had been <CODE>
+0</CODE> previously) and will retain this value until they are changed with another update statement. <A HREF="examples/TransactionPairs.java">TransactionPairs.java</A>
+ illustrates a similar kind of transaction but uses a <CODE>for</CODE>
+ loop to supply values to the <CODE CLASS="Code-Italic">setXXX</CODE> methods for <CODE CLASS="Code-Variable1">updateSales</CODE> and <CODE CLASS="Code-Variable1">updateTotal</CODE>. </P>
+<P>
+
+ 
+The final line of the previous example enables auto-commit mode, which means that each statement is once again committed automatically when it is completed. Then, you are back to the default state where you do not have to call the method <CODE>commit</CODE> yourself. It is advisable to disable auto-commit mode only while you want to be in transaction mode. This way, you avoid holding database locks for multiple statements, which increases the likelihood of conflicts with other users.</P>
+
+
+
+<h3>
+
+ 
+Using Transactions to Preserve Data Integrity</h3>
+
+<P>
+
+ 
+In addition to grouping statements together for execution as a unit, transactions can help to preserve the integrity of the data in a table. For instance, suppose that an employee was supposed to enter new coffee prices in the table <CODE>COFFEES</CODE> but delayed doing it for a few days. In the meantime, prices rose, and today the owner is in the process of entering the higher prices. The employee finally gets around to entering the now outdated prices at the same time that the owner is trying to update the table. After inserting the outdated prices, the employee realizes that they are no longer valid and calls the <CODE>Connection</CODE> method <CODE>rollback</CODE> to undo their effects. (The method <CODE>rollback</CODE>
+ aborts a transaction and restores values to what they were before the attempted update.) At the same time, the owner is executing a <CODE>SELECT</CODE>
+ statement and printing out the new prices. In this situation, it is possible that the owner will print a price that was later rolled back to its previous value, making the printed price incorrect.</P>
+<P>
+
+ 
+This kind of situation can be avoided by using transactions, providing some level of protection against conflicts that arise when two users access data at the same time. </P>
+<P>
+
+ 
+To avoid conflicts during a transaction, a DBMS uses locks, mechanisms for blocking access by others to the data that is being accessed by the transaction. (Note that in auto-commit mode, where each statement is a transaction, locks are held for only one statement.) Once a lock is set, it remains in force until the transaction is committed or rolled back. For example, a DBMS could lock a row of a table until updates to it have been committed. The effect of this lock would be to prevent a user from getting a dirty read, that is, reading a value before it is made permanent. (Accessing an updated value that has not been committed is considered a dirty read because it is possible for that value to be rolled back to its previous value. If you read a value that is later rolled back, you will have read an invalid value.)</P>
+<P>
+
+ 
+How locks are set is determined by what is called a transaction isolation level, which can range from not supporting transactions at all to supporting transactions that enforce very strict access rules. </P>
+<P>
+
+ 
+One example of a transaction isolation level is <CODE>TRANSACTION_READ_COMMITTED</CODE>, which will not allow a value to be accessed until after it has been committed. In other words, if the transaction isolation level is set to <CODE>TRANSACTION_READ_COMMITTED</CODE>, the DBMS does not allow dirty reads to occur. The interface <CODE>Connection</CODE>
+ includes five values which represent the transaction isolation levels you can use in JDBC.</P>
+<P>
+
+ 
+Normally, you do not need to do anything about the transaction isolation level; you can just use the default one for your DBMS. JDBC allows you to find out what transaction isolation level your DBMS is set to (using the <CODE>Connection</CODE> method <CODE>getTransactionIsolation</CODE>) and also allows you to set it to another level (using the <CODE>Connection</CODE> method <CODE>setTransactionIsolation</CODE>). Keep in mind, however, that even though JDBC allows you to set a transaction isolation level, doing so has no effect unless the driver and DBMS you are using support it.</P>
+
+
+
+<h3>Setting and Rolling Back to a Savepoint</h3>
+<p>
+The JDBC 3.0 API adds the method <code>Connection.setSavepoint</code>, which sets a
+savepoint within the current transaction. The <code>Connection.rollback</code> method has
+been overloaded to take a savepoint argument.</p>
+<p>
+The example below inserts a row into a table, sets the savepoint <code>svpt1</code>, and then
+inserts a second row. When the transaction is later rolled back to <code>svpt1</code>, the second
+insertion is undone, but the first insertion remains intact. In other words, when the
+transaction is committed, only the row containing <code>?FIRST?</code> will be added to <code>TAB1</code>:
+<blockquote><pre>
+Statement stmt = conn.createStatement();
+int rows = stmt.executeUpdate("INSERT INTO TAB1 (COL1) VALUES " +
+                                                    "(?FIRST?)");
+// set savepoint
+Savepoint svpt1 = conn.setSavepoint("SAVEPOINT_1");
+rows = stmt.executeUpdate("INSERT INTO TAB1 (COL1) " +
+                                           "VALUES (?SECOND?)");
+...
+conn.rollback(svpt1);
+...
+conn.commit();
+</pre></blockquote>
+
+
+<h3>Releasing a Savepoint</h3>
+<p>
+
+The method <code>Connection.releaseSavepoint</code> takes a <code>Savepoint</code> object as a
+parameter and removes it from the current transaction.
+</p>
+<p>
+Once a savepoint has been released, attempting to reference it in a rollback operation
+causes an <code>SQLException</code> to be thrown. Any savepoints that have been created in a transaction are automatically released and become invalid when the transaction is committed, or when the entire
+transaction is rolled back. Rolling a transaction back to a savepoint automatically releases and makes invalid any other savepoints that were created after the savepoint in question.
+</p>
+<h3>
+When to Call the Method rollback</h3>
+
+<P>
+
+ 
+As mentioned earlier, calling the method <CODE>rollback</CODE> aborts a transaction and returns any values that were modified to their previous values. If you are trying to execute one or more statements in a transaction and get an <CODE>SQLException</CODE>, you should call the method <CODE>rollback</CODE> to abort the transaction and start the transaction all over again. That is the only way to be sure of what has been committed and what has not been committed. Catching an <CODE>SQLException</CODE>
+ tells you that something is wrong, but it does not tell you what was or was not committed. Since you cannot count on the fact that nothing was committed, calling the method <CODE>
+rollback</CODE> is the only way to be sure.</P>
+<P>
+
+ 
+<A HREF="examples/TransactionPairs.java">TransactionPairs.java</A> demonstrates a transaction and includes a <CODE>catch</CODE> block that invokes the method <CODE>rollback</CODE>. In this particular situation, it is not really necessary to call <CODE>rollback</CODE>, and we do it mainly to illustrate how it is done. If the application continued and used the results of the transaction, however, it would be necessary to include a call to <CODE>rollback</CODE> in the <CODE>catch</CODE> block in order to protect against using possibly incorrect data. </P>
+
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=joins.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=storedprocedures.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Using Joins
+        <br><b>Next page:</b> Stored Procedures
+    </div>
+    </body>
+</html> 

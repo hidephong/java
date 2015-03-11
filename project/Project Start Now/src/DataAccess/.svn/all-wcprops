@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/210/trunk/Project0104/Project%20Start%20Now/src/DataAccess
+END
+PostData.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/102/trunk/Project0104/Project%20Start%20Now/src/DataAccess/PostData.java
+END
+TheConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/210/trunk/Project0104/Project%20Start%20Now/src/DataAccess/TheConnection.java
+END
+ProjectData.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/187/trunk/Project0104/Project%20Start%20Now/src/DataAccess/ProjectData.java
+END
+StatiticsData.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/155/trunk/Project0104/Project%20Start%20Now/src/DataAccess/StatiticsData.java
+END
+LoginValidate.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/170/trunk/Project0104/Project%20Start%20Now/src/DataAccess/LoginValidate.java
+END
+AdminData.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/207/trunk/Project0104/Project%20Start%20Now/src/DataAccess/AdminData.java
+END
+LocationData.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/199/trunk/Project0104/Project%20Start%20Now/src/DataAccess/LocationData.java
+END
+Employee_RequestTransferData.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/143/trunk/Project0104/Project%20Start%20Now/src/DataAccess/Employee_RequestTransferData.java
+END
+Employee_Data.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/155/trunk/Project0104/Project%20Start%20Now/src/DataAccess/Employee_Data.java
+END
+ServerConfigure.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/90/trunk/Project0104/Project%20Start%20Now/src/DataAccess/ServerConfigure.java
+END
+MD5Encrypt.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/178/trunk/Project0104/Project%20Start%20Now/src/DataAccess/MD5Encrypt.java
+END
+WorkItemData.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/140/trunk/Project0104/Project%20Start%20Now/src/DataAccess/WorkItemData.java
+END
+DepartmentData.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/187/trunk/Project0104/Project%20Start%20Now/src/DataAccess/DepartmentData.java
+END
+ValidateProc.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/206/trunk/Project0104/Project%20Start%20Now/src/DataAccess/ValidateProc.java
+END

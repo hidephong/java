@@ -1,0 +1,534 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Using Prepared Statements (The Java&trade; Tutorials &gt; 
+            JDBC(TM) Database Access &gt; JDBC Basics)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> JDBC(TM) Database Access
+        <br><b>Lesson:</b> JDBC Basics
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">JDBC Basics</a></div>
+<div class="linkAHEAD"><a href="gettingstarted.html">Getting Started</a></div>
+<div class="linkAHEAD"><a href="settingup.html">Setting Up a Database</a></div>
+<div class="linkAHEAD"><a href="connecting.html">Establishing a Connection</a></div>
+<div class="linkAHEAD"><a href="tables.html">Setting Up Tables</a></div>
+<div class="linkAHEAD"><a href="retrieving.html">Retrieving Values from Result Sets</a></div>
+<div class="linkAHEAD"><a href="updating.html">Updating Tables</a></div>
+<div class="linkAHEAD"><a href="milestone.html">Milestone: The Basics of JDBC</a></div>
+<div class="nolinkAHEAD">Using Prepared Statements</div>
+<div class="linkAHEAD"><a href="joins.html">Using Joins</a></div>
+<div class="linkAHEAD"><a href="transactions.html">Using Transactions</a></div>
+<div class="linkAHEAD"><a href="storedprocedures.html">Stored Procedures</a></div>
+<div class="linkAHEAD"><a href="sql.html">SQL Statements for Creating a Stored Procedure</a></div>
+<div class="linkAHEAD"><a href="complete.html">Creating Complete JDBC Applications </a></div>
+<div class="linkAHEAD"><a href="running.html">Running the Sample Applications</a></div>
+<div class="linkAHEAD"><a href="applet.html">Creating an Applet from an Application</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>JDBC(TM) Database Access</a>
+                &gt;
+                <a href=index.html target=_top>JDBC Basics</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=milestone.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=joins.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Using Prepared Statements</div>
+            <blockquote>
+<p>Sometimes it is more convenient to use a <code>PreparedStatement</code> object for sending SQL statements to the database. This special type of statement is derived from the more general class, <code>Statement</code>, that you already know.</P>
+
+<p>
+If you want to execute a <code>Statement</CODE> object many times, it normally reduces execution time to use a <code>PreparedStatement</CODE> object instead. </P>
+<P>
+
+The main feature of a <code>PreparedStatement</CODE> object is that, unlike a <code>Statement</CODE> object, it is given an SQL statement when it is created. The advantage to this is that in most cases, this SQL statement is sent to the DBMS right away, where it is compiled. As a result, the <CODE>PreparedStatement</CODE> object contains not just an SQL statement, but an SQL statement that has been precompiled. This means that when the <code>
+PreparedStatement</CODE> is executed, the DBMS can just run the <code>PreparedStatement</CODE> SQL statement without having to compile it first. </P>
+<P>
+
+
+Although <code>
+PreparedStatement</CODE> objects can be used for SQL statements with no parameters, you probably use them most often for SQL statements that take parameters. The advantage of using SQL statements that take parameters is that you can use the same statement and supply it with different values each time you execute it. Examples of this are in the following sections.</P>
+
+<h3>
+Creating a <code>PreparedStatement</code> Object </h3>
+
+<P>
+
+As with <code>Statement</CODE> objects, you create <code>
+PreparedStatement</CODE> objects with a <code>Connection</CODE>
+ method. Using our open connection <CODE>con</CODE>
+ from previous examples, you might write code such as the following to create a <code>
+PreparedStatement</CODE> object that takes two input parameters:</P>
+<blockquote><pre>
+PreparedStatement updateSales = con.prepareStatement(
+    &quot;UPDATE COFFEES SET SALES = ? WHERE COF_NAME LIKE ?&quot;);
+</pre></blockquote>
+
+<P>
+
+The variable <CODE>updateSales</CODE> now contains the SQL statement, <code>&quot;UPDATE COFFEES SET SALES = ? WHERE COF_NAME LIKE ?&quot;</CODE>, which has also, in most cases, been sent to the DBMS and been precompiled.</P>
+
+<h3>
+Supplying Values for PreparedStatement Parameters</h3>
+
+<P>
+
+You need to supply values to be used in place of the question mark placeholders (if there are any) before you can execute a <code>PreparedStatement</CODE> object. You do this by calling one of the <CODE>set<i>XXX</i></CODE> methods defined in the <code>
+PreparedStatement</CODE> class. If the value you want to substitute for a question mark is a Java <code>int</CODE>, you call the method <code>setInt. </CODE>
+If the value you want to substitute for a question mark is a Java <code>
+String</CODE>, you call the method <code>setString</CODE>, and so on. In general, there is a <CODE>set<i>XXX</i></CODE> method for each primitive type declared in the Java programming language. </P>
+<P>
+
+ set<i>XXX</i>
+Using the <code>PreparedStatement</CODE> object <CODE>
+updateSales</CODE> from the previous example, the following line of code sets the first question mark placeholder to a Java <code>int</CODE> with a value of 75:</P>
+<blockquote><pre>
+updateSales.setInt(1, 75);
+</pre></blockquote>
+<P>
+
+ set<i>XXX</i>
+The first argument given to a <CODE>set<i>XXX</i></CODE> method indicates which question mark placeholder is to be set, and the second argument indicates the value to which it is to be set. The next example sets the second placeholder parameter to the string &quot;<code>
+Colombian</CODE>&quot;:</P>
+<blockquote><pre>
+updateSales.setString(2, &quot;Colombian&quot;);
+</pre></blockquote>
+<P>
+
+ set<i>XXX</i>
+After these values have been set for its two input parameters, the SQL statement in <CODE>updateSales </CODE> is the equivalent to the SQL statement in the <code>
+String</CODE> object <CODE>updateString</CODE> that was used in the previous update example. Therefore, the following two code fragments accomplish the same thing:</P>
+<P>
+
+Code Fragment 1:</P>
+<blockquote><pre>
+String updateString = &quot;UPDATE COFFEES SET SALES = 75 &quot; + 
+                      &quot;WHERE COF_NAME LIKE 'Colombian'&quot;;
+stmt.executeUpdate(updateString);
+</pre></blockquote>
+<P>
+
+Code Fragment 2:</P>
+<blockquote><pre>
+PreparedStatement updateSales = con.prepareStatement(
+        &quot;UPDATE COFFEES SET SALES = ? WHERE COF_NAME LIKE ? &quot;);
+updateSales.setInt(1, 75); 
+updateSales.setString(2, &quot;Colombian&quot;); 
+updateSales.executeUpdate():
+</pre></blockquote>
+<P>
+
+The method <code>executeUpdate</CODE> was used to execute both the <code>
+Statement</CODE> <CODE>stmt</CODE> and the <code>
+PreparedStatement</CODE> <CODE>updateSales</CODE>. Notice, however, that no argument is supplied to <code>executeUpdate</CODE> when it is used to execute <CODE>updateSales</CODE>. This is true because <CODE>
+updateSales</CODE> already contains the SQL statement to be executed. </P>
+<P>
+
+Looking at these examples, you might wonder why you would choose to use a <code>
+PreparedStatement</CODE>
+ object with parameters instead of just a simple statement, since the simple statement involves fewer steps. If you were going to update the <code>SALES</CODE>
+ column only once or twice, then there would be no need to use an SQL statement with input parameters. If you will be updating often, on the other hand, it might be much easier to use a  <CODE>PreparedStatement</CODE>
+ object, especially in situations where you can use a <code>for</code> loop or <code>while</code> loop to set a parameter to a succession of values. You will see an example of this later in this section.</P>
+<P>
+
+Once a parameter has been set with a value, it retains that value until it is reset to another value, or the method <code>clearParameters</CODE> is called. Using the <code>
+PreparedStatement</CODE> object <CODE>updateSales</CODE>, the following code fragment illustrates reusing a prepared statement after resetting the value of one of its parameters and leaving the other one the same:</P>
+<blockquote><pre>
+updateSales.setInt(1, 100); 
+updateSales.setString(2, &quot;French_Roast&quot;); 
+updateSales.executeUpdate(); 
+// changes SALES column of French Roast row to 100
+updateSales.setString(2, &quot;Espresso&quot;);
+updateSales.executeUpdate(); 
+// changes SALES column of Espresso row to 100 (the first 
+// parameter stayed 100, and the second parameter was reset
+// to &quot;Espresso&quot;)
+</pre></blockquote>
+
+<h3>
+Using a Loop to Set Values</h3>
+
+<P>
+You can often make coding easier by using a <code>for</CODE> loop or a <code>while</CODE> loop to set values for input parameters.</P>
+<P>
+
+The code fragment that follows demonstrates using a <code>for</CODE> loop to set values for parameters in the <code>PreparedStatement</CODE> object <CODE>
+updateSales</CODE>. The array <CODE>salesForWeek</CODE>
+ holds the weekly sales amounts. These sales amounts correspond to the coffee names listed in the array <CODE>coffees</CODE>, so that the first amount in <CODE>
+salesForWeek</CODE> (175) applies to the first coffee name in <CODE>
+coffees</CODE> (&quot;<code>Colombian</CODE>&quot;), the second amount in <CODE>salesForWeek</CODE> (150) applies to the second coffee name in <CODE>
+coffees</CODE> (&quot;<code>French_Roast</CODE>
+&quot;), and so on. This code fragment demonstrates updating the <code>
+SALES</CODE> column for all the coffees in the table <code>
+COFFEES</CODE>:</P>
+<blockquote>
+<blockquote><pre>
+PreparedStatement updateSales;
+String updateString = &quot;update COFFEES &quot; +
+                      &quot;set SALES = ? where COF_NAME like ?&quot;;
+updateSales = con.prepareStatement(updateString);
+int [] salesForWeek = {175, 150, 60, 155, 90};
+String [] coffees = {&quot;Colombian&quot;, &quot;French_Roast&quot;, &quot;Espresso&quot;,
+                     &quot;Colombian_Decaf&quot;, &quot;French_Roast_Decaf&quot;};
+int len = coffees.length;
+for(int i = 0; i &lt; len; i++) {
+                updateSales.setInt(1, salesForWeek[i]);
+                updateSales.setString(2, coffees[i]);
+                updateSales.executeUpdate();
+        }
+</pre></blockquote>
+<P>
+
+When the proprietor wants to update the sales amounts for the next week, he can use this same code as a template. All he has to do is enter the new sales amounts in the proper order in the array <CODE>
+salesForWeek</CODE>. The coffee names in the array <CODE>
+coffees</CODE>
+ remain constant, so they do not need to be changed. (In a real application, the values would probably be input from the user rather than from an initialized Java array.)</P>
+
+<h3>
+Return Values for the <code>executeUpdate</code> Method </h3>
+
+
+Whereas <code>executeQuery</CODE> returns a <code>ResultSet</CODE>
+ object containing the results of the query sent to the DBMS, the return value for <code>
+executeUpdate</CODE> is an <code>int</CODE> that indicates how many rows of a table were updated. For instance, the following code shows the return value of <CODE>executeUpdate</CODE>
+ being assigned to the variable <CODE>n</CODE>:</P>
+
+<blockquote><pre>
+updateSales.setInt(1, 50); 
+updateSales.setString(2, &quot;Espresso&quot;); 
+int n = updateSales.executeUpdate();
+// n = 1 because one row had a change in it
+</pre></blockquote>
+<P>
+
+The table <code>COFFEES</CODE> was updated by having the value <code>
+50</CODE> replace the value in the column <code>SALES</CODE>
+ in the row for <code>Espresso</CODE>. That update affected one row in the table, so <CODE>n</CODE> is equal to <code>1</CODE>. </P>
+<P>
+
+When the method <code>executeUpdate</CODE> is used to execute a DDL statement, such as in creating a table, it returns the <code>int</CODE> <code>0</CODE>. Consequently, in the following code fragment, which executes the DDL statement used to create the table <code>COFFEES</CODE>, <CODE>n</CODE> is assigned a value of <code>0</CODE>:
+</P>
+<blockquote>
+<blockquote><pre>
+int n = executeUpdate(createTableCoffees); // n = 0
+</pre></blockquote>
+<P>
+
+Note that when the return value for <code>executeUpdate</CODE> is <code>
+0</CODE>, it can mean one of two things: 
+
+<ul>
+<li> the statement executed was an update statement that affected zero rows<li>
+<li> the statement executed was a DDL statement.</li>
+</ul>
+</p>
+
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=milestone.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=joins.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Milestone: The Basics of JDBC
+        <br><b>Next page:</b> Using Joins
+    </div>
+    </body>
+</html> 

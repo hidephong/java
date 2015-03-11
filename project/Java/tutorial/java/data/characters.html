@@ -1,0 +1,547 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Characters (The Java&trade; Tutorials &gt; 
+            Learning the Java Language &gt; Numbers and Strings)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> Learning the Java Language
+        <br><b>Lesson:</b> Numbers and Strings
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">Numbers and Strings</a></div>
+<div class="linkAHEAD"><a href="numbers.html">Numbers</a></div>
+<div class="linkBHEAD"><a href="numberclasses.html">The Numbers Classes</a></div>
+<div class="linkBHEAD"><a href="numberformat.html">Formatting Numeric Print Output</a></div>
+<div class="linkBHEAD"><a href="beyondmath.html">Beyond Basic Arithmetic</a></div>
+<div class="linkBHEAD"><a href="numbersummary.html">Summary of Numbers</a></div>
+<div class="linkQUESTIONS"><a href="QandE/numbers-questions.html">Questions and Exercises</a></div>
+<div class="nolinkAHEAD">Characters</div>
+<div class="linkAHEAD"><a href="strings.html">Strings</a></div>
+<div class="linkBHEAD"><a href="converting.html">Converting Between Numbers and Strings</a></div>
+<div class="linkBHEAD"><a href="manipstrings.html">Manipulating Characters in a String</a></div>
+<div class="linkBHEAD"><a href="comparestrings.html">Comparing Strings and Portions of Strings</a></div>
+<div class="linkBHEAD"><a href="buffers.html">The StringBuilder Class</a></div>
+<div class="linkBHEAD"><a href="stringsummary.html">Summary of Characters and Strings</a></div>
+<div class="linkQUESTIONS"><a href="QandE/characters-questions.html">Questions and Exercises</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>Learning the Java Language</a>
+                &gt;
+                <a href=index.html target=_top>Numbers and Strings</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=QandE/numbers-questions.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=strings.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Characters</div>
+            <blockquote>
+<!-- Characters -->
+
+Most of the time, if you are using a single character value, you will
+use the primitive <code>char</code> type. For example:
+<blockquote><pre>
+char ch = 'a'; 
+char uniChar = '\u039A'; // Unicode for uppercase Greek omega character
+char[] charArray ={ 'a', 'b', 'c', 'd', 'e' }; // an array of chars
+</pre></blockquote>
+There are times, however, when you need to use a char as an object&mdash;for example, as a 
+method argument where an object is expected. The Java programming 
+language provides a <i>wrapper</i> class that "wraps" the <code>char</code> 
+in a <code>Character</code> object for this purpose. An object of type <code>Character</code> contains a single field, 
+whose type is <code>char</code>.
+This
+<a class="SourceLink" target="_blank" href="http://java.sun.com/javase/6/docs/api/java/lang/Character.html"><code>Character</code></a> class also offers a number of useful class (i.e., static) methods for manipulating characters.
+<p>
+You can create a <code>Character</code> object with the <code>Character</code> constructor:
+<blockquote><pre>
+Character ch = new Character('a');
+</pre></blockquote>
+The Java compiler will also create a <code>Character</code> object for you under some circumstances. 
+For example, if you pass a primitive <code>char</code> into a
+method that expects an object, 
+the compiler automatically converts the <code>char</code> to a <code>Character</code> for you. 
+This feature is called <em>autoboxing</em>&mdash;or <em>unboxing</em>, if the conversion
+goes the other way.
+<p>
+Here is an example of boxing,
+<blockquote><pre>
+Character ch = 'a'; // the primitive char 'a' is boxed into the Character object ch
+</pre></blockquote>
+and here is an example of both boxing and unboxing,
+<blockquote><pre>
+Character test(Character c) {...} // method parameter and return type = Character object
+
+char c = test('x'); // primitive 'x' is boxed for method test, return is unboxed to char 'c'
+</pre></blockquote>
+<blockquote><hr><strong>Note:</strong>&nbsp;The <code>Character</code> class is
+immutable, so that once it is created, a <code>Character</code> object cannot be changed.
+<hr></blockquote>
+The following table lists some of the most useful methods
+in the <code>Character</code> class, but is not exhaustive.
+For a complete listing of all methods in this class (there are more than 50), refer to the
+<a class="SourceLink" target="_blank" href="http://java.sun.com/javase/6/docs/api/java/lang/Character.html"><code>java.lang.Character</code></a> API specification.
+
+<p>
+<table WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3>
+<caption><b>Useful Methods in the <code>Character</code> Class</b></caption>
+<tr>
+<th width=30%>Method</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>
+<code>boolean isLetter(char ch)
+<br>
+boolean isDigit(char ch)</code>
+</td>
+<td>
+Determines whether the specified char value is a letter or
+a digit, respectively.
+</td>
+</tr>
+
+<tr>
+<td>
+<code>boolean isWhiteSpace(char ch)</code>
+</td>
+<td>
+Determines whether the specified char value is white
+space.
+</td>
+</tr>
+
+<tr>
+<td>
+<code>boolean isUpperCase(char ch)
+<br>
+boolean isLowerCase(char ch)</code>
+</td>
+<td>
+Determines whether the specified char value is uppercase or
+lowercase, respectively.
+</td>
+</tr>
+
+<tr>
+<td>
+<code>char toUpperCase(char ch)
+<br>
+char toLowerCase(char ch)</code>
+</td>
+<td>
+Returns the uppercase or lowercase form of the specified 
+char value.
+</td>
+</tr>
+ 
+<tr>
+<td>
+<code>toString(char ch)</code>
+</td>
+<td>
+Returns a <code>String</code> object representing the specified character
+value&mdash;that is, a one-character string.
+</td>
+</tr>
+
+</table>
+<h3 fmstyle=C-Head>Escape Sequences</h3>
+A character preceded by a backslash (\) is an <i>escape sequence</i> and has special meaning to 
+the compiler. The newline character (<code>\n</code>) has been used frequently in this 
+tutorial in <code>System.out.println()</code> statements to advance to the next line after the string is 
+printed. The following table shows the Java escape sequences:
+<p>
+<table WIDTH=50% BORDER=1 CELLPADDING=4 CELLSPACING=3>
+<caption><b>Escape Sequences</b></caption>
+<tr>
+<th width=30%>Escape Sequence</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>
+<code>\t</code>
+</td>
+<td>
+Insert a tab in the text at this point.
+</td>
+</tr>
+<tr>
+<td>
+<code>\b</code>
+</td>
+<td>
+Insert a backspace in the text at this point.
+</td>
+</tr><tr>
+<td>
+<code>\n</code>
+</td>
+<td>
+Insert a newline in the text at this point.
+</td>
+</tr>
+
+<tr>
+<td>
+<code>\r</code>
+</td>
+<td>
+Insert a carriage return in the text at this point.
+</td>
+</tr>
+
+<tr>
+<td>
+<code>\f</code>
+</td>
+<td>
+Insert a formfeed in the text at this point.
+</td>
+</tr>
+ 
+<tr>
+<td>
+<code>\'</code>
+</td>
+<td>
+Insert a single quote character in the text at this point.
+</td>
+</tr>
+<tr>
+<td>
+<code>\"</code>
+</td>
+<td>
+Insert a double quote character in the text at this point.
+</td>
+</tr>
+<tr>
+<td>
+<code>\\</code>
+</td>
+<td>
+Insert a backslash character in the text at this point.
+</td>
+</tr>
+</table>
+<p>
+When an escape sequence is encountered in a print statement, the compiler interprets it accordingly. For example, 
+if you want to put quotes within quotes you must use the escape sequence, \", on the interior quotes. To 
+print the sentence
+<blockquote><pre>
+She said "Hello!" to me.
+</pre></blockquote>
+you would write
+<blockquote><pre>
+System.out.println("She said \"Hello!\" to me.");
+</pre></blockquote>
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=QandE/numbers-questions.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=strings.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Questions and Exercises: Numbers
+        <br><b>Next page:</b> Strings
+    </div>
+    </body>
+</html> 

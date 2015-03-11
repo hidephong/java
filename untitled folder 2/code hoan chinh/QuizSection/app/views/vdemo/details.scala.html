@@ -1,0 +1,18 @@
+@(demo: Demo)(implicit flash: Flash, lang: Lang)
+
+@main(Messages("demos.details", demo.lastname)) {
+  <h2>
+    @Messages("demos.details", demo.lastname)
+  </h2>
+
+  <dl class="dl-horizontal">
+    <dt>@Messages("firstname"):</dt>
+    <dd>@demo.firstname</dd>
+
+    <dt>@Messages("lastname"):</dt>
+    <dd>@demo.lastname</dd>
+
+    <dt>@Messages("company"):</dt>
+    <dd>@demo.company</dd>
+  </dl>
+}

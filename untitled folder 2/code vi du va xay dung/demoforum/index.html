@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xml:lang="UTF - 8">
+<head>
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.minicolors.css" />
+    <link rel="stylesheet" type="text/css" href="css/index-original.css" />
+    <link href="carousel.css" rel="stylesheet">
+</head>
+<body>
+
+
+<nav id="onepxdeep_navbar" class="navbar navbar-fixed-bottom" role="navigation">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Forum</a>
+        </div>
+
+
+        <div class="collapse navbar-collapse" id=".navbar-collapse" >
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+                <form class="navbar-form navbar-right" role="search" action="index.html" method="get">
+                        <input  class="form-control" type="text" id="inputtxt"  text="search"/>
+                 </form>
+
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="sectional color1">
+    <div class="container">
+        <div class="row section">
+
+                <div class="col-lg-12">
+                   <div class="well color1">
+
+                         <div style="text-align: center;"><h2>Diễn đàn</h2></div>
+
+                         <div class="row">
+
+                            <div class="col-md-4 col-xs-6">
+
+                            <div class="panel-heading color3a" style="height: 24px;">
+                                <h4 class="panel-title">News</h4>
+                            </div>
+                            <div class="panel-body color3c" style="height: 320px;">
+<p><a href="c.html"><img src="img/New-Logo.png" style="width: 32px;"/>Thao tác nhanh với Bootstrap TurboBourst </a> <br />
+<a><img src="img/New-Logo.png" style="width: 32px;"/>Điểm tin công nghệ mới trong tuần qua</a><br />
+<a><img src="img/New-Logo.png" style="width: 32px;"/>Chia sẻ kinh nghiệm lập trình của các chuyên gia trong lĩnh vực quảng cáo, tiếp thị sản phẩm.</a>
+</p>
+                            </div>
+                            <div class="panel-footer color3a"  style="height: 24px;">
+
+                            </div>
+
+                            </div>
+
+                            <div class="col-md-4 col-xs-6">
+
+                            <div class="panel-heading color1c"  style="height: 24px;"> <h4 class="panel-title">Hot Topic</h4></div>
+                            <div class="panel-body color1c" style="height: 320px;">
+
+                                <!-- ================================================== -->
+                                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                    <!-- Indicators -->
+
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                          <a href="android.html"><img src="img/android.png" alt="a" class="img-thumbnail" /> </a>
+                                            <div class="container">
+                                                <div class="carousel-caption">
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <img src="img/500px-Xcode.png" alt="a" class="img-thumbnail" /> <div class="container">
+                                                <div class="carousel-caption">
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <img src="img/wp.png" alt="a" class="img-thumbnail"/>  <div class="container">
+                                                <div class="carousel-caption">
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                      </div><!-- /.carousel -->
+                                            <!--img src="img/android.png" alt="a" class="img-thumbnail" id="my_image"/-->
+
+
+
+
+                            </div>
+                            <div class="panel-footer color1c"  style="height: 24px;"></div>
+
+                           </div>
+
+                            <div class="clearfix visible-xs"></div>
+
+                            <div class="col-md-4 col-xs-6 hidden-xs" style="height: 300px">
+                            <div class="panel-heading color2b"  style="height: 24px;">Trao đổi trực tuyến.</div>
+                            <div class="panel-body color2" style="height: 320px;">
+                                <span id="chatid"  style="height: 280px;overflow-y: auto; overflow-x: auto; display: block;"></span>
+
+                                <form class="form-inline" role="form" id="chat" action="">
+                                    <div class="form-group">
+                                        <input type="text" id="inputchat" class="form-control" placeholder="Text input">
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Send</button>
+                                </form>
+
+                        </div>
+                            <div class="panel-footer color2b"  style="height: 24px;"></div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+                   </div>
+                </div>
+         </div>
+    <div class="container">
+        <div class="row section">
+
+            <div class="col-lg-12">
+                <div class="well color1">
+
+                    <div style="text-align: center;"><h2>Techmaster</h2></div>
+
+                    <div class="row">
+
+                        <div class="col-md-4 col-xs-6">
+
+                            <div class="panel-heading color3a" style="height: 24px;">
+                                <h4 class="panel-title">News</h4>
+                            </div>
+                            <div class="panel-body color3c" style="height: 320px;">
+
+                            </div>
+                            <div class="panel-footer color3a"  style="height: 24px;">
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4 col-xs-6">
+
+                            <div class="panel-heading color1c"  style="height: 24px;"> <h4 class="panel-title">Hot Topic</h4></div>
+                            <div class="panel-body color1c" style="height: 320px;">
+
+
+
+
+
+                            </div>
+                            <div class="panel-footer color1c"  style="height: 24px;"></div>
+
+                        </div>
+
+                        <div class="clearfix visible-xs"></div>
+
+                        <div class="col-md-4 col-xs-6 hidden-xs" style="height: 300px">
+                            <div class="panel-heading color2b"  style="height: 24px;">Trao đổi trực tuyến.</div>
+                            <div class="panel-body color2" style="height: 320px;">
+
+
+                            </div>
+                            <div class="panel-footer color2b"  style="height: 24px;"></div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+<div class="sectional color1">
+<div class="container">
+    <div class="row section">
+
+        <div class="col-lg-12">
+            <div class="well color1">
+
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+
+    $( "#chat").submit(function( event ) {
+    var input = $("#inputchat").val();
+        input.trim();
+        var i=input.length;
+
+        if(input.charAt(i-1)=="?"){ input="<p class='bg-danger' style='color: red;'>"+ input+"</p>"; }
+        else
+        {
+        input="<p class='bg-primary'>"+ input +"</p>";
+
+        }
+    var txt=$("#chatid").html();
+
+    $("#chatid").html(txt+input);
+
+
+    $("#inputchat").val('');
+
+    $("#chatid").scrollTop( 3000 );
+
+    event.preventDefault();
+    });
+
+</script>
+
+
+
+<script>
+    $(document).ready(function(){
+        $('.myCarousel').carousel({
+            interval: 2000
+        });
+    });
+</script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

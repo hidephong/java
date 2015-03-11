@@ -1,0 +1,123 @@
+<p>
+
+
+  <UL>
+    <LI><A HREF="#list">Prioritized List of Improvements</A>
+    <LI><A HREF="#highlight">Highlights of User Feedback</A>
+  </UL>
+  <P><TABLE WIDTH="550" BORDER="1" CELLSPACING="2" CELLPADDING="0">
+    <TR>
+      <TD WIDTH="140">
+      &nbsp;<B>Name of Reviewer:</B></TD>
+      <TD COLSPAN="2">
+      &nbsp;<I>Indrayana Rustandi</I></TD>
+    </TR>
+    <TR>
+      <TD WIDTH="140">
+      &nbsp;<B>Current Trail Author(s):</B></TD>
+      <TD COLSPAN="2">
+      &nbsp;<I>Maydene Fisher</I></TD>
+    </TR>
+    <TR>
+      <TD WIDTH="140" VALIGN="TOP">
+      &nbsp;<B>Was the author contacted?</B></TD>
+      <TD COLSPAN="2">
+       &nbsp;<I>No</I>
+       <P>
+       &nbsp;If yes, <BR>
+       &nbsp;<B>Date:</B> </TD>
+    </TR>
+    <TR>
+      <TD COLSPAN="3">
+      <B>Comments:</B>&nbsp;</TD>
+    </TR>
+  </TABLE></P>
+
+
+<A NAME="list"></A>
+<HR ALIGN=LEFT>
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="2" CELLPADDING="0">
+  <TR>
+    <TD WIDTH="50%" VALIGN="TOP">
+    <H4>Prioritized List of Improvements/Corrections:</H4>
+    </TD>
+    <TD WIDTH="9%">
+    <FONT COLOR="#000099">Priority Scale:<BR>
+    </FONT><FONT SIZE="-1">(1-5) <BR>
+    </FONT></TD>
+    <TD WIDTH="41%">
+    <FONT SIZE="-1">1 = immediate attention required<BR>
+    3 = fix in next public push (2-3 weeks)<BR>
+    5 = when you get a chance...</FONT></TD>
+  </TR>
+</TABLE></H4>
+
+<OL>
+  <LI><B>Recommendation1</B><BR>
+  Add more sample programs to illustrate the concepts explained.<BR>
+  priority (1-5): 2<P>
+
+  <LI><B>Recommendation2</B><BR>
+  Fix the applet example.<br>
+  Note: I have a working example.<BR>
+  priority (1-5): 2<P>
+
+  <LI><B>Recommendation3</B><BR>
+  I don't know how important the issue of closing connections and/or
+statements is. This should also be covered.<BR>
+  priority (1-5): 3<P>
+
+  <LI><B>Recommendation4</B><BR>
+  A reader brings to my attention the issue of obtaining multiple
+results sets from a statement. Here's an example:<br>&nbsp;<br>
+<code>
+ Connection con = ... // create a connection<br>
+ String query = &quot;...&quot;<br>
+ Statement stmt = con.createStatement();<br>
+ stmt.executeQuery();<br>
+ ResultSet rs = stmt.getResultSet();<br>
+ &nbsp;<br>
+</code>
+ The call to executeQuery() also returns a result set. So now there
+are to result sets. I tried this, and it worked fine. However, I don't 
+about any issues that may arise. Reference: User1's email.<BR>
+  priority (1-5): 4<p>
+
+  <LI><B>Recommendation5</B><BR>
+  Also need to be mentioned, how to deal with primary and foreign keys 
+through JDBC.<BR>
+  priority (1-5): 4<P>
+
+  <LI><B>Recommendation6</B><BR>
+  There's a reader that criticizes the design of the database,
+including the omission of primary keys. However, since I haven't been
+doing anything much in the database field, I'm not sure about the
+issue here. But you should look at the email. Reference: User2's
+email.<BR>
+  priority (1-5): 2<P>
+
+</OL>
+
+<P></P>
+<A NAME="highlight"></A>
+<HR ALIGN=LEFT>
+
+<H4>Highlights of User Feedback:</H4>
+
+<UL>
+  <LI>Date: 24 November 1998<BR>
+  User1's email: ad@chooseyourmail.com<P>
+  <LI>Date: 4 July 1999<BR>
+  User2's email: rgparker@west.net<P>
+  <LI>Date:<BR>
+  User3's email<P>
+  <LI>Date:<BR>
+  User4's email
+</UL>
+
+<P></P>
+
+
+
+
+

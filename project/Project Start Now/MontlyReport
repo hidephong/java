@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     TransferRecord."RelievingDate" AS TransferRecord_RelievingDate,
+     TransferRecord."ReportingManager" AS TransferRecord_ReportingManager,
+     TransferRecord."Allowance" AS TransferRecord_Allowance,
+     TransferRecord."CreationDate" AS TransferRecord_CreationDate,
+     TransferRecord."TransferReason" AS TransferRecord_TransferReason,
+     TransferRecord."Status" AS TransferRecord_Status,
+     WorkItem."WorkItemID" AS WorkItem_WorkItemID,
+     WorkItem."DepartmentID" AS WorkItem_DepartmentID,
+     WorkItem."ProjectID" AS WorkItem_ProjectID,
+     WorkItem."StartDate" AS WorkItem_StartDate,
+     WorkItem."EndDate" AS WorkItem_EndDate,
+     WorkItem."Status" AS WorkItem_Status,
+     Project."ProjectName" AS Project_ProjectName,
+     Post."Role" AS Post_Role,
+     Location."LocationAddress" AS Location_LocationAddress,
+     Employee."EmployeeID" AS Employee_EmployeeID,
+     Employee."EmployeeName" AS Employee_EmployeeName,
+     Employee."WorkExperience" AS Employee_WorkExperience,
+     Department."DepartmentName" AS Department_DepartmentName,
+     Employee."JoiningDate" AS Employee_JoiningDate
+FROM
+     "dbo"."WorkItem" WorkItem INNER JOIN "dbo"."TransferRecord" TransferRecord ON WorkItem."WorkItemID" = TransferRecord."WorkItemID"
+     INNER JOIN "dbo"."Project" Project ON WorkItem."ProjectID" = Project."ProjectID"
+     INNER JOIN "dbo"."Department" Department ON WorkItem."DepartmentID" = Department."DepartmentID"
+     INNER JOIN "dbo"."Location" Location ON Department."LocationID" = Location."LocationID"
+     INNER JOIN "dbo"."Employee" Employee ON TransferRecord."EmployeeID" = Employee."EmployeeID"
+     INNER JOIN "dbo"."Post" Post ON Employee."RoleID" = Post."RoleID"]]>
+	</queryString>
+	<field name="TransferRecord_RelievingDate" class="java.sql.Timestamp"/>
+	<field name="TransferRecord_ReportingManager" class="java.lang.String"/>
+	<field name="TransferRecord_Allowance" class="java.math.BigDecimal"/>
+	<field name="TransferRecord_CreationDate" class="java.sql.Timestamp"/>
+	<field name="TransferRecord_TransferReason" class="java.lang.String"/>
+	<field name="TransferRecord_Status" class="java.lang.String"/>
+	<field name="WorkItem_WorkItemID" class="java.lang.Integer"/>
+	<field name="WorkItem_DepartmentID" class="java.lang.Integer"/>
+	<field name="WorkItem_ProjectID" class="java.lang.Integer"/>
+	<field name="WorkItem_StartDate" class="java.sql.Timestamp"/>
+	<field name="WorkItem_EndDate" class="java.sql.Timestamp"/>
+	<field name="WorkItem_Status" class="java.lang.String"/>
+	<field name="Project_ProjectName" class="java.lang.String"/>
+	<field name="Post_Role" class="java.lang.String"/>
+	<field name="Location_LocationAddress" class="java.lang.String"/>
+	<field name="Employee_EmployeeID" class="java.lang.Integer"/>
+	<field name="Employee_EmployeeName" class="java.lang.String"/>
+	<field name="Employee_WorkExperience" class="java.lang.Integer"/>
+	<field name="Department_DepartmentName" class="java.lang.String"/>
+	<field name="Employee_JoiningDate" class="java.sql.Timestamp"/>
+	<group name="Employee_EmployeeName">
+		<groupExpression><![CDATA[$F{Employee_EmployeeName}]]></groupExpression>
+	</group>
+	<group name="Project_ProjectName">
+		<groupExpression><![CDATA[$F{Project_ProjectName}]]></groupExpression>
+	</group>
+	<group name="TransferRecord_CreationDate">
+		<groupExpression><![CDATA[$F{TransferRecord_CreationDate}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

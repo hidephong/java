@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>a.sc</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(249,39,96); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(255,255,255); }
+.s3 { color: rgb(204,120,50); }
+.s4 { color: rgb(104,151,187); }
+</style>
+</head>
+<BODY BGCOLOR="#272822">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+a.sc</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">import </span><span class="s1">scala.annotation.tailrec 
+@tailrec 
+</span><span class="s0">def </span><span class="s1">listLeng</span><span class="s2">(</span><span class="s1">list: List</span><span class="s2">[</span><span class="s1">_</span><span class="s2">]</span><span class="s3">, </span><span class="s1">len: Int </span><span class="s2">= </span><span class="s4">0</span><span class="s2">)</span><span class="s1">: Int </span><span class="s2">= { </span><span class="s0">if </span><span class="s2">(</span><span class="s1">list.isEmpty</span><span class="s2">)</span><span class="s1"> 
+  len </span><span class="s0">else</span><span class="s1"> 
+  listLeng</span><span class="s2">(</span><span class="s1">list.tail</span><span class="s3">, </span><span class="s1">len + </span><span class="s4">1</span><span class="s2">)}</span><span class="s1"> 
+</span><span class="s0">val </span><span class="s1">x </span><span class="s2">= </span><span class="s1">List</span><span class="s2">(</span><span class="s4">1</span><span class="s3">,</span><span class="s4">3</span><span class="s3">,</span><span class="s4">4</span><span class="s3">,</span><span class="s4">6</span><span class="s3">,</span><span class="s4">8</span><span class="s2">)</span><span class="s1"> 
+listLeng</span><span class="s2">(</span><span class="s1">x</span><span class="s2">)</span></pre>
+</body>
+</html>

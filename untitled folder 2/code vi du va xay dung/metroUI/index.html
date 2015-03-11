@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Forum Metro </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link rel="stylesheet" type="text/css" href="css/metro-bootstrap.css">
+    <!-- documentation styles -->
+    <link rel="stylesheet" type="text/css" href="docs/docs.css">
+    <link rel="stylesheet" href="a.css" type="text/css">
+    <link href="docs/font-awesome.css" rel="stylesheet">
+    <link href="carousel.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.timer.js"></script>
+
+</head>
+<body data-spy="scroll" data-target=".subnav" data-offset="50" screen_capture_injected="true" onload="timer();">
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="form-signin-heading">Please sign in</h2>
+            </div>
+            <div class="modal-body">
+                <form class="form-signin" role="form" action="index.html" method="post">
+
+                    <input class="form-control" placeholder="Email address" required="" autofocus="" type="email">
+                    <input class="form-control" placeholder="Password" required="" type="password">
+                    <label class="checkbox">
+                        <input value="remember-me" type="checkbox"> Remember me
+                    </label>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<nav class="navbar-default1  navbar-fixed-bottom" role="navigation">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Forum</a>
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Topic</a></li>
+                <li><a href="#">Rules</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">UserPanel <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Account</a></li>
+                        <li><a href="#">Posts</a></li>
+                        <li><a href="#">Messages <span class="badge">42</span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Friends</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">About</a></li>
+                <li>
+
+                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        Login
+                    </button>
+                </li>
+            </ul>
+
+
+        </div>
+
+    </div>
+
+</nav>
+
+<nav class="navbar navbar-default1" role="navigation">
+
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#"><h1>ForumSE</h1></a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+
+        <ul class="nav navbar-nav navbar-right">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+
+            </form>
+        </ul>
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+<div class="col-sm-6 col-md-4">
+
+    <div class="thumbnail tile tile-double tile-red">
+        <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="" alt="" class=".img-responsive" style="height: 20px;">
+                    <a href="#" class="fa-links">
+
+                        <h4>Đang online:</h4>
+
+                        <p>1.000</p>
+                        <i class="fa fa-2x fa-info-circle"></i>
+                    </a>
+
+                </div>
+                <div class="item">
+                    <img src="" alt="" class=".img-responsive" style="height: 20px;">
+                    <a href="#" class="fa-links">
+
+
+                        <h4>Số thành viên:</h4>
+
+                        <p >1.000.000</p>
+                        <i class="fa fa-2x fa-info-circle"></i>
+                    </a>
+                </div>
+                <div class="item">
+                    <img src="" alt="" class=".img-responsive" style="height: 20px;">
+
+                    <a href="#" class="fa-links">
+
+                        <h4>Bài viết mới:</h4>
+
+                        <p>500</p>
+                        <i class="fa fa-2x fa-info-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail tile tile-double tile-wet-asphalt">
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <a href="android.html">
+                        <img src="img/android.png" alt="a" class=".img-responsive" style="height: 110px;">
+                    </a>
+
+                    <div class="carousel-caption">
+                        <p style="color: magenta;">Android FAN</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="ios.html">
+                        <img src="img/500px-Xcode.png" alt="a" class=".img-responsive" style="height: 110px;"/>
+                    </a>
+
+                    <div class="carousel-caption">
+                        <p style="color: magenta;">iOS FAN</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <a href="wp.html">
+                        <img src="img/wp.png" alt="a" class=".img-responsive" style="height: 110px;"/>
+                    </a>
+
+                    <div class="carousel-caption">
+                        <p style="color: magenta;">WP FAN</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail tile tile-double tile-blue">
+        <div id="myCarousel1" class="carousel slide" data-ride="carousel">
+
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <a href="#" class="fa-links"> <img src="img/New-Logo.png" style="width: 32px;"/>Thao tác
+                        nhanh với Bootstrap TurboBourst </a>
+                </div>
+                <div class="item">
+                    <a href="#" class="fa-links">
+                        <img src="img/New-Logo.png" style="width: 32px;"/>Điểm tin công nghệ mới trong tuần qua</a>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="#" class="fa-links">
+                        <img src="img/New-Logo.png" style="width: 32px;"/>Chia sẻ kinh nghiệm lập trình của các
+                        chuyên gia trong lĩnh vực quảng cáo, tiếp thị sản phẩm.</a>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail tile tile-double tile-green">
+        <a href="#" class="fa-links">
+            <h1>Home</h1>
+            <i class="fa fa-3x fa-home"></i>
+        </a>
+    </div>
+</div>
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail tile tile-double tile-magenta">
+        <a href="#" class="fa-links">
+            <h1>Multimedia</h1>
+            <i class="fa fa-3x fa-th-large"></i>
+        </a>
+    </div>
+</div>
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail tile tile-double tile-sun-flower">
+        <a href="#" class="fa-links">
+            <h1>OS</h1>
+            <i class="fa fa-3x fa-th-large"></i>
+        </a>
+    </div>
+</div>
+
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail tile tile-double tile-pumpkin">
+        <a href="#" class="fa-links">
+            <h1>Database</h1>
+            <i class="fa fa-3x fa-th-large"></i>
+        </a>
+    </div>
+</div>
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail tile tile-double tile-silver">
+        <a href="#" class="fa-links">
+            <h1>Network</h1>
+            <i class="fa fa-3x fa-th-large"></i>
+        </a>
+    </div>
+</div>
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail tile tile-double tile-wisteria">
+        <a href="#" class="fa-links">
+            <h1>C++</h1>
+            <i class="fa fa-3x fa-th-large"></i>
+        </a>
+    </div>
+</div>
+
+
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail tile tile-double tile-teal">
+        <a href="#" class="fa-links">
+            <h1>Java</h1>
+            <i class="fa fa-3x fa-th-large"></i>
+        </a>
+    </div>
+</div>
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail tile tile-double tile-emerald">
+        <a href="#" class="fa-links">
+            <h1>.NET</h1>
+            <i class="fa fa-3x fa-windows"></i>
+        </a>
+    </div>
+</div>
+<div class="col-sm-6 col-md-4">
+    <div class="thumbnail tile tile-double tile-lime">
+        <a href="#" class="fa-links">
+            <h1>PHP</h1>
+            <i class="fa fa-3x fa-th-large"></i>
+        </a>
+    </div>
+</div>
+
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail tile tile-double tile-lime">
+                <span id="chatid"  style="height: 100%;overflow-y: auto; overflow-x: auto; display: block;"></span>
+                <!--form class="form-inline" role="form" id="chat" action="" method="get">
+                    <div class="form-group">
+                        <input type="text" id="inputchat" class="form-control" placeholder="Text input">
+                    </div>
+                    <button type="submit" class="btn btn-default">Send</button>
+                </form-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+
+    $("#chat").submit(function (event) {
+        var input = $("#inputchat").val();
+        input.trim();
+        var i = input.length;
+
+        if (input.charAt(i - 1) == "?") {
+            input = "<p class='bg-danger' style='color: red;'>" + input + "</p>";
+        }
+        else {
+            input = "<p class='bg-primary'>" + input + "</p>";
+
+        }
+        var txt = $("#chatid").html();
+
+        $("#chatid").html(txt + input);
+
+        $("#inputchat").val('');
+
+        $("#chatid").scrollTop(30);
+
+        event.preventDefault();
+    });
+
+
+    $(document).ready(function () {
+        $('#myCarousel').carousel({
+            interval: 4500
+        })
+
+
+        $('#myCarousel1').carousel({
+            interval: 3000
+        })
+
+
+        $('#myCarousel2').carousel({
+            interval: 2000
+        })
+
+
+    });
+var i=0;
+    function ScrollDiv(){
+         i++;
+        var input = "aaa"+i;
+        input.trim();
+        var i = input.length;
+
+        if (input.charAt(i - 1) == "?") {
+            input = "<p class='bg-danger' style='color: red;'>" + input + "</p>";
+        }
+        else {
+            input = "<p class='bg-primary'>" + input + "</p>";
+
+        }
+        var txt = $("#chatid").html();
+
+        $("#chatid").html(txt + input);
+
+        $("#inputchat").val('');
+
+        $("#chatid").scrollTop(3000);
+    }
+
+    setInterval(ScrollDiv,1000)
+</script>
+
+
+<script type="text/javascript" src="docs/jquery-1.8.0.js"></script>
+
+
+<script type="text/javascript" src="docs/bootstrap.min.js"></script>
+
+
+
+</body>
+
+</html>

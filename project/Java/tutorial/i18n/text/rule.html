@@ -1,0 +1,461 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+    <head>
+        <title>Customizing Collation Rules (The Java&trade; Tutorials &gt; 
+            Internationalization &gt; Working with Text)
+</title>
+<style type="text/css">
+    .FigureCaption   { 
+        margin-left: 1in; 
+        margin-right: 1in; 
+        font-family: sans-serif; 
+        font-size: smaller; 
+        text-align: justify;
+    }
+    #TopBar_bl {
+        background: url(../../images/java_bar_bl.gif) 0 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_br {
+        background: url(../../images/java_bar_br.gif) 100% 100% no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tl {
+        background: url(../../images/java_bar_tl.gif) 0 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar_tr {
+        background: url(../../images/java_bar_tr.gif) 100% 0 no-repeat;
+        width: 100%;
+        height: 60px;
+    }
+    #TopBar {
+        background: #35556B url(../../images/java_bar.gif);
+        margin: 10px 10px 0 10px;
+        height:60px;
+        min-width:700px;
+        color: white;
+        font-family: sans-serif; 
+        font-weight: bold;
+    }
+    @media print {
+        #BreadCrumbs, #Download {
+            display: none;
+        }
+    }
+    #TopBar_right {
+        line-height: 14px;
+        float: right;
+        padding-top: 2px;
+        padding-right: 30px;
+        text-align: center;
+    }
+    @media print {
+        #TopBar_right {
+            display: none;
+        }
+    }
+    #TopBar_right a {
+        font-size: 12px;
+        margin: 3px;
+        padding: 0;
+    }
+    #TopBar a:visited, #TopBar a:link {
+        color: white;
+        text-decoration: none;
+    }
+    #TopBar a:hover, #TopBar a:active  {
+        background-color: white;
+        color: #35556B;
+    }
+    #BreadCrumbs {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+        float: right;
+    }
+    #BreadCrumbs a {
+        color: blue;
+    }
+    #BreadCrumbs a:visited, #BreadCrumbs a:link {
+        text-decoration: none;
+    }
+    #BreadCrumbs a:hover, #BreadCrumbs a:active {
+        text-decoration: underline;
+    }
+    #PageTitle {
+        margin: 0 5px 0.5em 0;
+        color: #E76F00;
+        font-family: sans-serif; 
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .LeftBar_shown {
+        width: 13em;
+        float: left;
+        margin-left: 10px;
+        margin-top: 4px;
+        margin-bottom: 2em;
+    }
+    @media print {
+        .LeftBar_shown {
+            display: none;
+        }
+    }
+    .LeftBar_hidden {
+        display: none;
+    }
+    #Footer {
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-right: 10px;
+    }
+    .NavBit  {
+        padding: 4px 5px 0.5em 0;
+        font-family: sans-serif; 
+    }
+    @media print {
+        .NavBit {
+            display: none;
+        }
+    }
+    #TagNotes {
+        text-align: right;
+        font-size: smaller;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #TagNotes a:visited, #TagNotes a:link {
+            color: #35556B;
+            text-decoration: none;
+        }
+    }
+    #Contents a, .NavBit a, #TagNotes a {
+        color: blue
+    }
+    #TagNotes a:visited, #TagNotes a:link,
+    #Contents a:visited, #Contents a:link,
+    .NavBit a:visited, .NavBit a:link {
+        text-decoration: none;
+    }
+    #TagNotes a:hover, #TagNotes a:active,   
+    #Contents a:hover, #Contents a:active,   
+    .NavBit a:hover, .NavBit a:active {  
+        text-decoration: underline;
+    }
+    #Contents {
+        float: left;
+        font-family: sans-serif; 
+    }
+    @media print {
+        #Contents {
+            display: none;
+        }
+    }
+    @media screen {
+        div.PrintHeaders {
+            display: none;
+        }
+    }
+    .linkLESSON, .nolinkLESSON {
+        margin-left: 0.5em;
+        text-indent: -0.5em
+    }
+    .linkAHEAD, .nolinkAHEAD, .linkQUESTIONS, .nolinkQUESTIONS   {
+        margin-left: 1.5em; 
+        text-indent: -0.5em
+    }
+    .linkBHEAD, .nolinkBHEAD   {
+        margin-left: 2.5em;
+        text-indent: -0.5em
+    }
+    .linkCHEAD, .nolinkCHEAD   {
+        margin-left: 3.5em;
+        text-indent: -0.5em
+    }
+    .nolinkLESSON, .nolinkAHEAD, .nolinkBHEAD, .nolinkCHEAD,
+    .nolinkQUESTIONS {
+        font-weight: bold;
+        color: #E76F00;
+    }
+    .MainFlow_indented {
+        margin-right: 10px;
+        margin-left: 15em;
+        margin-bottom: 2em;
+
+    }
+    .MainFlow_wide {
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 2em;
+
+    }
+    @media print {
+        .MainFlow_indented, .MainFlow_wide {
+            padding-top: 0;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-left: 0;
+        }
+    }
+    h3, h4, h5 {
+        color: #E76F00;
+        font-family: sans-serif;
+    }
+    #ToggleLeft {
+        display: none;
+    }
+
+    /t
+
+</style>
+<script type="text/javascript">
+    function leftBar() {
+        var nameq = 'tutorial_showLeftBar='
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookieString = cookies[i];
+            while (cookieString.charAt(0) == ' ') {
+                cookieString = cookieString.substring(1, cookieString.length);
+            }
+            if (cookieString.indexOf(nameq) == 0) {
+                cookieValue =  cookieString.substring(nameq.length,
+                        cookieString.length);
+                return cookieValue == 'yes';
+            }
+        }
+        return true;
+    }
+
+    function showLeft(b) {
+        var contents = document.getElementById("LeftBar");
+        var main = document.getElementById("MainFlow");
+        var toggle = document.getElementById("ToggleLeft");
+        if (b) {
+            contents.className = "LeftBar_shown";
+            main.className = "MainFlow_indented";
+            toggle.innerHTML = "Hide the TOC";
+            document.cookie = 'tutorial_showLeftBar=yes; path=/';
+        } else {
+            contents.className = "LeftBar_hidden";
+            main.className = "MainFlow_wide";
+            toggle.innerHTML = "Show the TOC";
+            document.cookie = 'tutorial_showLeftBar=no; path=/';
+        }
+    }
+
+    function toggleLeft() {
+        showLeft(document.getElementById("LeftBar").className ==
+                "LeftBar_hidden");
+        document.getElementById("ToggleLeft").blur();
+    }
+
+    function load() {
+        showLeft(leftBar());
+        document.getElementById("ToggleLeft").style.display="inline";
+    }
+    
+</script>
+
+    </head>
+<body onload="load()">
+    <div id=TopBar> <div id=TopBar_tr> <div id=TopBar_tl> <div id=TopBar_br> <div id=TopBar_bl> 
+                        <div id=TopBar_right> 
+                            <a target="_blank"
+                                href="http://java.sun.com/javase/6/download.jsp">Download
+                                the JDK</a>
+                            <br>
+                            <a href="../../search.html" target="_blank">Search the
+                                Tutorials</a>
+                            <br>
+                            <a href="javascript:toggleLeft()"
+                                id="ToggleLeft">Hide the TOC</a>
+                        </div>
+                    </div> </div> </div> </div> </div>
+    <div class=PrintHeaders>
+        <b>Trail:</b> Internationalization
+        <br><b>Lesson:</b> Working with Text
+        <br><b>Section:</b> Comparing Strings
+    </div>
+
+    <div id=LeftBar class=LeftBar_shown>
+        <div id=Contents>
+            <div class="linkLESSON"><a href="index.html">Working with Text</a></div>
+<div class="linkAHEAD"><a href="charintro.html">Checking Character Properties</a></div>
+<div class="linkAHEAD"><a href="collationintro.html">Comparing Strings</a></div>
+<div class="linkBHEAD"><a href="locale.html">Performing Locale-Independent Comparisons</a></div>
+<div class="nolinkBHEAD">Customizing Collation Rules</div>
+<div class="linkBHEAD"><a href="perform.html">Improving Collation Performance</a></div>
+<div class="linkAHEAD"><a href="boundaryintro.html">Detecting Text Boundaries</a></div>
+<div class="linkBHEAD"><a href="about.html">About the BreakIterator Class</a></div>
+<div class="linkBHEAD"><a href="char.html">Character Boundaries</a></div>
+<div class="linkBHEAD"><a href="word.html">Word Boundaries</a></div>
+<div class="linkBHEAD"><a href="sentence.html">Sentence Boundaries</a></div>
+<div class="linkBHEAD"><a href="line.html">Line Boundaries</a></div>
+<div class="linkAHEAD"><a href="convertintro.html">Converting Non-Unicode Text</a></div>
+<div class="linkBHEAD"><a href="string.html">Byte Encodings and Strings</a></div>
+<div class="linkBHEAD"><a href="stream.html">Character and Byte Streams</a></div>
+<div class="linkAHEAD"><a href="normalizerapi.html">Normalizer's API</a></div>
+</div>
+    </div>
+    <div id=MainFlow class=MainFlow_indented>
+            <span id=BreadCrumbs>
+                <a href=../../index.html target=_top>Home Page</a>
+                &gt;
+                <a href=../index.html target=_top>Internationalization</a>
+                &gt;
+                <a href=index.html target=_top>Working with Text</a>
+            </span>
+            <div class=NavBit>
+                <a target=_top href=locale.html>&laquo;&nbsp;Previous</a>&nbsp;&bull;&nbsp;<a target=_top href=../TOC.html>Trail</a>&nbsp;&bull;&nbsp;<a target=_top href=perform.html>Next&nbsp;&raquo;</a>
+            </div>
+            <div id=PageTitle>Customizing Collation Rules</div>
+            <blockquote>
+The previous section discussed how to use the predefined rules for a
+locale to compare strings. These collation rules determine the sort
+order of strings. If the predefined collation rules do not meet your
+needs, you can design your own rules and assign them to a
+<CODE>RuleBasedCollator </CODE> object.
+<P>
+Customized collation rules are contained in a <CODE>String</CODE>
+object that is passed to the <CODE>RuleBasedCollator</CODE>
+constructor. Here's a simple example:
+<blockquote><pre>
+String simpleRule = &quot;&lt; a &lt; b &lt; c &lt; d&quot;;
+RuleBasedCollator simpleCollator =  new RuleBasedCollator(simpleRule);
+</pre></blockquote>
+<P>
+For the <CODE>simpleCollator</CODE> object in the previous example,
+<CODE>a</CODE> is less than <CODE>b</CODE>, which is less that
+<CODE>c</CODE>, and so forth. The <CODE>simpleCollator.compare </CODE>
+method references these rules when comparing strings. The full syntax
+used to construct a collation rule is more flexible and complex than
+this simple example. For a full description of the syntax, refer to the
+API documentation for the 
+<a class="APILink" target="_blank" href="http://java.sun.com/javase/6/docs/api/java/text/RuleBasedCollator.html"><code>RuleBasedCollator</code></a> class.
+
+<P>
+The example that follows sorts a list of Spanish words with two
+collators. Full source code for this example is in 
+
+<a class="SourceLink" target="_blank" href="examples/RulesDemo.java"><code>RulesDemo.java</code></a>.
+<P>
+The <CODE>RulesDemo</CODE> program starts by defining collation rules
+for English and Spanish. The program will sort the Spanish words in the
+traditional manner. When sorting by the traditional rules, the letters
+ch and ll and their uppercase equivalents each have their own positions
+in the sort order. These character pairs compare as if they were one
+character. For example, ch sorts as a single letter, following cz in
+the sort order. Note how the rules for the two collators differ:
+<blockquote><pre>
+String englishRules =
+    (&quot;&lt; a,A &lt; b,B &lt; c,C &lt; d,D &lt; e,E &lt; f,F &quot; +
+     &quot;&lt; g,G &lt; h,H &lt; i,I &lt; j,J &lt; k,K &lt; l,L &quot; +
+     &quot;&lt; m,M &lt; n,N &lt; o,O &lt; p,P &lt; q,Q &lt; r,R &quot; +
+     &quot;&lt; s,S &lt; t,T &lt; u,U &lt; v,V &lt; w,W &lt; x,X &quot; +
+     &quot;&lt; y,Y &lt; z,Z&quot;);
+
+String smallnTilde = new String(&quot;\u00F1&quot;); // &ntilde;
+String capitalNTilde = new String(&quot;\u00D1&quot;); // &Ntilde;
+
+String traditionalSpanishRules =
+    (&quot;&lt; a,A &lt; b,B &lt; c,C &quot; +
+     &quot;&lt; ch, cH, Ch, CH &quot; +
+     &quot;&lt; d,D &lt; e,E &lt; f,F &quot; +
+     &quot;&lt; g,G &lt; h,H &lt; i,I &lt; j,J &lt; k,K &lt; l,L &quot; +
+     &quot;&lt; ll, lL, Ll, LL &quot; +
+     &quot;&lt; m,M &lt; n,N &quot; +
+     &quot;&lt; &quot; + smallnTilde + &quot;,&quot; + capitalNTilde + &quot; &quot; +
+     &quot;&lt; o,O &lt; p,P &lt; q,Q &lt; r,R &quot; +
+     &quot;&lt; s,S &lt; t,T &lt; u,U &lt; v,V &lt; w,W &lt; x,X &quot; +
+     &quot;&lt; y,Y &lt; z,Z&quot;);
+</pre></blockquote>
+<P>
+The following lines of code create the collators and invoke the sort routine: 
+<blockquote><pre>
+try {
+    RuleBasedCollator enCollator =
+        new RuleBasedCollator(englishRules);
+    RuleBasedCollator spCollator =
+        new RuleBasedCollator(traditionalSpanishRules);
+
+    sortStrings(enCollator, words);
+    printStrings(words);
+
+    System.out.println();
+
+    sortStrings(spCollator, words);
+    printStrings(words);
+} catch (ParseException pe) {
+    System.out.println(&quot;Parse exception for rules&quot;);
+}
+</pre></blockquote>
+<P>
+The sort routine, called <CODE>sortStrings</CODE>, is generic. It will
+sort any array of words according to the rules of any
+<CODE>Collator</CODE> object:
+<blockquote><pre>
+public static void sortStrings(Collator collator, String[] words) {
+    String tmp;
+    for (int i = 0; i &lt; words.length; i++) {
+	for (int j = i + 1; j &lt; words.length; j++) {
+	    if (collator.compare(words[i], words[j]) &gt; 0) {
+		tmp = words[i];
+		words[i] = words[j];
+		words[j] = tmp;
+	    }
+	}
+    }
+}
+</pre></blockquote>
+<P>
+When sorted with the English collation rules, the array of words is as follows: 
+<blockquote><pre>
+chalina
+curioso
+llama
+luz
+</pre></blockquote>
+<P>
+Compare the preceding list with the following, which is sorted
+according to the traditional Spanish rules of collation:
+<blockquote><pre>
+curioso
+chalina
+luz
+llama
+</pre></blockquote>
+
+        </blockquote>
+        <div class=NavBit>
+            <a target=_top href=locale.html>&laquo; Previous</a>
+            &bull;
+            <a target=_top href=../TOC.html>Trail</a>
+            &bull;
+            <a target=_top href=perform.html>Next &raquo;</a>
+        </div>
+    </div>
+    <div id=Footer>
+<div id=TagNotes>
+    Problems with the examples? Try <a target="_blank"
+        href=../../information/run-examples.html>Compiling and Running
+        the Examples: FAQs</a>.
+    <br>
+    Complaints? Compliments? Suggestions? <a target="_blank"
+        href="http://developer.sun.com/contact/tutorial_feedback.jsp">Give
+    us your feedback</a>.
+<br><br>
+    <a target="_blank" href="../../information/copyright.html">Copyright</a>
+    1995-2007 Sun Microsystems, Inc.  All rights reserved.
+    <span id=Download>
+</span></div> 
+
+    </div>
+    <div class=PrintHeaders>
+        <b>Previous page:</b> Performing Locale-Independent Comparisons
+        <br><b>Next page:</b> Improving Collation Performance
+    </div>
+    </body>
+</html> 

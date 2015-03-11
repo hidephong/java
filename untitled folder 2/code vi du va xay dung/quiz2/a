@@ -1,0 +1,88 @@
+def lookup(name:String) =Action {
+request=>
+val contacts: Seq[Contact]= loadFromdb(name)
+val contactJson : Seq[JSValue] = contacts.map(Json.toJson(_))
+Ok(JsArray(contactJson))
+}
+
+trait Format[T]{
+def reads(sjson:JsVale):JsResult[T]
+deef writes(obj:T): JsValue
+}
+
+case class Email(addr:String)
+case class Contact(
+name: String,
+phone:Option[Int],
+email: Option[Email]
+)
+object Contact {
+implicit val format: Format[Contact]=
+Json.format[Contact]
+}
+
+object Email {
+implicit format: Format[Email]=Json.format[Email]
+}
+
+object Email {
+implicit val format = new Format[Email] {
+def reads(json:JsValue): JsResult[Email]={
+json match{
+case JsString(s)=>JsSuccess(Email(s))
+case _ => JsError()
+}
+}
+def writes(email:Email): JsValue = {
+jsString(email.addr)
+}
+}
+}
+
+
+def store(name:String)=Action(parse.tolerantJson){
+request=>
+val phoneJson:JsValue = request.body \ "phone"
+val phone : Option[Int] = phoneJson.asOpt[Int]
+val email = (request.body \ "email").asOpt[Email]
+val contact = Contact(name,phone,email)
+savetodb(contact)
+Ok("")
+}
+
+object Contact extends Table[Contact]("contacts"){
+def name= column[String]("name",O.primaryKey)
+def phone = column[Int]("phone",O.Nullable)
+def email = column[Email]("email",O.Nullable)
+def * = name ~ phone.? ~ email.?
+<>(Contact.apply _, Contact.unapply _)
+}
+
+def saveTodb(contact:Contact)=
+database.withSession{
+implicit session: Session =>
+Contacts.*.insert(contact)
+}
+
+def loadFromDb(name:String)=
+database.withSession{ implicit sesstion: Session =>
+(for (row <- Contacts if row.name===name) yield row).list
+}
+ def getQuiz = Action {
+
+    val quizs = for (b <- list1) yield "{'"+b.name.toString + "':'" + b.ans.toString+"'},"
+    Ok(Json.toJson(quizs))
+  }
+
+  def lookup =Action {
+    //request=>
+      // val contacts: Seq[Contact]= loadFromdb(name)
+      // val quizs = for (b <- list1) yield "{'"+b.name.toString + "':'" + b.ans.toString+"'},"
+        val quizs= Seq("1","1","1","1","1")
+      val contactJson : Seq[JsValue] =quizs.map(Json.toJson(_))
+      Ok(JsArray(contactJson))
+  }
+
+  <!--$.ajax({ url: "@{Quizs.getQuiz}", dataType : 'json', success: function (data) {
+  				arr = data;
+  				}});-->

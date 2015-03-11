@@ -1,0 +1,15 @@
+@(message: String)
+
+@main("Xin chao") {
+
+<script>
+$.ajax({
+type : "POST",
+url : "/getQuest",
+data:'{"p":"2"}',
+success:function(){
+alert("hi");}
+});
+</script>
+
+}

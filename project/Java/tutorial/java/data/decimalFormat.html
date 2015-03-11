@@ -1,0 +1,188 @@
+<!-- Formatting Numbers with Custom Formats -->
+
+This section describes how to use the <code>DecimalFormat</code>
+class in the 
+ package. For general-purpose formatting
+use the <code>Formatter</code> API, introduced in Java SE 5.
+See 
+ for more information.
+
+
+You can use the <CODE>DecimalFormat</CODE> class to format decimal
+numbers into strings. This class allows you to control
+the display of leading and trailing zeros, prefixes and suffixes,
+grouping (thousands) separators, and the decimal separator. If you want
+to change formatting symbols, such as the decimal separator, you can
+use the <CODE>DecimalFormatSymbols </CODE> in conjunction with the
+<CODE>DecimalFormat</CODE> class. These classes offer a great deal of
+flexibility in the formatting of numbers, but they can make your code
+more complex.
+<P>
+The text that follows uses examples that demonstrate the
+<CODE>DecimalFormat </CODE> and <CODE>DecimalFormatSymbols</CODE>
+classes. The code examples in this material are from a sample program
+called
+
+.
+
+<h3>Constructing Patterns</h3>
+<blockquote>
+You specify the formatting properties of <CODE>DecimalFormat</CODE>
+with a pattern <CODE>String</CODE>. The pattern determines what the
+formatted number looks like. The example that follows creates a formatter
+by passing a pattern <CODE>String</CODE> to the <CODE>DecimalFormat</CODE>
+constructor. The <CODE>format</CODE> method accepts a <CODE>double</CODE>
+value as an argument and returns the formatted number in a <CODE>String</CODE>:
+
+
+DecimalFormat myFormatter = new DecimalFormat(pattern);
+String output = myFormatter.format(value);
+System.out.println(value + &quot; &quot; + pattern + &quot; &quot; + output);
+
+
+The output for the preceding lines of code is described in the
+following table. The <CODE>value</CODE> is the number, a
+<CODE>double</CODE> , that is to be formatted. The <CODE>pattern</CODE>
+is the <CODE>String</CODE> that specifies the formatting properties.
+The <CODE>output</CODE>, which is a <CODE>String</CODE>, represents the
+formatted number.
+<p>
+
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3>
+<CAPTION>
+Output from <CODE>DecimalFormatDemo</CODE> Program
+</CAPTION>
+<TR>
+<TH>
+<CODE>value</CODE>
+</TH>
+
+<TH>
+<CODE>pattern</CODE>
+</TH>
+
+<TH>
+<CODE>output</CODE>
+</TH>
+
+<TH>
+Explanation
+</TH>
+</TR>
+<TR>
+<TD>
+123456.789
+</TD>
+<TD>
+###,###.###
+</TD>
+<TD>
+123,456.789
+</TD>
+<TD>
+The pound sign (#) denotes a digit, the comma is a placeholder for the
+grouping separator, and the period is a placeholder for the decimal
+separator.
+</TD>
+</TR>
+<TR>
+<TD>
+123456.789
+</TD>
+<TD>
+###.##
+</TD>
+<TD>
+123456.79
+</TD>
+<TD>
+The <CODE>value</CODE> has three digits to the right of the decimal
+point, but the <CODE>pattern</CODE> has only two. The
+<CODE>format</CODE> method handles this by rounding up.
+</TD>
+</TR>
+<TR>
+<TD>
+123.78
+</TD>
+<TD>
+000000.000
+</TD>
+<TD>
+000123.780
+</TD>
+<TD>
+The <CODE>pattern</CODE> specifies leading and trailing zeros, because
+the 0 character is used instead of the pound sign (#).
+</TD>
+</TR>
+<TR>
+<TD>
+12345.67
+</TD>
+<TD>
+$###,###.###
+</TD>
+<TD>
+&#36;12,345.67
+</TD>
+<TD>
+The first character in the <CODE>pattern</CODE> is the dollar sign ($).
+Note that it immediately precedes the leftmost digit in the formatted
+<CODE>output</CODE>.
+</TD>
+</TR>
+<TR>
+<TD>
+12345.67
+</TD>
+<TD>
+\u00A5###,###.###
+</TD>
+<TD>
+&#165;12,345.67
+</TD>
+<TD>
+The <CODE>pattern</CODE> specifies the currency sign for Japanese yen
+(&#165;) with the Unicode value 00A5.
+</TD>
+</TR>
+</TABLE>
+</blockquote>
+
+
+
+<h3>Altering the Formatting Symbols</h3>
+<blockquote>
+You can use the <code>
+</code> class to change the symbols that appear in the formatted numbers
+produced by the <CODE>format</CODE> method. These symbols include the
+decimal separator, the grouping separator, the minus sign, and the
+percent sign, among others.
+<P>
+The next example demonstrates the <CODE>DecimalFormatSymbols</CODE>
+class by applying a strange format to a number. The unusual format is
+the result of the calls to the <CODE>setDecimalSeparator</CODE>,
+<CODE>setGroupingSeparator</CODE>, and <CODE>setGroupingSize</CODE>
+methods.
+
+DecimalFormatSymbols unusualSymbols =
+    new DecimalFormatSymbols(currentLocale);
+unusualSymbols.setDecimalSeparator('|');
+unusualSymbols.setGroupingSeparator('^');
+
+String strange = &quot;#,##0.###&quot;;
+DecimalFormat weirdFormatter = 
+               new DecimalFormat(strange, unusualSymbols);
+weirdFormatter.setGroupingSize(4);
+
+String bizarre = weirdFormatter.format(12345.678);
+System.out.println(bizarre);
+
+<P>
+When run, this example prints the number in a bizarre format: 
+
+1^2345|678
+
+
+</blockquote>

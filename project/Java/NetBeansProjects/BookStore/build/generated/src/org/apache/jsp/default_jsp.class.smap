@@ -1,0 +1,14 @@
+SMAP
+default_jsp.java
+JSP
+*S JSP
+*F
++ 0 default.jsp
+default.jsp
+*L
+5,15:63
+19:104,5
+19,2:80
+20:122,12
+20,4:84
+*E

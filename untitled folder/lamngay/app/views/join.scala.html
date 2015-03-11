@@ -1,0 +1,12 @@
+@(ans: List[(String,String,Option[String],Option[String])])(implicit  lang: Lang)
+
+@main() {
+
+	<ul>
+	@for(q <- ans) {
+		<li>@q</li>}
+
+	</ul>
+
+
+}

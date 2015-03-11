@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/208/trunk/Project0104/Project%20Start%20Now/src/Database
+END
+insert.sql
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/176/trunk/Project0104/Project%20Start%20Now/src/Database/insert.sql
+END
+FINAL.sql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/208/trunk/Project0104/Project%20Start%20Now/src/Database/FINAL.sql
+END
+ALTER_text2ntext.sql
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/207/trunk/Project0104/Project%20Start%20Now/src/Database/ALTER_text2ntext.sql
+END
+ETMDBSCript.sql
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/202/trunk/Project0104/Project%20Start%20Now/src/Database/ETMDBSCript.sql
+END
